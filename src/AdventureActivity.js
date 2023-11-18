@@ -36,13 +36,13 @@ export default function AdActivity(){
 
                     <div className="items-container">
                         <div className="container-upper">
-                            <button className="item-button"> <img src='./images/small_bandage.png'/> <span>1x</span></button>
-                            <button className="item-button"> <img src='./images/health_kit.png'/></button>
-                            <button className="item-button"> <img src='./images/unusual_battery.png'/></button>
+                            <button className="item-button"> <img src='./images/small_bandage.png'/> <span>x0</span></button>
+                            <button className="item-button"> <img src='./images/health_kit.png'/> <span>x0</span></button>
+                            <button className="item-button"> <img src='./images/unusual_battery.png'/> <span>x0</span></button>
                         </div>
                         
                         <div className="container-lower">
-                            <button className="item-button"> 1</button>
+                            <button className="item-button"> item 4</button>
                             <button className="item-button"> item 5</button>
                             <button className="item-button"> item 6</button>
                         </div>
