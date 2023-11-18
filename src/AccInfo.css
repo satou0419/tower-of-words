@@ -50,13 +50,16 @@ h2{
     margin-top: 180px;
     margin-left: 130px;
 }
+
 .save-pass{
     margin-top: 60px;
     margin-left: 130px;
 }
+
 ::placeholder{
     color: white;
     opacity: 0.8;
+    font-weight: 10;
 }
 
 input:focus::placeholder{

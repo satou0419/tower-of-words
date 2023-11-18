@@ -41,8 +41,7 @@ button {
 .btn-view-tower,
 .btn-create-tower,
 .btn-buy,
-.btn-info,
-.btn-logout {
+.btn-info {
   position: relative;
   background-color: var(--primary-color);
   border-style: none;
@@ -76,6 +75,31 @@ button {
   color: #d96800;
   padding: 10px 20px;
   font-size: 16px;
+}
+
+.btn-cancel{
+  position: relative;
+  background-color: #FDFFDD;
+  border: 2px solid #DC6900;
+  border-radius: 12px;
+  color: #DC6900;
+  padding: 10px 20px;
+  font-size: 16px;
+  height: 60px;
+  width: 150px;
+}
+
+.btn-logout {
+  position: relative;
+  background-color: var(--primary-color);
+  border-style: none;
+  border: #593796 2px solid;
+  border-radius: 12px;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  height: 60px;
+  width: 150px;
 }
 
 .orange-gradient {

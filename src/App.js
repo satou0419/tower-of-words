@@ -6,6 +6,7 @@ import Archive from "./Archive";
 import Items from "./Items";
 import Dashboard from "./Dashboard";
 import AccInfo from "./AccInfo";
+import Logout from "./Logout";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/archive" element={<Archive />} />
           <Route path="/items" element={<Items />} />
           <Route path="/home" element={<Dashboard />} />
+          <Route path="/logout" element={<Logout />} />
         </Route>
       </Routes>
     </Router>
