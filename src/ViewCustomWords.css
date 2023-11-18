@@ -1,19 +1,25 @@
-.main-customtower{
+.main-viewcustomwords{
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.customtower-top-container{
+.viewcustomwords-top-container{
     width: 90%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-direction: row;
+    position: relative;
 }
 
-.header-customtower{
+.btn-back-viewcustomwords{
+    position: absolute;
+    left: 0px;
+}
+
+.header-viewcustomwords{
     height: 50px;
     width: 300px;
     background-color: #FFC658;
@@ -26,6 +32,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 10px;
+
 }
 
 .main-container{
@@ -42,26 +49,7 @@
 
 }
 
-.main-top-customtower{
-    top: 5px;
-    width: 90%;
-    display: flex;
-    position: absolute;
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: center;
-}
-
-.search-customtower{
-    width: 70%;
-    font-size: 30px;
-    color: #593796;
-    margin-right: 20px;
-    
-}
-
-.word-container-scroll-customtower{
-    margin-top: 50px;
+.word-container-scroll-viewcustomwords{
     height: 80%;
     width: 90%;
     overflow-y: scroll;
@@ -71,7 +59,7 @@
     flex-direction: column;
 }
 
-.word-container-customtower{
+.word-container-viewcustomwords{
     height: 30px;
     width: 80%;
     border-radius: 9px;
@@ -85,6 +73,6 @@
     margin-bottom: 20px;
 }
 
-.words-customtower{
+.words-viewcustomwords{
     padding-left: 30px; 
 }

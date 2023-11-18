@@ -7,12 +7,22 @@ import Items from "./Items";
 import Dashboard from "./Dashboard";
 import TowerName from "./TowerName"
 import CustomTower from "./CustomTower";
+import WordsAdded from "./WordsAdded";
+import ViewCustomWords from "./ViewCustomWords";
+import ViewCustomTower from "./ViewCustomTower";
+import ViewParticipants from "./ViewParticipants";
+import GenerateCode from "./GenerateCode";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Navigation />}>
+          <Route path="/generate" element={<GenerateCode />} />
+          <Route path="/viewparticipants" element={<ViewParticipants />} />
+          <Route path="/viewtower" element={<ViewCustomTower />} />
+          <Route path="/viewwords" element={<ViewCustomWords />} />
+          <Route path="/words" element={<WordsAdded />} />
           <Route path="/input" element={<TowerName />} />
           <Route path="/custom" element={<CustomTower />} />
           <Route path="/archive" element={<Archive />} />
