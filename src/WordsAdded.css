@@ -1,11 +1,11 @@
-.main-customtower{
+.main-wordsadded{
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.customtower-top-container{
+.wordsadded-top-container{
     width: 90%;
     display: flex;
     justify-content: space-between;
@@ -13,7 +13,7 @@
     flex-direction: row;
 }
 
-.header-customtower{
+.header-wordsadded{
     height: 50px;
     width: 300px;
     background-color: #FFC658;
@@ -39,10 +39,9 @@
     justify-content: space-evenly;
     flex-direction: column;
     position: relative;
-
 }
 
-.main-top-customtower{
+.main-top-wordsadded{
     top: 5px;
     width: 90%;
     display: flex;
@@ -52,15 +51,12 @@
     align-items: center;
 }
 
-.search-customtower{
-    width: 70%;
-    font-size: 30px;
-    color: #593796;
-    margin-right: 20px;
-    
+.btn-remove-wordsadded{
+    left: 50px;
+    display: flex;
 }
 
-.word-container-scroll-customtower{
+.word-container-scroll-wordsadded{
     margin-top: 50px;
     height: 80%;
     width: 90%;
@@ -71,7 +67,7 @@
     flex-direction: column;
 }
 
-.word-container-customtower{
+.word-container-wordsadded{
     height: 30px;
     width: 80%;
     border-radius: 9px;
@@ -85,6 +81,6 @@
     margin-bottom: 20px;
 }
 
-.words-customtower{
+.words-wordsadded{
     padding-left: 30px; 
 }

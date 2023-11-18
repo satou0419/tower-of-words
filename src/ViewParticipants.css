@@ -1,11 +1,11 @@
-.main-customtower{
+.main-viewparticipants{
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.customtower-top-container{
+.viewparticipants-top-container{
     width: 90%;
     display: flex;
     justify-content: space-between;
@@ -13,7 +13,7 @@
     flex-direction: row;
 }
 
-.header-customtower{
+.header-viewparticipants{
     height: 50px;
     width: 300px;
     background-color: #FFC658;
@@ -39,10 +39,9 @@
     justify-content: space-evenly;
     flex-direction: column;
     position: relative;
-
 }
 
-.main-top-customtower{
+.main-top-viewparticipants{
     top: 5px;
     width: 90%;
     display: flex;
@@ -52,7 +51,7 @@
     align-items: center;
 }
 
-.search-customtower{
+.search-viewparticipants{
     width: 70%;
     font-size: 30px;
     color: #593796;
@@ -60,7 +59,7 @@
     
 }
 
-.word-container-scroll-customtower{
+.word-container-scroll-viewparticipants{
     margin-top: 50px;
     height: 80%;
     width: 90%;
@@ -71,7 +70,7 @@
     flex-direction: column;
 }
 
-.word-container-customtower{
+.word-container-viewparticipants{
     height: 30px;
     width: 80%;
     border-radius: 9px;
@@ -85,6 +84,11 @@
     margin-bottom: 20px;
 }
 
-.words-customtower{
+.words-viewparticipants{
     padding-left: 30px; 
+}
+
+.code-viewparticipants{
+    font-size: 25px;
+    color: #593796;
 }
