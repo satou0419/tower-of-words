@@ -14,7 +14,7 @@ function CustomTower() {
             </div>
             <div className="main-container">
                 <div className="main-top-customtower">
-                    <img src="./images/search.png" height={30}  className="search-icon"/>
+                    <img src="./images/search.png" height={30} alt="search"  className="search-icon"/>
                     <input className="inputs search-customtower" type="text" /> 
                     <button className="btn-next btn-next-customtower">ADD</button>
                 </div>
