@@ -5,13 +5,16 @@ import Navigation from "./Navigation";
 import Archive from "./Archive";
 import Items from "./Items";
 import Dashboard from "./Dashboard";
+import AdventureMode from "./AdventureMode";
+import AdActivity from "./AdventureActivity";
+import CreateAccount from "./CreateAccount";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Navigation />}>
-          <Route path="/archive" element={<Archive />} />
+          <Route path="/" element={<CreateAccount />} />
           <Route path="/items" element={<Items />} />
           <Route path="/home" element={<Dashboard />} />
         </Route>
