@@ -28,7 +28,9 @@ export default function AdActivity(){
                 </div>
 
                 <div className='common-nga-class center'>
-                    asda
+                    <div><button>audio</button></div>
+                    <div><input></input></div>
+                    
                 </div>
 
                 <div className='common-nga-class right'>    
