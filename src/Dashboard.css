@@ -1,17 +1,15 @@
-*{
+* {
   font-family: "Lilita One";
 }
-
 
 .orange-gradient {
   height: 100px;
 }
 
-.mother-div{
-  
+.mother-div {
 }
 
-.card-container{
+.card-container {
   margin-top: 30px;
   border: 2px solid red;
   display: flex;
@@ -19,9 +17,9 @@
   gap: 150px;
 }
 
-.card{
-  background-color: #FFC658;
-  
+.card {
+  background-color: #ffc658;
+
   height: 470px;
   width: 260px;
   border-radius: 10px;
@@ -33,50 +31,48 @@
   cursor: pointer;
 }
 
-.card h2{
+.card h2 {
   color: white;
   font-weight: normal;
   margin-top: 10px;
 }
 
-.description{
+.description {
   text-align: center;
   border: 2px solid red;
   margin-left: auto;
   margin-right: auto;
   font-size: small;
-  color: #DC6900;
+  color: #dc6900;
   width: 80%;
   height: 58px;
 }
 
-.counter{
+.counter {
   margin-top: 5px;
   border: 2px solid red;
   width: 100%;
   height: 100px;
-  background-color: #704FAB;
+  background-color: #704fab;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.counter-desc{
+.counter-desc {
   color: white;
   font-size: 20px;
   border: 2px solid red;
 }
 
-.the-counter{
+.the-counter {
   margin-top: 10px;
   border: 2px solid red;
-  color: #FFC658;
+  color: #ffc658;
   font-size: 40px;
 }
 
-
-
-.portrait-container-1{
+.portrait-container-1 {
   height: 200px;
   width: 240px;
   background-color: aliceblue;
@@ -89,12 +85,12 @@
   justify-content: center;
 }
 
-.portrait-container-1 img{
+.portrait-container-1 img {
   height: 114%;
   align-self: flex-end;
 }
 
-.portrait-container-2{
+.portrait-container-2 {
   height: 200px;
   width: 240px;
   background-color: aliceblue;
@@ -107,12 +103,12 @@
   justify-content: center;
 }
 
-.portrait-container-2 img{
+.portrait-container-2 img {
   height: 118%;
   align-self: flex-end;
 }
 
-.word-collect{
+.word-collect {
   margin-top: 30px;
   background-color: #593796;
   height: 100px;
@@ -123,41 +119,30 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  
 }
 
-.span-holder{
+.span-holder {
   border: 2px solid red;
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
-.span-desc{
+.span-desc {
   color: white;
   font-size: 35px;
 }
 
-.span-var{
+.span-var {
   color: white;
   text-align: center;
   font-size: 20px;
   margin-top: 10px;
 }
 
-
-.go-to-archive{
+.btn-go {
   height: 55px;
   width: 250px;
-  background-color: #FFC658;
+  background-color: #ffc658;
   border-radius: 10px;
-  color: #DC6900;
   font-size: 25px;
-  border-style: none;
-  border-top: 4px solid #fff;
-
-  cursor: pointer;
-  
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
-
-

@@ -68,7 +68,8 @@ button {
   text-transform: capitalize;
 }
 
-.btn-go {
+.btn-go,
+.btn-audio {
   position: relative;
   background-color: var(--secondary-color);
   border-style: none;
@@ -78,6 +79,18 @@ button {
   color: #d96800;
   padding: 10px 20px;
   font-size: 16px;
+}
+
+.btn-cancel {
+  position: relative;
+  background-color: #fdffdd;
+  border: 2px solid #dc6900;
+  border-radius: 12px;
+  color: #dc6900;
+  padding: 10px 20px;
+  font-size: 16px;
+  height: 60px;
+  width: 150px;
 }
 
 .orange-gradient {

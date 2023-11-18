@@ -86,10 +86,11 @@ body {
   margin-top: 0;
   text-align: center;
 }
-.common-nga-class{
-    position: relative;
-    top: 8px;
-    height: 98%;
+.common-nga-class {
+  position: relative;
+  top: 8px;
+  height: 98%;
+}
 
 .screen {
   background-color: #fdffdd;
@@ -264,17 +265,4 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.exit-button {
-  background-color: #fc5776;
-  color: white;
-  font-size: 20px;
-  border-style: none;
-  height: 45px;
-  width: 60px;
-
-  border-top: 3px solid #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
