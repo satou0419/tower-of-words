@@ -1,5 +1,6 @@
 import "./TowerName.css";
 import "./root.css";
+import "@fontsource/lilita-one";
 
 function TowerName() {
   return <>
@@ -12,7 +13,8 @@ function TowerName() {
                 <button className="btn-next btn-next-towername">BACK</button>
             </div>
             <div className="main-container">
-
+              Input Tower Name
+              <input type="text"></input>
             </div>
         </div>
   </>

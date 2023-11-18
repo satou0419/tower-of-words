@@ -7,7 +7,7 @@ import TowerName from "./TowerName";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <TowerName />
+    <App />
   </React.StrictMode>
 );
 
