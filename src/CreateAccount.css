@@ -8,3 +8,7 @@ form {
   flex-direction: column;
   align-items: center;
 }
+
+.edit{
+  background-color: #ffc658;
+}
