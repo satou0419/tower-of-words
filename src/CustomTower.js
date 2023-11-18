@@ -19,7 +19,7 @@ function CustomTower() {
                     <button className="btn-next btn-next-customtower">ADD</button>
                 </div>
 
-                <div className="word-container-scroll">
+                <div className="word-container-scroll-customtower">
                     <div className="word-container-customtower"> 
                         <h4 className="words-customtower">
                             test
