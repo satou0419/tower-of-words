@@ -7,6 +7,7 @@ import Items from "./Items";
 import Dashboard from "./Dashboard";
 import TowerName from "./TowerName"
 import CustomTower from "./CustomTower";
+import AdActivity from "./AdventureActivity";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/archive" element={<Archive />} />
           <Route path="/items" element={<Items />} />
           <Route path="/home" element={<Dashboard />} />
+          <Route path="/adventure" element={<AdActivity />} />
         </Route>
       </Routes>
     </Router>

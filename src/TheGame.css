@@ -10,6 +10,15 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
+  position: relative;
+}
+
+.activity-background{
+  display: flex;
+  position: absolute;
+  height: 70%;
+  width: 100%;
+  z-index: -1;
 }
 
 .ui {
@@ -100,25 +109,9 @@ body {
 }
 
 .screen {
-  background-color: #fdffdd;
+  background-color: transparent;
   width: 100%;
   flex-grow: 1;
-}
-
-.activity-container{
-    border: 2px solid red;
-    display: flex;
-    height: 98%;
-
-}
-
-
-
-.screen{
-    background-color: #FDFFDD;
-    flex-grow: 1;
-    width: 100%;
-    
 }
 
 .activity-container{
@@ -173,13 +166,6 @@ body {
     /* font-size: 10px; */
     /* align-self: flex-end; */
 
-}
-
-.mother-of-all{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    
 }
 
 .audio-button-container{
@@ -302,7 +288,3 @@ body {
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
-
-
-
-

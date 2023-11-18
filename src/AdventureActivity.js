@@ -4,6 +4,7 @@ import './root.css'
 export default function AdActivity(){
 
     return<div className='mother-of-all'>
+        <img src="./images/background.png" className="activity-background"/>
             <div className="mini-bar-container">
                 <button className="exit-button">Exit</button>
 
@@ -16,6 +17,7 @@ export default function AdActivity(){
 
             <div className="screen">
                 <div className="activity-container">
+                
                     <div className="activity-log"></div>
                     <div className="image-container"><img src='./images/enemy-spring-type.png'/></div>
                     <div className="blank"></div>
@@ -30,7 +32,7 @@ export default function AdActivity(){
 
             {/* UI OF THE PAGE */}
             <div className="ui">
-                {/* <img src="./frame.png"/> */}
+                
                 <div className="common-nga-class left">
                     <h2>Items</h2>
 
