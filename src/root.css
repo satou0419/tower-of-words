@@ -41,8 +41,7 @@ button {
 .btn-view-tower,
 .btn-create-tower,
 .btn-buy,
-.btn-info,
-.btn-logout {
+.btn-info {
   position: relative;
   background-color: var(--primary-color);
   border-style: none;
@@ -78,6 +77,31 @@ button {
   font-size: 16px;
 }
 
+.btn-cancel{
+  position: relative;
+  background-color: #FDFFDD;
+  border: 2px solid #DC6900;
+  border-radius: 12px;
+  color: #DC6900;
+  padding: 10px 20px;
+  font-size: 16px;
+  height: 60px;
+  width: 150px;
+}
+
+.btn-logout {
+  position: relative;
+  background-color: var(--primary-color);
+  border-style: none;
+  border: #593796 2px solid;
+  border-radius: 12px;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  height: 60px;
+  width: 150px;
+}
+
 .orange-gradient {
   border: 8px solid #d96800;
   border-radius: 10px;
@@ -92,46 +116,4 @@ button {
   border-left: none;
   border-right: none;
   outline: none;
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 2px grey;
-  border-radius: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--primary-color);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-button:single-button {
-  background-color: transparent;
-  display: block;
-  border-style: solid;
-  height: 13px;
-  width: 5px;
-}
-
-::-webkit-scrollbar-button:single-button:vertical:decrement {
-  border-width: 0 5px 5px 5px;
-  border-color: transparent transparent var(--primary-color) transparent;
-}
-
-::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
-  border-color: transparent transparent var(--primary-color) transparent;
-}
-
-::-webkit-scrollbar-button:single-button:vertical:increment {
-  border-width: 5px 5px 0 5px;
-  border-color: var(--primary-color) transparent transparent transparent;
-}
-
-::-webkit-scrollbar-button:vertical:single-button:increment:hover {
-  border-color: var(--primary-color) transparent transparent transparent;
 }

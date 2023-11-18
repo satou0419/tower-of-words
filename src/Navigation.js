@@ -24,8 +24,9 @@ export default function Navigation() {
           <li>
             <Link to="/archive">ARCHIVE</Link>
           </li>
+          
           <li>
-            <Link>LOGOUT</Link>
+            <Link to= "/logout">LOGOUT</Link>
           </li>
         </section>
       </nav>
