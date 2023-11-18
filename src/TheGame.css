@@ -86,10 +86,10 @@ body {
   margin-top: 0;
   text-align: center;
 }
-.common-nga-class {
-  position: relative;
-  height: 98%;
-}
+.common-nga-class{
+    position: relative;
+    top: 8px;
+    height: 98%;
 
 .screen {
   background-color: #fdffdd;
