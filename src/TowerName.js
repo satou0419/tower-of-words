@@ -10,7 +10,7 @@ function TowerName() {
                 <h1 className="header-towername">
                 Tower Name
                 </h1>
-                <button className="btn-next btn-next-towername">BACK</button>
+                <button className="btn-next btn-next-towername">NEXT</button>
             </div>
             <div className="main-container">
               <h1 className="container-title">

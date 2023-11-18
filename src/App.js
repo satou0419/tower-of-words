@@ -6,6 +6,7 @@ import Archive from "./Archive";
 import Items from "./Items";
 import Dashboard from "./Dashboard";
 import TowerName from "./TowerName"
+import CustomTower from "./CustomTower";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigation />}>
           <Route path="/input" element={<TowerName />} />
+          <Route path="/custom" element={<CustomTower />} />
           <Route path="/archive" element={<Archive />} />
           <Route path="/items" element={<Items />} />
           <Route path="/home" element={<Dashboard />} />
