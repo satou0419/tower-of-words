@@ -8,6 +8,7 @@
 
 body {
   background-color: #fdffdd;
+  overflow-y: hidden;
 }
 
 button {
@@ -26,9 +27,6 @@ button {
   color: white;
   padding: 10px 20px;
   font-size: 16px;
-
-  margin-top: 10px;
-  margin-left: 20px;
 }
 
 .btn-next,
@@ -85,4 +83,13 @@ button {
   border-radius: 10px;
   background-image: linear-gradient(to top right, var(--secondary-color), #fff);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.inputs{
+  border-bottom: 3px solid var(--primary-color);
+  background: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
 }

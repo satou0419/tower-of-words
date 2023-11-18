@@ -5,12 +5,14 @@ import Navigation from "./Navigation";
 import Archive from "./Archive";
 import Items from "./Items";
 import Dashboard from "./Dashboard";
+import TowerName from "./TowerName"
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Navigation />}>
+          <Route path="/" element={<TowerName />} />
           <Route path="/archive" element={<Archive />} />
           <Route path="/items" element={<Items />} />
           <Route path="/home" element={<Dashboard />} />
