@@ -37,6 +37,17 @@
     background: linear-gradient(61deg, #FFC658 5.53%, #FFF 88.98%);
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-direction: column;
+}
+
+.container-title{
+    color: #593796;
+}
+
+.inputs-towername{
+    width: 80%;
+    margin-bottom: 50px;
+    font-size: 30px;
+    text-align: center;
 }
