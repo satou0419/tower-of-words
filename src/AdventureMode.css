@@ -1,0 +1,48 @@
+.adventure-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-tower-details {
+  height: 70%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.tower-details {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  gap: 1.5rem;
+}
+
+.img-tower {
+  height: 90%;
+}
+
+.tower-progress {
+  border: 5px solid red;
+  flex-grow: 1;
+  background-color: #593796;
+
+  border-style: none;
+  border-top: 10px solid #26114b;
+  color: #f0f0f5;
+}
+
+.tower-progress h1 {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 1rem;
+  word-spacing: 1rem;
+}
+
+.completed,
+.total {
+  color: #ffc658;
+}
