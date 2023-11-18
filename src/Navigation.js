@@ -7,7 +7,7 @@ export default function Navigation() {
   return (
     <div className="wrapper">
       <nav>
-        <img src="./images/logo.png" className="nav-logo" />
+        <img src="./images/logo.png" alt="ToW-Logo" className="nav-logo" />
         <section className="user-details">
           <span>Username</span>
           <span className="currency">1000</span>
