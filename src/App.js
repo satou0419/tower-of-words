@@ -22,6 +22,7 @@ function App() {
           <Route path="/viewparticipants" element={<ViewParticipants />} />
           <Route path="/viewtower" element={<ViewCustomTower />} />
           <Route path="/viewwords" element={<ViewCustomWords />} />
+          <Route path="/tower" element={<CustomTower />} />
           <Route path="/words" element={<WordsAdded />} />
           <Route path="/input" element={<TowerName />} />
           <Route path="/archive" element={<Archive />} />
