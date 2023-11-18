@@ -12,7 +12,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Navigation />}>
-          <Route path="/" element={<TowerName />} />
+          <Route path="/input" element={<TowerName />} />
           <Route path="/archive" element={<Archive />} />
           <Route path="/items" element={<Items />} />
           <Route path="/home" element={<Dashboard />} />
