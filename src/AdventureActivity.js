@@ -4,7 +4,7 @@ import './root.css'
 export default function AdActivity(){
 
     return<div className='mother-of-all'>
-        <img src="./images/background.png" className="activity-background"/>
+        <img src="./images/background.png" alt="background-science-lab" className="activity-background"/>
             <div className="mini-bar-container">
                 <button className="exit-button">Exit</button>
 
@@ -19,7 +19,7 @@ export default function AdActivity(){
                 <div className="activity-container">
                 
                     <div className="activity-log"></div>
-                    <div className="image-container"><img src='./images/enemy-spring-type.png'/></div>
+                    <div className="image-container"><img src='./images/enemy-spring-type.png' alt='enemy-robot'/></div>
                     <div className="blank"></div>
                 </div>
             </div>
@@ -38,9 +38,9 @@ export default function AdActivity(){
 
                     <div className="items-container">
                         <div className="container-upper">
-                            <button className="item-button"> <img src='./images/small_bandage.png'/> <span>x0</span></button>
-                            <button className="item-button"> <img src='./images/health_kit.png'/> <span>x0</span></button>
-                            <button className="item-button"> <img src='./images/unusual_battery.png'/> <span>x0</span></button>
+                            <button className="item-button"> <img src='./images/small_bandage.png' alt='bandage-item'/> <span>x0</span></button>
+                            <button className="item-button"> <img src='./images/health_kit.png' alt='kit-item'/> <span>x0</span></button>
+                            <button className="item-button"> <img src='./images/unusual_battery.png' alt='battery-item'/> <span>x0</span></button>
                         </div>
                         
                         <div className="container-lower">
