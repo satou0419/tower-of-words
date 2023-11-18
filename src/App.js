@@ -5,8 +5,8 @@ import Navigation from "./Navigation";
 import Archive from "./Archive";
 import Items from "./Items";
 import Dashboard from "./Dashboard";
-import Logout from "./Logout";
-import AdActivity from "./AdventureActivity";
+import TowerName from "./TowerName";
+import CustomTower from "./CustomTower";
 import WordsAdded from "./WordsAdded";
 import ViewCustomWords from "./ViewCustomWords";
 import ViewCustomTower from "./ViewCustomTower";
@@ -18,6 +18,12 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Navigation />}>
+          <Route path="/" element={<TowerName />} />
+          <Route path="/generate" element={<GenerateCode />} />
+          <Route path="/viewparticipants" element={<ViewParticipants />} />
+          <Route path="/viewtower" element={<ViewCustomTower />} />
+          <Route path="/viewwords" element={<ViewCustomWords />} />
+          <Route path="/words" element={<WordsAdded />} />
           <Route path="/input" element={<TowerName />} />
           <Route path="/custom" element={<CustomTower />} />
           <Route path="/archive" element={<Archive />} />
