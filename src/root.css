@@ -8,6 +8,7 @@
 
 body {
   background-color: #fdffdd;
+  overflow-y: hidden;
 }
 
 button {
@@ -26,9 +27,6 @@ button {
   color: white;
   padding: 10px 20px;
   font-size: 16px;
-
-  margin-top: 10px;
-  margin-left: 20px;
 }
 
 .btn-next,
@@ -85,4 +83,55 @@ button {
   border-radius: 10px;
   background-image: linear-gradient(to top right, var(--secondary-color), #fff);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.inputs{
+  border-bottom: 3px solid var(--primary-color);
+  background: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px grey;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-button:single-button {
+  background-color: transparent;
+  display: block;
+  border-style: solid;
+  height: 13px;
+  width: 5px;
+}
+
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+  border-width: 0 5px 5px 5px;
+  border-color: transparent transparent var(--primary-color) transparent;
+}
+
+::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
+  border-color: transparent transparent var(--primary-color) transparent;
+}
+
+::-webkit-scrollbar-button:single-button:vertical:increment {
+  border-width: 5px 5px 0 5px;
+  border-color: var(--primary-color) transparent transparent transparent;
+}
+
+::-webkit-scrollbar-button:vertical:single-button:increment:hover {
+  border-color: var(--primary-color) transparent transparent transparent;
 }
