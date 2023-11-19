@@ -7,7 +7,7 @@ export default function Navigation() {
   return (
     <div className="wrapper">
       <nav>
-        <img src="./images/logo.png" className="nav-logo" />
+        <img src="./images/logo.png" alt="tow-logo" className="nav-logo" />
         <section className="user-details">
           <Link to="/accinfo">Username</Link>
           <span className="currency">1000</span>

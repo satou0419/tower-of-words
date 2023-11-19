@@ -117,13 +117,3 @@ button {
   border-right: none;
   outline: none;
 }
-
-.inputs-information{
-  border-bottom: 3px solid white;
-  background: transparent;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  outline: none;
-  color: white;
-}
