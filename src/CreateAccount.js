@@ -1,7 +1,10 @@
 import { useState } from "react";
 import "./CreateAccount.css";
-
+import "./root.css";
+import { Link } from "react-router-dom";
 export default function CreateAccount() {
+  document.body.style.backgroundColor = "#ffc658";
+
   const [user, setUser] = useState({
     firstname: "",
     lastname: "",
@@ -41,12 +44,12 @@ export default function CreateAccount() {
         </div>
         <div className="right-container">
           <form onSubmit={handleSubmit} className="signin-form">
-            <h1>Create Account</h1>
+            <h1 className="heading">Create Account</h1>
             <input
               type="text"
               name="firstname"
               placeholder="Firstname"
-              className="inputs"
+              className="input-fields"
               value={user.firstname}
               onChange={handleChange}
             />
@@ -54,6 +57,7 @@ export default function CreateAccount() {
               type="text"
               name="lastname"
               placeholder="Lastname"
+              className="input-fields"
               value={user.lastname}
               onChange={handleChange}
             />
@@ -61,6 +65,7 @@ export default function CreateAccount() {
               type="text"
               name="username"
               placeholder="Username"
+              className="input-fields"
               value={user.username}
               onChange={handleChange}
             />
@@ -68,13 +73,34 @@ export default function CreateAccount() {
               type="password"
               name="password"
               placeholder="Password"
+              className="input-fields"
               value={user.password}
+              onChange={handleChange}
+            />
+            <input
+              type="password"
+              name="confirm-password"
+              placeholder="Confirm Password"
+              className="input-fields"
               onChange={handleChange}
             />
 
             <button type="submit" className="btn-signin">
-              Add
+              Sign Up
             </button>
+
+            <p>
+              Already have an account?{" "}
+              <span>
+                <Link to="/login" className="to-login">
+                  Login
+                </Link>
+              </span>
+            </p>
+
+            <span className="push-bottom">
+              Terms and Conditions | Privacy Policy | Support | About Us
+            </span>
           </form>
         </div>
       </div>
