@@ -1,45 +1,68 @@
+.logout-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .logout {
   display: flex;
-  height: 100vh;
-  justify-content: center;
+  flex-direction: column;
 }
 
 .logout-pane {
-  width: 785px;
-  height: 515px;
+  width: 500px;
+  height: 330px;
   background-color: #ffc658;
+  border: 1px solid #000000;
   border-radius: 22px;
-  margin-left: 20px;
-  margin-top: 60px;
-  filter: drop-shadow(GREY 1rem 1rem 7px);
+
+  filter: drop-shadow(#444444 1rem 1rem 7px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
 }
 
-h1 {
-  margin-top: 110px;
-  text-align: center;
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logout-icon {
+  width: 15%;
+}
+.details h1 {
   color: #444444;
-  font-size: 40px;
-  letter-spacing: 3px;
+  font-size: 30px;
+  letter-spacing: 1px;
 }
 
 .btns {
-  margin-top: 60px;
-  margin-left: 165px;
+  display: flex;
+  justify-content: space-evenly;
 }
 
-button {
+.btns.btn-cancel {
   padding: 80px;
-}
-
-.log {
-  margin-left: 150px;
   height: 60px;
   width: 150px;
   border-style: none;
   border-radius: 12px;
 }
 
-.logout-icon {
-  height: 120px;
-  margin-left: 320px;
+.btn-logout {
+  border-style: none;
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-size: 16px;
+  height: 60px;
+  width: 150px;
 }
