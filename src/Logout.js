@@ -1,9 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Logout.css";
 import "./root.css";
 import "@fontsource/lilita-one";
 
 export default function Logout({ onClose }) {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    navigate("/account");
+  };
+
   return (
     <div className="logout-overlay">
       <div className="logout-pane">
@@ -21,7 +28,9 @@ export default function Logout({ onClose }) {
           <button className="btn-cancel" onClick={onClose}>
             Cancel
           </button>
-          <button className="btn-logout">Logout</button>
+          <button className="btn-logout" onClick={handleLogout}>
+            Logout
+          </button>
         </div>
       </div>
     </div>
