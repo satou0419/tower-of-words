@@ -12,6 +12,7 @@ import ViewCustomWords from "./ViewCustomWords";
 import ViewCustomTower from "./ViewCustomTower";
 import ViewParticipants from "./ViewParticipants";
 import GenerateCode from "./GenerateCode";
+import Inventory from "./Inventory";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/archive" element={<Archive />} />
           <Route path="/items" element={<Items />} />
           <Route path="/home" element={<Dashboard />} />
+          <Route path="/inventory" element={<Inventory />}/>
         </Route>
       </Routes>
     </Router>
