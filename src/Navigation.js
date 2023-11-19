@@ -9,7 +9,7 @@ export default function Navigation() {
       <nav>
         <img src="./images/logo.png" className="nav-logo" />
         <section className="user-details">
-          <span>Username</span>
+          <Link to="/accinfo">Username</Link>
           <span className="currency">1000</span>
         </section>
         <section className="nav-links">

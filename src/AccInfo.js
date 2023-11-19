@@ -15,8 +15,8 @@ function AccInfo() {
       <button className="btn-save save-acc">Save Changes</button>
     </div>
     <div className="pass">
-      <h2>Change Password</h2>
-      <input className="inputs-information inputs-pass" type="password" placeholder="Old Password"></input>
+      <h2>CHANGE PASSWORD</h2>
+      <input className="inputs-information inputs-pass" type="password" placeholder="Current Password"></input>
       <input className="inputs-information inputs-pass" type="password" placeholder="New Password"></input>
       <input className="inputs-information inputs-pass" type="password" placeholder="Confirm New Password"></input>
       <button className="btn-save save-pass">Save Changes</button>

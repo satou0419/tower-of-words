@@ -7,7 +7,7 @@ export default function Logout(){
         <>
         <div className="logout">
         <div className="logout-pane">
-        <h1>Logout Account?</h1>
+        <h1 className="logout-header">Logout Account?</h1>
         <img src="./images/sad robot.png" className="logout-icon"></img>
         <div className="btns">
             <button className="btn-cancel cancel">Cancel</button>
