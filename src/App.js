@@ -7,14 +7,19 @@ import Items from "./Items";
 import Dashboard from "./Dashboard";
 import AccInfo from "./AccInfo";
 import Logout from "./Logout";
-import ItemInfo from "./ItemInfo";
+import BandageInfo from "./BandageInfo";
+import MedkitInfo from "./MedkitInfo";
+import BattInfo from "./BattInfo";
+
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Navigation />}> 
-          <Route path="/" element={<ItemInfo />} />
+          <Route path="/bandage" element={<BandageInfo />} />
+          <Route path="/medkit" element={<MedkitInfo />} />
+          <Route path="/battery" element={<BattInfo />} />
           <Route path="/accinfo" element={<AccInfo />} />
           <Route path="/archive" element={<Archive />} />
           <Route path="/items" element={<Items />} />

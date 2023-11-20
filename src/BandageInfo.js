@@ -1,8 +1,8 @@
 import "./root.css";
 import "@fontsource/lilita-one";
-import "./ItemInfo.css";
+import "./BandageInfo.css";
 
-export default function ItemInfo(){
+export default function BandageInfo(){
     return(
         <>
         <div className="main-iteminfo">
@@ -13,9 +13,9 @@ export default function ItemInfo(){
         <div className="iteminfo-main-container">
         <div>
         <div className="image-box">
-        
+        <img src="./images/bandage.png" className="bandage"></img>
         </div>
-        <h3 className="item-name">
+        <h3 className="bandage-name">
             Bandage
         </h3>
         </div>
