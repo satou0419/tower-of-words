@@ -15,16 +15,28 @@ import GenerateCode from "./GenerateCode";
 import Inventory from "./Inventory";
 import Shop from "./Shop";
 import About from "./About";
+import Logout from "./Logout";
+import AdventureMode from "./AdventureMode";
+import AccInfo from "./AccInfo";
+import Loading from "./Loading";
+import CreateAccount from "./CreateAccount";
+import PlayCustom from "./PlayCustom";
+import Login from "./Login";
 
 function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/login" element={<Login />} />
+
+        <Route path="/" element={<Loading />} />
+
+        <Route path="/account" element={<CreateAccount />} />
+
         <Route path="/" element={<Navigation />}>
           <Route path="/about" element={<About />} />
           <Route path="/name" element={<TowerName />} />
           <Route path="/generate" element={<GenerateCode />} />
-          <Route path="/shop" element={<Shop />} />
           <Route path="/viewparticipants" element={<ViewParticipants />} />
           <Route path="/viewtower" element={<ViewCustomTower />} />
           <Route path="/viewwords" element={<ViewCustomWords />} />
@@ -34,7 +46,6 @@ function App() {
           <Route path="/archive" element={<Archive />} />
           <Route path="/items" element={<Items />} />
           <Route path="/home" element={<Dashboard />} />
-          <Route path="/inventory" element={<Inventory />}/>
         </Route>
       </Routes>
     </Router>

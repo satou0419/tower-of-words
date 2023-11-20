@@ -40,7 +40,7 @@ export default function CreateAccount() {
     <section className="signin-wrapper">
       <div className="signin-container">
         <div className="left-container">
-          <img src="./images/login-banner.png" className="img-login" />
+          <img src="./images/signup-banner.png" className="img-login" />
         </div>
         <div className="right-container">
           <form onSubmit={handleSubmit} className="signin-form">

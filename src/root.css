@@ -1,5 +1,5 @@
 * {
-  font-family: "Lilita One";
+  font-family: "Lilita One", sans-serif;
 }
 :root {
   --primary-color: #593796;
@@ -12,6 +12,18 @@ body {
 
 button {
   text-transform: uppercase;
+  cursor: pointer;
+}
+
+.card,
+button {
+  transition: filter 0.3s ease, transform 0.2s ease;
+}
+
+.card:hover,
+button:hover {
+  filter: brightness(1.14); /* Darken the button on hover */
+  transform: scale(1.05);
 }
 
 .btn-back,
@@ -98,4 +110,34 @@ button {
   border-radius: 10px;
   background-image: linear-gradient(to top right, var(--secondary-color), #fff);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.heading {
+  color: #534e64;
+  font-size: 36px;
+  font-weight: 100;
+}
+
+.input-fields {
+  background-color: transparent;
+  outline: none;
+  border-style: none;
+  border-bottom: 2px solid #d5d5d5;
+}
+
+.input-fields::placeholder {
+  color: #d5d5d5;
+}
+
+.inputs-information {
+  background-color: transparent;
+  outline: none;
+  border-style: none;
+  border-bottom: 2px solid #fff;
+  color: #fff;
+  padding-bottom: 5px;
+}
+
+.inputs-information::placeholder {
+  color: #fff;
 }
