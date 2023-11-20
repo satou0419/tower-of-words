@@ -21,9 +21,7 @@ export default function Navigation() {
       <nav>
         <img src="./images/logo.png" alt="tow-logo" className="nav-logo" />
         <section className="user-details">
-          <span>
-            <Link to="/user-info">Username</Link>
-          </span>
+          <Link to="/accinfo">Username</Link>
           <span className="currency">1000</span>
         </section>
         <section className="nav-links">

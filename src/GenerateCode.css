@@ -17,9 +17,9 @@
 .header-generatecode{
     height: 50px;
     width: 300px;
-    background-color: #FFC658;
+    background-color: #593796;
     stroke-width: 5px;
-    border: 3px solid #D96800;
+    border: 3px solid #593796;
     color: #fff;
     font-size: 25px;
     text-align: center;
@@ -27,6 +27,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 10px;
+    font-weight: 100;
 }
 
 .main-container{
@@ -54,6 +55,7 @@
 
 .container-title{
     color: #fff;
+    font-weight: 100;
 }
 
 .generated-code{
