@@ -35,8 +35,6 @@ function App() {
 
           <Route path="/generate" element={<GenerateCode />} />
           <Route path="/viewparticipants" element={<ViewParticipants />} />
-
-          <Route path="/viewparticipants" element={<ViewParticipants />} />
           <Route path="/viewtower" element={<ViewCustomTower />} />
           <Route path="/viewwords" element={<ViewCustomWords />} />
           <Route path="/words" element={<WordsAdded />} />
@@ -45,11 +43,6 @@ function App() {
           <Route path="/archive" element={<Archive />} />
           <Route path="/items" element={<Items />} />
           <Route path="/home" element={<Dashboard />} />
-          <Route path="/user-info" element={<AccInfo />} />
-
-          <Route path="/adventure" element={<AdventureMode />} />
-
-          <Route path="/play-custom" element={<PlayCustom />} />
         </Route>
       </Routes>
     </Router>
