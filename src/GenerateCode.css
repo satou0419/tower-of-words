@@ -1,11 +1,11 @@
-.main-towername{
+.main-generatecode{
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.towername-top-container{
+.generatecode-top-container{
     width: 90%;
     display: flex;
     justify-content: space-between;
@@ -14,7 +14,7 @@
     margin-bottom: 20px;
 }
 
-.header-towername{
+.header-generatecode{
     height: 50px;
     width: 300px;
     background-color: #FFC658;
@@ -41,14 +41,25 @@
     flex-direction: column;
 }
 
-.container-title{
-    color: #593796;
+.code-container{
+    background-color: #593796;
+    width: 80%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    height: 30%;
 }
 
-.inputs-towername{
+.container-title{
+    color: #fff;
+}
+
+.generated-code{
     width: 80%;
-    margin-bottom: 50px;
     font-size: 30px;
     text-align: center;
-    color: #593796;
+    color: #FFC658;
+    letter-spacing: 10px;
 }

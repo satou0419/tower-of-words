@@ -5,20 +5,35 @@ import Navigation from "./Navigation";
 import Archive from "./Archive";
 import Items from "./Items";
 import Dashboard from "./Dashboard";
+import TowerName from "./TowerName";
+import CustomTower from "./CustomTower";
+import WordsAdded from "./WordsAdded";
+import ViewCustomWords from "./ViewCustomWords";
+import ViewCustomTower from "./ViewCustomTower";
+import ViewParticipants from "./ViewParticipants";
+import GenerateCode from "./GenerateCode";
+import Inventory from "./Inventory";
+import Shop from "./Shop";
 import AccInfo from "./AccInfo";
-import Logout from "./Logout";
 import BandageInfo from "./BandageInfo";
 import MedkitInfo from "./MedkitInfo";
 import BattInfo from "./BattInfo";
-import Code from "./Code";
 
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Navigation />}> 
-        <Route path="/" element={<Code />} />
+        <Route path="/" element={<Navigation />}>
+          <Route path="/" element={<TowerName />} />
+          <Route path="/generate" element={<GenerateCode />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/viewparticipants" element={<ViewParticipants />} />
+          <Route path="/viewtower" element={<ViewCustomTower />} />
+          <Route path="/viewwords" element={<ViewCustomWords />} />
+          <Route path="/words" element={<WordsAdded />} />
+          <Route path="/input" element={<TowerName />} />
+          <Route path="/custom" element={<CustomTower />} />
           <Route path="/bandage" element={<BandageInfo />} />
           <Route path="/medkit" element={<MedkitInfo />} />
           <Route path="/battery" element={<BattInfo />} />
@@ -26,7 +41,7 @@ function App() {
           <Route path="/archive" element={<Archive />} />
           <Route path="/items" element={<Items />} />
           <Route path="/home" element={<Dashboard />} />
-          <Route path="/logout" element={<Logout />} />
+          <Route path="/inventory" element={<Inventory />}/>
         </Route>
       </Routes>
     </Router>

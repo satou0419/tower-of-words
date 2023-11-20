@@ -1,0 +1,78 @@
+.main-viewcustomwords{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.viewcustomwords-top-container{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+}
+
+.btn-back-viewcustomwords{
+    position: absolute;
+    left: 0px;
+}
+
+.header-viewcustomwords{
+    height: 50px;
+    width: 300px;
+    background-color: #FFC658;
+    stroke-width: 5px;
+    border: 3px solid #D96800;
+    color: #fff;
+    font-size: 25px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+
+}
+
+.main-container{
+    height: 500px;
+    width: 600px;
+    border-radius: 22px;
+    border: 8px solid #D96800;
+    background: linear-gradient(61deg, #FFC658 5.53%, #FFF 88.98%);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    position: relative;
+
+}
+
+.word-container-scroll-viewcustomwords{
+    height: 80%;
+    width: 90%;
+    overflow-y: scroll;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.word-container-viewcustomwords{
+    height: 30px;
+    width: 80%;
+    border-radius: 9px;
+    border: 5px solid #593796;
+    background: #9A6DEA;
+    box-shadow: 0px 2px 2px 1px #000 inset;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-align: center;  
+    margin-bottom: 20px;
+}
+
+.words-viewcustomwords{
+    padding-left: 30px; 
+}

@@ -1,11 +1,11 @@
-.main-towername{
+.main-inventory{
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.towername-top-container{
+.main-inventory-top-container{
     width: 90%;
     display: flex;
     justify-content: space-between;
@@ -14,7 +14,7 @@
     margin-bottom: 20px;
 }
 
-.header-towername{
+.header-main-inventory{
     height: 50px;
     width: 300px;
     background-color: #FFC658;
@@ -41,14 +41,25 @@
     flex-direction: column;
 }
 
-.container-title{
-    color: #593796;
+.items-container-scroll-inventory{
+    height: 80%;
+    width: 90%;
+    overflow-y: scroll;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-.inputs-towername{
-    width: 80%;
-    margin-bottom: 50px;
-    font-size: 30px;
-    text-align: center;
-    color: #593796;
+.item-button{
+    height: 25%;
+    width: 20%;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 5px solid #593796;
+    background: #9A6DEA;
+    box-shadow: 0px 5px 4px 1px #000 inset;
+    margin-right: 25px;
+    margin-bottom: 25px;
 }

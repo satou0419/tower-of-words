@@ -1,11 +1,11 @@
-.main-towername{
+.main-shop{
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.towername-top-container{
+.shop-top-container{
     width: 90%;
     display: flex;
     justify-content: space-between;
@@ -14,7 +14,7 @@
     margin-bottom: 20px;
 }
 
-.header-towername{
+.header-shop{
     height: 50px;
     width: 300px;
     background-color: #FFC658;
@@ -38,17 +38,37 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    flex-direction: column;
+    flex-direction: row;
+    overflow: hidden;
 }
 
-.container-title{
-    color: #593796;
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    transform: translateX(calc(-200px * var(--index) + 100px));
 }
 
-.inputs-towername{
-    width: 80%;
-    margin-bottom: 50px;
-    font-size: 30px;
-    text-align: center;
-    color: #593796;
+.item {
+    width: 100px;
+    height: 100px;
+    margin: 0 10px;
+    background-color: #3498db;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    transition: transform 0.5s ease-in-out;
+    margin: auto;
 }
+
+.item.active {
+    transform: scale(1.5);
+}
+
+#prev, #next {
+    font-size: 24px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
