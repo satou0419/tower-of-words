@@ -1,5 +1,5 @@
 * {
-  font-family: "Lilita One", sans-serif;
+  font-family: "Lilita One";
 }
 :root {
   --primary-color: #593796;
@@ -8,22 +8,11 @@
 
 body {
   background-color: #fdffdd;
+  overflow-y: hidden;
 }
 
 button {
   text-transform: uppercase;
-  cursor: pointer;
-}
-
-.card,
-button {
-  transition: filter 0.3s ease, transform 0.2s ease;
-}
-
-.card:hover,
-button:hover {
-  filter: brightness(1.14); /* Darken the button on hover */
-  transform: scale(1.05);
 }
 
 .btn-back,
@@ -38,9 +27,6 @@ button:hover {
   color: white;
   padding: 10px 20px;
   font-size: 16px;
-
-  margin-top: 10px;
-  margin-left: 20px;
 }
 
 .btn-next,
@@ -80,8 +66,7 @@ button:hover {
   text-transform: capitalize;
 }
 
-.btn-go,
-.btn-audio {
+.btn-go {
   position: relative;
   background-color: var(--secondary-color);
   border-style: none;
@@ -93,18 +78,6 @@ button:hover {
   font-size: 16px;
 }
 
-.btn-cancel {
-  position: relative;
-  background-color: #fdffdd;
-  border: 2px solid #dc6900;
-  border-radius: 12px;
-  color: #dc6900;
-  padding: 10px 20px;
-  font-size: 16px;
-  height: 60px;
-  width: 150px;
-}
-
 .orange-gradient {
   border: 8px solid #d96800;
   border-radius: 10px;
@@ -112,32 +85,53 @@ button:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.heading {
-  color: #534e64;
-  font-size: 36px;
-  font-weight: 100;
-}
-
-.input-fields {
-  background-color: transparent;
+.inputs{
+  border-bottom: 3px solid var(--primary-color);
+  background: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
   outline: none;
-  border-style: none;
-  border-bottom: 2px solid #d5d5d5;
 }
 
-.input-fields::placeholder {
-  color: #d5d5d5;
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-.inputs-information {
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px grey;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-button:single-button {
   background-color: transparent;
-  outline: none;
-  border-style: none;
-  border-bottom: 2px solid #fff;
-  color: #fff;
-  padding-bottom: 5px;
+  display: block;
+  border-style: solid;
+  height: 13px;
+  width: 5px;
 }
 
-.inputs-information::placeholder {
-  color: #fff;
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+  border-width: 0 5px 5px 5px;
+  border-color: transparent transparent var(--primary-color) transparent;
+}
+
+::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
+  border-color: transparent transparent var(--primary-color) transparent;
+}
+
+::-webkit-scrollbar-button:single-button:vertical:increment {
+  border-width: 5px 5px 0 5px;
+  border-color: var(--primary-color) transparent transparent transparent;
+}
+
+::-webkit-scrollbar-button:vertical:single-button:increment:hover {
+  border-color: var(--primary-color) transparent transparent transparent;
 }
