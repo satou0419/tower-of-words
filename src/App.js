@@ -13,6 +13,7 @@ import ViewCustomTower from "./ViewCustomTower";
 import ViewParticipants from "./ViewParticipants";
 import GenerateCode from "./GenerateCode";
 import Inventory from "./Inventory";
+import Shop from "./Shop";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigation />}>
           <Route path="/generate" element={<GenerateCode />} />
+          <Route path="/shop" element={<Shop />} />
           <Route path="/viewparticipants" element={<ViewParticipants />} />
           <Route path="/viewtower" element={<ViewCustomTower />} />
           <Route path="/viewwords" element={<ViewCustomWords />} />
