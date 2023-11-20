@@ -22,6 +22,11 @@ import Loading from "./Loading";
 import CreateAccount from "./CreateAccount";
 import PlayCustom from "./PlayCustom";
 import Login from "./Login";
+import AccInfo from "./AccInfo";
+import BandageInfo from "./BandageInfo";
+import MedkitInfo from "./MedkitInfo";
+import BattInfo from "./BattInfo";
+
 
 function App() {
   return (
@@ -43,6 +48,10 @@ function App() {
           <Route path="/words" element={<WordsAdded />} />
           <Route path="/input" element={<TowerName />} />
           <Route path="/custom" element={<CustomTower />} />
+          <Route path="/bandage" element={<BandageInfo />} />
+          <Route path="/medkit" element={<MedkitInfo />} />
+          <Route path="/battery" element={<BattInfo />} />
+          <Route path="/accinfo" element={<AccInfo />} />
           <Route path="/archive" element={<Archive />} />
           <Route path="/items" element={<Items />} />
           <Route path="/home" element={<Dashboard />} />

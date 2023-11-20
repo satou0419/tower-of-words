@@ -45,6 +45,14 @@
   letter-spacing: 1px;
 }
 
+.logout-header{
+    margin-top: 110px;
+    text-align: center;
+    color: #444444;
+    font-size: 40px;
+    letter-spacing: 3px;
+}
+
 .btns {
   display: flex;
   justify-content: space-evenly;
