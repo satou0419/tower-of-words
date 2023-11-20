@@ -1,9 +1,12 @@
+import { Link } from "react-router-dom";
 import "./AdventureMode.css";
 
 export default function AdventureMode() {
   return (
     <>
-      <button className="btn-back">Back</button>
+      <Link to="/home">
+        <button className="btn-back">Back</button>
+      </Link>
 
       <section className="adventure-container">
         <div className="container-tower-details">
