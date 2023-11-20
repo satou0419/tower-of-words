@@ -81,6 +81,7 @@ button {
   font-size: 16px;
 }
 
+
 .btn-cancel {
   position: relative;
   background-color: #fdffdd;
@@ -93,9 +94,39 @@ button {
   width: 150px;
 }
 
+.btn-logout {
+  position: relative;
+  background-color: var(--primary-color);
+  border-style: none;
+  border: #593796 2px solid;
+  border-radius: 12px;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  height: 60px;
+  width: 150px;
+}
+
 .orange-gradient {
   border: 8px solid #d96800;
   border-radius: 10px;
   background-image: linear-gradient(to top right, var(--secondary-color), #fff);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.inputs{
+  border-bottom: 3px solid var(--primary-color);
+  background: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+}
+.inputs-information{
+  border-bottom: 3px solid white;
+  background: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
 }

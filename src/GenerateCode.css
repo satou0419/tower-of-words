@@ -6,20 +6,18 @@
 }
 
 .generatecode-top-container{
-    width: 90%;
+    width:90%;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: flex-end;
-    flex-direction: row;
-    margin-bottom: 20px;
 }
 
 .header-generatecode{
     height: 50px;
     width: 300px;
-    background-color: #593796;
+    background-color: #704FAB;
     stroke-width: 5px;
-    border: 3px solid #593796;
+    border: 3px solid #704FAB;
     color: #fff;
     font-size: 25px;
     text-align: center;

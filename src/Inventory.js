@@ -20,16 +20,16 @@ function Inventory() {
                     <button className="item-button"> item 4</button>
                     <button className="item-button"> item 5</button>
                     <button className="item-button"> item 6</button>
-                    <button className="item-button"> item 4</button>
-                    <button className="item-button"> item 5</button>
-                    <button className="item-button"> item 6</button>
-                    <button className="item-button"> item 4</button>
-                    <button className="item-button"> item 5</button>
-                    <button className="item-button"> item 6</button>
-                    <button className="item-button"> item 4</button>
-                    <button className="item-button"> item 5</button>
-                    <button className="item-button"> item 6</button>
-                    <button className="item-button"> item 6</button>
+                    <button className="item-button"> item 7</button>
+                    <button className="item-button"> item 8</button>
+                    <button className="item-button"> item 9</button>
+                    <button className="item-button"> item 10</button>
+                    <button className="item-button"> item 11</button>
+                    <button className="item-button"> item 12</button>
+                    <button className="item-button"> item 13</button>
+                    <button className="item-button"> item 14</button>
+                    <button className="item-button"> item 15</button>
+                    <button className="item-button"> item 16</button>
                 </div>
             </div>
         </div>

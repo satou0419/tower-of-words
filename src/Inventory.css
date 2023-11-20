@@ -6,12 +6,10 @@
 }
 
 .main-inventory-top-container{
-    width: 90%;
+    width:90%;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: flex-end;
-    flex-direction: row;
-    margin-bottom: 20px;
 }
 
 .header-main-inventory{
@@ -71,8 +69,9 @@
 }
 
 .battery{
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
+    margin-top: 2px;
 }
 
 .bandage{
