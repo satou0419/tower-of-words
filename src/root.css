@@ -8,7 +8,6 @@
 
 body {
   background-color: #fdffdd;
-  overflow-y: hidden;
 }
 
 button {
@@ -27,6 +26,9 @@ button {
   color: white;
   padding: 10px 20px;
   font-size: 16px;
+
+  margin-top: 10px;
+  margin-left: 20px;
 }
 
 .btn-next,
@@ -41,7 +43,8 @@ button {
 .btn-view-tower,
 .btn-create-tower,
 .btn-buy,
-.btn-info {
+.btn-info,
+.btn-logout {
   position: relative;
   background-color: var(--primary-color);
   border-style: none;
@@ -65,7 +68,8 @@ button {
   text-transform: capitalize;
 }
 
-.btn-go {
+.btn-go,
+.btn-audio {
   position: relative;
   background-color: var(--secondary-color);
   border-style: none;
@@ -77,25 +81,12 @@ button {
   font-size: 16px;
 }
 
-.btn-cancel{
+.btn-cancel {
   position: relative;
-  background-color: #FDFFDD;
-  border: 2px solid #DC6900;
+  background-color: #fdffdd;
+  border: 2px solid #dc6900;
   border-radius: 12px;
-  color: #DC6900;
-  padding: 10px 20px;
-  font-size: 16px;
-  height: 60px;
-  width: 150px;
-}
-
-.btn-logout {
-  position: relative;
-  background-color: var(--primary-color);
-  border-style: none;
-  border: #593796 2px solid;
-  border-radius: 12px;
-  color: white;
+  color: #dc6900;
   padding: 10px 20px;
   font-size: 16px;
   height: 60px;
@@ -107,13 +98,4 @@ button {
   border-radius: 10px;
   background-image: linear-gradient(to top right, var(--secondary-color), #fff);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.inputs{
-  border-bottom: 3px solid var(--primary-color);
-  background: transparent;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  outline: none;
 }
