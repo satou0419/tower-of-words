@@ -19,12 +19,16 @@ import Loading from "./Loading";
 import CreateAccount from "./CreateAccount";
 import PlayCustom from "./PlayCustom";
 import Login from "./Login";
+import Shop from "./Shop";
+import Inventory from "./Inventory";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        {/* <Route path="/shop" element={<Shop />} /> */}
+
+        <Route path="/inventory" element={<Inventory />} />
 
         <Route path="/" element={<Loading />} />
 
@@ -32,6 +36,9 @@ function App() {
 
         <Route path="/" element={<Navigation />}>
           {/* <Route path="/" element={<TowerName />} /> */}
+
+          <Route path="/enter-custom-tower" element={<CustomTower />} />
+          <Route path="/play-custom" element={<PlayCustom />} />
 
           <Route path="/generate" element={<GenerateCode />} />
           <Route path="/viewparticipants" element={<ViewParticipants />} />
