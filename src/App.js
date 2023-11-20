@@ -19,13 +19,10 @@ import Loading from "./Loading";
 import CreateAccount from "./CreateAccount";
 import PlayCustom from "./PlayCustom";
 import Login from "./Login";
-import Shop from "./Shop";
 import Inventory from "./Inventory";
 import Shop from "./Shop";
-import AccInfo from "./AccInfo";
-import BandageInfo from "./BandageInfo";
 import MedkitInfo from "./MedkitInfo";
-import BattInfo from "./BattInfo";
+import AdActivity from "./AdventureActivity";
 
 function App() {
   return (
@@ -38,6 +35,7 @@ function App() {
         <Route path="/" element={<Loading />} />
 
         <Route path="/account" element={<CreateAccount />} />
+        <Route path="/login" element={<Login />} />
 
         <Route path="/" element={<Navigation />}>
           {/* <Route path="/" element={<TowerName />} /> */}
@@ -49,16 +47,19 @@ function App() {
           <Route path="/viewparticipants" element={<ViewParticipants />} />
           <Route path="/viewtower" element={<ViewCustomTower />} />
           <Route path="/viewwords" element={<ViewCustomWords />} />
+          <Route path="/adventure" element={<AdventureMode />} />
+
           <Route path="/words" element={<WordsAdded />} />
+          <Route path="/shop" element={<Shop />} />
+
           <Route path="/input" element={<TowerName />} />
           <Route path="/custom" element={<CustomTower />} />
-          <Route path="/bandage" element={<BandageInfo />} />
           <Route path="/medkit" element={<MedkitInfo />} />
-          <Route path="/battery" element={<BattInfo />} />
           <Route path="/accinfo" element={<AccInfo />} />
           <Route path="/archive" element={<Archive />} />
-          <Route path="/items" element={<Items />} />
+          <Route path="/items" element={<Inventory />} />
           <Route path="/home" element={<Dashboard />} />
+          <Route path="/game-tower1" element={<AdActivity />} />
         </Route>
       </Routes>
     </Router>

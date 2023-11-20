@@ -5,7 +5,7 @@ export default function AdActivity() {
   return (
     <div className="mother-of-all">
       <div className="mini-bar-container">
-        <button className="exit-button">Exit</button>
+        <button className="btn-exit">Exit</button>
 
         <div className="progress-bar">Progress: floor ###</div>
       </div>

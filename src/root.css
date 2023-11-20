@@ -15,6 +15,7 @@ button {
   cursor: pointer;
 }
 
+.tower-details,
 .card,
 button {
   transition: filter 0.3s ease, transform 0.2s ease;
@@ -24,6 +25,13 @@ button {
 button:hover {
   filter: brightness(1.14); /* Darken the button on hover */
   transform: scale(1.05);
+}
+
+.tower-details {
+  cursor: pointer;
+}
+.tower-details:hover {
+  filter: brightness(1.14);
 }
 
 .btn-back,

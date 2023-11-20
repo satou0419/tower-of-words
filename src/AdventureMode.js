@@ -10,10 +10,10 @@ export default function AdventureMode() {
 
       <section className="adventure-container">
         <div className="container-tower-details">
-          <div className="tower-details">
+          <Link to="/game-tower1" className="tower-details">
             <span>Tower 1</span>
             <img src="./images/tower.png" className="img-tower" />
-          </div>
+          </Link>
 
           <div className="tower-details">
             <span>Tower 2</span>
