@@ -8,12 +8,12 @@ export default function BattInfo(){
         <div className="main-iteminfo">
         <div className="iteminfo">
             <button className="btn-back btn-back-iteminfo">BACK</button>
-        <h1>ITEM INFO</h1>
+        <h1 className="header-item">ITEM INFO</h1>
         </div>
         <div className="iteminfo-main-container">
         <div>
         <div className="image-box">
-        <img src="./images/unusual battery.png" className="bandage"></img>
+        <img src="./images/unusual battery.png" className="bandage" />
         </div>
         <h3 className="batt-name">
             Unusual Battery

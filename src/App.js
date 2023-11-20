@@ -10,6 +10,7 @@ import Logout from "./Logout";
 import BandageInfo from "./BandageInfo";
 import MedkitInfo from "./MedkitInfo";
 import BattInfo from "./BattInfo";
+import Code from "./Code";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Navigation />}> 
+        <Route path="/" element={<Code />} />
           <Route path="/bandage" element={<BandageInfo />} />
           <Route path="/medkit" element={<MedkitInfo />} />
           <Route path="/battery" element={<BattInfo />} />
