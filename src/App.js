@@ -14,13 +14,15 @@ import ViewParticipants from "./ViewParticipants";
 import GenerateCode from "./GenerateCode";
 import Inventory from "./Inventory";
 import Shop from "./Shop";
+import About from "./About";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Navigation />}>
-          <Route path="/" element={<TowerName />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/name" element={<TowerName />} />
           <Route path="/generate" element={<GenerateCode />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/viewparticipants" element={<ViewParticipants />} />
