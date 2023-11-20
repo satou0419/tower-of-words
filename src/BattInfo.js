@@ -13,7 +13,7 @@ export default function BattInfo(){
         <div className="iteminfo-main-container">
         <div>
         <div className="image-box">
-        <img src="./images/unusual battery.png" className="bandage" />
+        <img src="./images/unusual battery.png" className="battery-pic" alt='battery-item' />
         </div>
         <h3 className="batt-name">
             Unusual Battery

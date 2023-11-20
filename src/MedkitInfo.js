@@ -13,7 +13,7 @@ export default function MedkitInfo(){
         <div className="iteminfo-main-container">
         <div>
         <div className="image-box">
-        <img src="./images/medkit.png" className="bandage" />
+        <img src="./images/medkit.png" className="medkit-pic" alt='medkit-item' />
         </div>
         <h3 className="medkit-name">
             Medkit

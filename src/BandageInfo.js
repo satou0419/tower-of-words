@@ -13,7 +13,7 @@ export default function BandageInfo(){
         <div className="iteminfo-main-container">
         <div>
         <div className="image-box">
-        <img src="./images/bandage.png" className="bandage" />
+        <img src="./images/bandage.png" className="bandage-pic" alt='bandage-item' />
         </div>
         <h3 className="bandage-name">
             Bandage
