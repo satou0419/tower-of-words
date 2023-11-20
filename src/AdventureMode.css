@@ -16,8 +16,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
   gap: 1.5rem;
+  cursor: pointer;
+}
+
+.tower-details span{
+  color: #9488B6;
+  font-size: 25px;
 }
 
 .img-tower {
@@ -40,6 +46,8 @@
   margin-top: 30px;
   gap: 1rem;
   word-spacing: 1rem;
+  font-weight: normal;
+  
 }
 
 .completed,
