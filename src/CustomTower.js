@@ -10,9 +10,10 @@ function CustomTower() {
                 <h1 className="header-customtower">
                 Create Custom Tower
                 </h1>
-                <button className="btn-next btn-next-customtower">NEXT</button>
+                <button className="btn-next btn-next-customtower">CODE</button>
             </div>
-            <div className="main-container">
+            <div className="container-of-main-container">   
+            <div className="main-container-customtower">
                 <div className="main-top-customtower">
                     <img src="./images/search.png" height={30} alt="search"  className="search-icon"/>
                     <input className="inputs search-customtower" type="text" /> 
@@ -86,6 +87,81 @@ function CustomTower() {
                         </h4>
                     </div>
                 </div>
+            </div>
+
+            <div className="main-container-wordsadded">
+                <div className="main-top-wordsadded">
+                    <button className="btn-back btn-remove-wordsadded">REMOVE</button>
+                </div>
+
+                <div className="word-container-scroll-wordsadded">
+                    <div className="word-container-wordsadded"> 
+                        <h4 className="words-wordsadded">
+                            test
+                        </h4>
+                    </div>
+                    <div className="word-container-wordsadded"> 
+                        <h4 className="words-wordsadded">
+                            test
+                        </h4>
+                    </div>
+                    <div className="word-container-wordsadded"> 
+                        <h4 className="words-wordsadded">
+                            test
+                        </h4>
+                    </div>
+                    <div className="word-container-wordsadded"> 
+                        <h4 className="words-wordsadded">
+                            test
+                        </h4>
+                    </div>
+                    <div className="word-container-wordsadded"> 
+                        <h4 className="words-wordsadded">
+                            test
+                        </h4>
+                    </div>
+                    <div className="word-container-wordsadded"> 
+                        <h4 className="words-wordsadded">
+                            test
+                        </h4>
+                    </div>
+                    <div className="word-container-wordsadded"> 
+                        <h4 className="words-wordsadded">
+                            test
+                        </h4>
+                    </div>
+                    <div className="word-container-wordsadded"> 
+                        <h4 className="words-wordsadded">
+                            test
+                        </h4>
+                    </div>
+                    <div className="word-container-wordsadded"> 
+                        <h4 className="words-wordsadded">
+                            test
+                        </h4>
+                    </div>
+                    <div className="word-container-wordsadded"> 
+                        <h4 className="words-wordsadded">
+                            test
+                        </h4>
+                    </div>
+                    <div className="word-container-wordsadded"> 
+                        <h4 className="words-wordsadded">
+                            test
+                        </h4>
+                    </div>
+                    <div className="word-container-wordsadded"> 
+                        <h4 className="words-wordsadded">
+                            test
+                        </h4>
+                    </div>
+                    <div className="word-container-wordsadded"> 
+                        <h4 className="words-wordsadded">
+                            test
+                        </h4>
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
   </>

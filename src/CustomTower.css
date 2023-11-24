@@ -28,7 +28,14 @@
     border-radius: 10px;
 }
 
-.main-container{
+.container-of-main-container{
+  width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.main-container-customtower{
     height: 500px;
     width: 600px;
     border-radius: 22px;
@@ -87,4 +94,61 @@
 
 .words-customtower{
     padding-left: 30px; 
+}
+
+.main-container-wordsadded{
+  height: 500px;
+  width: 600px;
+  border-radius: 22px;
+  border: 8px solid #D96800;
+  background: linear-gradient(61deg, #FFC658 5.53%, #FFF 88.98%);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  position: relative;
+}
+
+.main-top-wordsadded{
+  top: 5px;
+  width: 90%;
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+
+.btn-remove-wordsadded{
+  left: 20px;
+  display: flex;
+}
+
+.word-container-scroll-wordsadded{
+  margin-top: 50px;
+  height: 80%;
+  width: 90%;
+  overflow-y: scroll;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.word-container-wordsadded{
+  height: 30px;
+  width: 80%;
+  border-radius: 9px;
+  border: 5px solid #593796;
+  background: #9A6DEA;
+  box-shadow: 0px 2px 2px 1px #000 inset;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-align: center;  
+  margin-bottom: 20px;
+}
+
+.words-wordsadded{
+  padding-left: 30px; 
 }
