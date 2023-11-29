@@ -1,7 +1,36 @@
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import './TheGame.css';
 import './root.css'
 
+
+
 export default function AdActivity(){
+    const [tower, setTower] = useState({})
+
+    
+
+    useEffect(() => {
+        fetch('http://localhost:8080/tower/getTowerById?towerId=1')
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json();
+            })
+            .then(data => {
+                console.log(data)
+                setTower(data)
+                
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+    }, []);
+
+
+
+   
 
     return<div className='mother-of-all'>
 
@@ -10,7 +39,7 @@ export default function AdActivity(){
             <div className="mini-bar-container">
                 <button className="exit-button">Exit</button>
 
-                <div className="progress-bar">Progress: floor ###</div>
+                <div className="progress-bar">Progress: floor ###{tower.towerName}{tower.towerId}</div>
             </div>
 
 
@@ -56,7 +85,14 @@ export default function AdActivity(){
                     <div className="audio-button-container"><button>audio</button></div>
                     <div className="input-container"><input></input></div>
                     <div className="spell-button-container"><button>GO!</button></div>
-                    <div className="hp-container">*hp diri*</div>
+                    <div className="hp-container">
+                        <img src='./images/red_heart.png'/>
+                        <img src='./images/red_heart.png'/>
+                        <img src='./images/red_heart.png'/>
+                        <img src='./images/red_heart.png'/>
+                        <img src='./images/red_heart.png'/>
+                        <img src='./images/red_heart.png'/>
+                    </div>
                     
                 </div>
 

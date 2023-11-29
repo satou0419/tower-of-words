@@ -245,6 +245,9 @@ body {
     margin-top: 5px;
     margin-bottom: 10px;
     height: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
 }
 
 .info-container{
