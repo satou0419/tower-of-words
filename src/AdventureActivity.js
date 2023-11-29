@@ -7,6 +7,7 @@ import './root.css'
 
 export default function AdActivity(){
     const [tower, setTower] = useState({})
+    const [loader, setLoader] = useState(1)
 
     
 
@@ -26,7 +27,7 @@ export default function AdActivity(){
             .catch(error => {
                 console.error('There was a problem with the fetch operation:', error);
             });
-    }, []);
+    },[loader]);
 
 
 
