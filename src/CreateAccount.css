@@ -37,21 +37,20 @@
   width: 60%;
 }
 
-.left-container {
+.create-left-container {
   height: 95%;
   width: 35%;
   border-radius: 10px;
   background-color: #fcffcd;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: start;
+  justify-content: flex-end;
+  align-items: flex-start;
   margin-left: 10px;
 }
 
 .img-login {
   width: 110%;
-  margin-top: auto;
 }
 
 .signup-links {

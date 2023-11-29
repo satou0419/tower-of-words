@@ -3,9 +3,9 @@ import { Link, Outlet } from "react-router-dom";
 import "./Navigation.css";
 import "./root.css";
 import "@fontsource/lilita-one";
-import Logout from "./Logout"; // Import your Logout component
+import Logout from "./Logout";
 
-export default function Navigation() {
+export default function Navigation({ username, credit }) {
   const [isLogoutModalOpen, setLogoutModalOpen] = useState(false);
 
   const openLogoutModal = () => {
@@ -21,8 +21,8 @@ export default function Navigation() {
       <nav>
         <img src="./images/logo.png" alt="tow-logo" className="nav-logo" />
         <section className="user-details">
-          <Link to="/accinfo">Username</Link>
-          <span className="currency">1000</span>
+          <Link to="/accinfo">{username}</Link>
+          <span className="currency">{credit}</span>
         </section>
         <section className="nav-links">
           <li className="push-right">

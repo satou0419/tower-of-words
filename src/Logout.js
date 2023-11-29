@@ -8,7 +8,7 @@ export default function Logout({ onClose }) {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    navigate("/account");
+    navigate("/login");
   };
 
   return (

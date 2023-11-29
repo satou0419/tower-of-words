@@ -1,47 +1,61 @@
-.main-towername{
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.main-towername {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.towername-top-container{
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-direction: row;
-    margin-bottom: 20px;
+.towername-top-container {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: row;
+  margin-bottom: 20px;
 }
 
-.header-towername{
-    height: 50px;
-    width: 300px;
-    background-color: #FFC658;
-    stroke-width: 5px;
-    border: 3px solid #D96800;
-    color: #fff;
-    font-size: 25px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
+.header-towername {
+  height: 50px;
+  width: 300px;
+  background-color: #ffc658;
+  stroke-width: 5px;
+  border: 3px solid #d96800;
+  color: #fff;
+  font-size: 25px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-weight: 100;
 }
 
-.main-container{
-    height: 500px;
-    width: 600px;
-    border-radius: 22px;
-    border: 8px solid #D96800;
-    background: linear-gradient(61deg, #FFC658 5.53%, #FFF 88.98%);
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
+.tower-main-container {
+  height: 500px;
+  width: 600px;
+  border-radius: 22px;
+  border: 8px solid #d96800;
+  background: linear-gradient(61deg, #ffc658 5.53%, #fff 88.98%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.container-title{
-    color: #593796;
+h1.container-title {
+  color: #593796;
 }
 
+input.inputs-towername {
+  width: 80%;
+  margin-bottom: 50px;
+  font-size: 30px;
+  text-align: center;
+  color: #593796;
+}
+.inputs-information {
+  width: 70%;
+  border-style: none;
+  border-bottom: 2px solid #593796;
+  margin-bottom: 100px;
+}
