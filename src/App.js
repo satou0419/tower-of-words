@@ -22,7 +22,6 @@ import Loading from "./Loading";
 import CreateAccount from "./CreateAccount";
 import PlayCustom from "./PlayCustom";
 import Login from "./Login";
-import AccInfo from "./AccInfo";
 import BandageInfo from "./BandageInfo";
 import MedkitInfo from "./MedkitInfo";
 import BattInfo from "./BattInfo";
@@ -55,6 +54,7 @@ function App() {
           <Route path="/archive" element={<Archive />} />
           <Route path="/items" element={<Items />} />
           <Route path="/home" element={<Dashboard />} />
+          <Route path="/shop" element={<Shop />} />
         </Route>
       </Routes>
     </Router>

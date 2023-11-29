@@ -14,10 +14,7 @@ function TowerName() {
                 <button className="btn-next btn-next-towername">NEXT</button>
             </div>
             <div className="main-container">
-              <h1 className="container-title">
-                Input Tower Name
-              </h1>
-              <input className="inputs inputs-towername" type="text" ></input>
+              
             </div>
         </div>
   </>
