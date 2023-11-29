@@ -11,6 +11,7 @@ import ViewCustomWords from "./ViewCustomWords";
 import ViewCustomTower from "./ViewCustomTower";
 import ViewParticipants from "./ViewParticipants";
 import GenerateCode from "./GenerateCode";
+import About from "./About";
 import Logout from "./Logout";
 import AdventureMode from "./AdventureMode";
 import AccInfo from "./AccInfo";
@@ -20,8 +21,10 @@ import PlayCustom from "./PlayCustom";
 import Login from "./Login";
 import Inventory from "./Inventory";
 import Shop from "./Shop";
+import BandageInfo from "./BandageInfo";
 import MedkitInfo from "./MedkitInfo";
 import AdActivity from "./AdventureActivity";
+import BattInfo from "./BattInfo";
 
 function App() {
   const [userInfo, setUserInfo] = useState({
@@ -75,6 +78,7 @@ function App() {
           <Route path="/items" element={<Inventory />} />
           <Route path="/home" element={<Dashboard />} />
           <Route path="/game-tower1" element={<AdActivity />} />
+          <Route path="/shop" element={<Shop />} />
         </Route>
       </Routes>
     </Router>
