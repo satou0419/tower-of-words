@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Shop.css";
 import "./root.css";
 import "@fontsource/lilita-one";
@@ -19,7 +20,9 @@ function Shop() {
     <>
       <div className="main-shop">
         <div className="shop-top-container">
-          <button className="btn-back btn-back-shop">BACK</button>
+          <button className="btn-back btn-back-shop">
+            <Link to="/inventory">BACK</Link>
+          </button>
           <h1 className="header-shop">SHOP </h1>
           <button className="btn-next btn-next-shop">NEXT</button>
         </div>

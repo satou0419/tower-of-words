@@ -8,7 +8,9 @@ function Inventory() {
     <>
       <div className="main-inventory">
         <div className="main-inventory-top-container">
-          <button className="btn-back btn-back-main-inventory">BACK</button>
+          <button className="btn-back btn-back-main-inventory">
+            <Link to="/home">BACK</Link>
+          </button>
           <h1 className="header-main-inventory">Inventory</h1>
           <Link to="/shop" className="btn-next btn-next-main-inventory">
             SHOP

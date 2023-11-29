@@ -51,6 +51,7 @@ button:hover {
   margin-left: 20px;
 }
 
+.btn-confirm,
 .btn-next,
 .btn-game,
 .btn-finish,
@@ -64,7 +65,8 @@ button:hover {
 .btn-create-tower,
 .btn-buy,
 .btn-info,
-.btn-logout {
+.btn-logout,
+.btn-close {
   position: relative;
   background-color: var(--primary-color);
   border-style: none;

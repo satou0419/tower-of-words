@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./CustomTower.css";
 import "./root.css";
 import "@fontsource/lilita-one";
@@ -7,9 +8,13 @@ function CustomTower() {
     <>
       <div className="main-customtower">
         <div className="customtower-top-container">
-          <button className="btn-back btn-back-customtower">BACK</button>
+          <button className="btn-back btn-back-customtower">
+            <Link to="/create-custom">BACK</Link>
+          </button>
           <h1 className="header-customtower">Create Custom Tower</h1>
-          <button className="btn-next btn-next-customtower">NEXT</button>
+          <button className="btn-next btn-next-customtower">
+            <Link to="/view-words-added">NEXT</Link>
+          </button>
         </div>
         <div className="main-container">
           <div className="main-top-customtower">

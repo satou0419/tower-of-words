@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./TheGame.css";
 import "./root.css";
 
@@ -5,7 +6,9 @@ export default function AdActivity() {
   return (
     <div className="mother-of-all">
       <div className="mini-bar-container">
-        <button className="btn-exit">Exit</button>
+        <button className="exit-button">
+          <Link to="/adventure">Exit</Link>
+        </button>
 
         <div className="progress-bar">Progress: floor ###</div>
       </div>
@@ -30,20 +33,20 @@ export default function AdActivity() {
             <div className="container-upper">
               <button className="item-button">
                 {" "}
-                <img src="./images/small_bandage.png" /> <span>1x</span>
+                <img src="./images/small_bandage.png" /> <span>x0</span>
               </button>
               <button className="item-button">
                 {" "}
-                <img src="./images/health_kit.png" />
+                <img src="./images/health_kit.png" /> <span>x0</span>
               </button>
               <button className="item-button">
                 {" "}
-                <img src="./images/unusual_battery.png" />
+                <img src="./images/unusual_battery.png" /> <span>x0</span>
               </button>
             </div>
 
             <div className="container-lower">
-              <button className="item-button"> 1</button>
+              <button className="item-button"> item 4</button>
               <button className="item-button"> item 5</button>
               <button className="item-button"> item 6</button>
             </div>

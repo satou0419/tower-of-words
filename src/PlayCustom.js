@@ -14,13 +14,13 @@ export default function PlayCustom() {
         <div className="custom-container">
           <div className="left-custom">
             <h1 className="heading">Custom Tower</h1>
-            <button className="btn-enter-tower">
-              <Link to="/enter-custom-tower">Enter Custom Tower</Link>
-            </button>
+            <button className="btn-enter-tower">Enter Custom Tower</button>
             <button className="btn-create-tower">
               <Link to="/create-custom">Create Custom Tower</Link>{" "}
             </button>
-            <button className="btn-view-tower">View Custom Tower</button>
+            <button className="btn-view-tower">
+              <Link to="/viewtower"> View Custom Tower</Link>
+            </button>
           </div>
           <div className="right-custom">
             <img src="./images/custom-banner.png" className="custom-img" />
