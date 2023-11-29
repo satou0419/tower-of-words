@@ -1,39 +1,66 @@
 import "./ViewCustomTower.css";
 import "./root.css";
 import "@fontsource/lilita-one";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function ViewCustomTower() {
-    const customTower = ["apple", "banana", "orange", "grape", "watermelon", "carrot", "broccoli", "potato", "tomato", "cucumber", "table", "chair", "lamp", "book", "clock"];
-
-    const participants = ["testblock", "testblock", "testblock", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test"];
+    const [data, setData] = useState([]);
 
     const [clickedTower, setClickedTower] = useState(null);
     const [searchCustomTower, setSearchCustomTower] = useState('');
     const [searchParticipant, setSearchParticipant] = useState('');
-    const [filteredCustomTower, setFilteredCustomTower] = useState(customTower);
-    const [filteredParticipants, setFilteredParticipants] = useState(participants);
+    const [filteredCustomTower, setFilteredCustomTower] = useState([]);
+    const [filteredParticipants, setFilteredParticipants] = useState([]);
     const [isRightContainerVisible, setIsRightContainerVisible] = useState(false);
+
+    useEffect(() => {
+        fetch('http://localhost:8080/CustomTower/getAllCustomTower')
+        .then(response => {
+            if (!response.ok) {
+            throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            setData(data);
+
+            console.log(data);
+            const towerNames = data.map(tower => tower.towername);
+            setFilteredCustomTower(towerNames);
+
+            const user = data.flatMap(tower => tower.participantslist.map(participant => participant.username));
+            setFilteredParticipants(user);
+            console.log(user);
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+    },[]);
 
     const towerClicked = (index) => {
         const newClickedTower = index === clickedTower ? null : index;
 
         setClickedTower(newClickedTower);
         setIsRightContainerVisible(newClickedTower !== null);
+
+        if (newClickedTower !== null) {
+            const participants = data[newClickedTower].participantslist.map(participant => participant.username);
+            setFilteredParticipants(participants);
+        }
     };    
 
     const customTowerSearchChange = (event) => {
         const searchTerm = event.target.value;
         setSearchCustomTower(searchTerm);
         setClickedTower(null);
-        const filtered = customTower.filter(word => word.toLowerCase().includes(searchTerm.toLowerCase()));
+        const filtered = data.filter(tower => tower.towername.toLowerCase().includes(searchTerm.toLowerCase()));
         setFilteredCustomTower(filtered);
     };
     
     const participantsSearchChange = (event) => {
         const searchTerm = event.target.value;
         setSearchParticipant(searchTerm);
-        const filtered = participants.filter(word => word.toLowerCase().includes(searchTerm.toLowerCase()));
+        const filtered = data.flatMap(tower => tower.participantslist.map(participant => participant.username)).filter(username => username.toLowerCase().includes(searchTerm.toLowerCase()));
         setFilteredParticipants(filtered);
     };
 

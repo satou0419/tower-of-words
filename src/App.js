@@ -40,7 +40,7 @@ function App() {
         <Route path="/" element={<Navigation />}>
           <Route path="/about" element={<About />} />
           <Route path="/name" element={<TowerName />} />
-          <Route path="/generate" element={<GenerateCode />} />
+          <Route path="/code" element={<GenerateCode />} />
           <Route path="/viewparticipants" element={<ViewParticipants />} />
           <Route path="/viewtower" element={<ViewCustomTower />} />
           <Route path="/viewwords" element={<ViewCustomWords />} />
