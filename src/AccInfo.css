@@ -1,10 +1,10 @@
-.account {
+.account{
   display: flex;
-  height: 100%;
+  height: 100vh;
   justify-content: center;
 }
-.acc-info {
-  background-color: #9a6dea;
+.acc-info{
+  background-color: #9A6DEA;
   height: 500px;
   width: 400px;
   margin-left: 30px;
@@ -13,44 +13,55 @@
   border-radius: 22px;
 }
 
-.pass {
-  background-color: #9a6dea;
+.pass{
+  background-color: #9A6DEA;
   margin-left: 100px;
-  height: 350px;
+  height:350px;
   width: 400px;
   margin-top: 100px;
   color: white;
   border-radius: 22px;
 }
 
-h2 {
+h2{
   text-align: center;
   font-weight: 100;
   margin-top: 30px;
 }
 
-.inputs-acc {
+.inputs-acc{
   text-align: left;
-  margin-left: 50px;
+  margin-left: 70px;
+  margin-top: 50px;
+  width: 250px;
+  font-size: medium;
+}
+
+.inputs-pass{
+  text-align: left;
+  margin-left: 70px;
   margin-top: 30px;
-  width: 300px;
+  width: 250px;
   font-size: medium;
+
 }
 
-.inputs-pass {
-  text-align: left;
-  margin-left: 50px;
-  margin-top: 20px;
-  width: 300px;
-  font-size: medium;
-}
-
-.save-acc {
-  margin-top: 180px;
+.save-acc{
+  margin-top: 100px;
   margin-left: 130px;
 }
 
-.save-pass {
+.save-pass{
   margin-top: 60px;
   margin-left: 130px;
+}
+
+::placeholder{
+  color: white;
+  opacity: 0.8;
+  font-weight: 10;
+}
+
+input:focus::placeholder{
+  color: transparent;
 }

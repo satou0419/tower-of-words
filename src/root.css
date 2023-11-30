@@ -123,6 +123,15 @@ button:hover {
   outline: none;
 }
 
+.inputs-information-acc{
+  border-bottom: 3px solid white;
+  background: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
