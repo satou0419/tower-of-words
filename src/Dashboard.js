@@ -1,37 +1,44 @@
-// import "./root.css";
+import "./root.css";
+import { Link } from "react-router-dom";
 import "./Dashboard.css";
 export default function Dashboard() {
+  document.body.style.backgroundColor = "#fdffdd";
+
   return (
     <div className="mother-div">
       <div className="card-container">
         <div className="card">
-          <div className="portrait-container-1">
-            <img src="./images/adventure_mode_portrait_v2.png" />
-          </div>
-          <h2>Adventure</h2>
-          <div className="description">
-            bla bla bla bla sss ssss s sss sss ss ssssss ssssss ss sss sssss ss
-            ss
-          </div>
-          <div className="counter">
-            <span className="counter-desc">Tower Completed</span>
-            <span className="the-counter">1</span>
-          </div>
+          <Link to="/adventure">
+            <div className="portrait-container-1">
+              <img src="./images/adventure_mode_portrait_v2.png" />
+            </div>
+            <h2>Adventure</h2>
+            <div className="description">
+              bla bla bla bla sss ssss s sss sss ss ssssss ssssss ss sss sssss
+              ss ss
+            </div>
+            <div className="counter">
+              <span className="counter-desc">Tower Completed</span>
+              <span className="the-counter">1</span>
+            </div>
+          </Link>
         </div>
 
         <div className="card">
-          <div className="portrait-container-2">
-            <img src="./images/custom_mode_portrait.jpg" />
-          </div>
-          <h2>Custom Towers</h2>
-          <div className="description">
-            bla bla bla bla sss ssss s sss sss ss ssssss ssssss ss sss sssss ss
-            ss
-          </div>
-          <div className="counter">
-            <span className="counter-desc">Towers Created</span>
-            <span className="the-counter">1</span>
-          </div>
+          <Link to="/play-custom">
+            <div className="portrait-container-2">
+              <img src="./images/custom_mode_portrait.jpg" />
+            </div>
+            <h2>Custom Towers</h2>
+            <div className="description">
+              bla bla bla bla sss ssss s sss sss ss ssssss ssssss ss sss sssss
+              ss ss
+            </div>
+            <div className="counter">
+              <span className="counter-desc">Towers Created</span>
+              <span className="the-counter">1</span>
+            </div>
+          </Link>
         </div>
       </div>
 
@@ -43,7 +50,9 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <button className="btn-go">GO TO ARCHIVE</button>
+        <button className="btn-go">
+          <Link to="/archive">GO TO ARCHIVE</Link>
+        </button>
       </div>
     </div>
   );

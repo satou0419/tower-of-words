@@ -1,4 +1,4 @@
-.logout-overlay {
+.dialog-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -10,12 +10,7 @@
   align-items: center;
 }
 
-.logout {
-  display: flex;
-  flex-direction: column;
-}
-
-.logout-pane {
+.dialog-pane {
   width: 500px;
   height: 330px;
   background-color: #ffc658;
@@ -36,16 +31,17 @@
   align-items: center;
 }
 
-.logout-icon {
+.dialog-icon {
   width: 15%;
 }
-.details h1 {
+
+.details-h1 {
   color: #444444;
   font-size: 30px;
   letter-spacing: 1px;
 }
 
-.logout-header {
+.dialog-header {
   margin-top: 110px;
   text-align: center;
   color: #444444;
@@ -58,15 +54,14 @@
   justify-content: space-evenly;
 }
 
-.btns.btn-cancel {
-  padding: 80px;
+.btn-cancel {
   height: 60px;
   width: 150px;
   border-style: none;
   border-radius: 12px;
 }
 
-.btn-logout {
+.btn-confirm {
   border-style: none;
   border-radius: 12px;
   padding: 10px 20px;

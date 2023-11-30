@@ -1,12 +1,9 @@
 * {
-  font-family: "Lilita One";
+  font-family: "Lilita One", sans-serif;
 }
 
 .orange-gradient {
   height: 100px;
-}
-
-.mother-div {
 }
 
 .card-container {
@@ -17,7 +14,7 @@
   gap: 150px;
 }
 
-.card {
+.card a {
   background-color: #ffc658;
 
   height: 470px;
@@ -31,7 +28,7 @@
   cursor: pointer;
 }
 
-.card h2 {
+.card a h2 {
   color: white;
   font-weight: normal;
   margin-top: 10px;
@@ -145,4 +142,8 @@
   background-color: #ffc658;
   border-radius: 10px;
   font-size: 25px;
+}
+
+.btn-go a {
+  color: #d96800;
 }

@@ -8,45 +8,29 @@
 .viewcustomwords-top-container{
     width: 90%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-end;
     flex-direction: row;
-    position: relative;
+    margin-bottom: 20px;
 }
 
-.btn-back-viewcustomwords{
-    position: absolute;
-    left: 0px;
+.main-container-viewcustomwords{
+    border-radius: 22px 22px 22px 22px;
+    background: #95A299;
+    padding: 10px; 
 }
 
-.header-viewcustomwords{
-    height: 50px;
-    width: 300px;
-    background-color: #FFC658;
-    stroke-width: 5px;
-    border: 3px solid #D96800;
-    color: #fff;
-    font-size: 25px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-
-}
-
-.main-container{
+.main-border-view{
+    box-shadow: inset 3px 3px 5px #000;
+    border-radius: 22px;
     height: 500px;
     width: 600px;
-    border-radius: 22px;
-    border: 8px solid #D96800;
-    background: linear-gradient(61deg, #FFC658 5.53%, #FFF 88.98%);
+    border: 10px solid #666666;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
+    justify-content: center;
     position: relative;
-
+    background: linear-gradient(to top right, #461386, #B36DEA);
 }
 
 .word-container-scroll-viewcustomwords{

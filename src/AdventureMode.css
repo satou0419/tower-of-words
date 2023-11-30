@@ -1,11 +1,11 @@
 .adventure-container {
-  height: 100vh;
+  height: 84.5vh;
   display: flex;
   flex-direction: column;
 }
 
 .container-tower-details {
-  height: 70%;
+  height: 80%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -16,8 +16,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
   gap: 1.5rem;
+  cursor: pointer;
+}
+
+.tower-details span{
+  color: #9488B6;
+  font-size: 25px;
 }
 
 .img-tower {
@@ -26,9 +32,9 @@
 
 .tower-progress {
   border: 5px solid red;
-  flex-grow: 1;
-  background-color: #593796;
 
+  background-color: #593796;
+  flex-grow: 1;
   border-style: none;
   border-top: 10px solid #26114b;
   color: #f0f0f5;
@@ -37,9 +43,11 @@
 .tower-progress h1 {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: auto;
   gap: 1rem;
   word-spacing: 1rem;
+  font-weight: normal;
+  
 }
 
 .completed,
