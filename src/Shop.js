@@ -13,9 +13,6 @@ function Shop() {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + totalItems) % totalItems);
   };
 
-  const handleNextClick = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % totalItems);
-  };
   return (
     <>
       <div className="main-shop">
