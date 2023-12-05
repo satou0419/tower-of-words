@@ -1,15 +1,21 @@
 import "./root.css";
 import { Link } from "react-router-dom";
 import "./Dashboard.css";
+import { Context } from "./App";
+import { useContext } from 'react';
 export default function Dashboard() {
+  const [words] = useContext(Context)
   document.body.style.backgroundColor = "#fdffdd";
+
+  
 
   return (
     <div className="mother-div">
+      {/* {words[19].definition} */}
       <div className="card-container">
         <div className="card">
           <Link to="/adventure">
-            <div className="portrait-container-1">
+            <div className="portrait-container-1" onClick={() => {console.log(words)}}>
               <img src="./images/adventure_mode_portrait_v2.png" />
             </div>
             <h2>Adventure</h2>
