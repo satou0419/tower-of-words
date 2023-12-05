@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, createContext, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navigation from "./Navigation";
 import Archive from "./Archive";
@@ -26,7 +26,12 @@ import MedkitInfo from "./MedkitInfo";
 import AdActivity from "./AdventureActivity";
 import BattInfo from "./BattInfo";
 
+export const Context = createContext();
+
 function App() {
+  const [words, setWords] = useState([{}]);
+
+
   const [userInfo, setUserInfo] = useState({
     username: localStorage.getItem("username") || "",
     credit: localStorage.getItem("credit") || 0,
@@ -39,7 +44,32 @@ function App() {
     });
   };
 
-  return (
+  useEffect(() => {
+    fetch('http://localhost:8080/word/getAllWord')
+        .then(res => {
+            if (!res.ok) {
+                throw new Error(`Network response was not ok. Status: ${res.status}`);
+            }
+            return res.json();
+        })
+        .then(data => {
+            console.log(data);
+            setWords(data);
+            
+        })
+        .then(data =>{
+            console.log(words); 
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+        console.log(words); 
+       
+}, []);
+
+  return (<>
+    {/* {words[0].definition} */}
+    <Context.Provider value = {[words]}>
     <Router>
       <Routes>
         {/* <Route path="/shop" element={<Shop />} /> */}
@@ -82,7 +112,8 @@ function App() {
         </Route>
       </Routes>
     </Router>
-  );
+    </Context.Provider>
+  </>);
 }
 
 export default App;
