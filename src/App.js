@@ -33,7 +33,7 @@ function App() {
 
 
   const [userInfo, setUserInfo] = useState({
-    username: localStorage.getItem("username") || "",
+    username: localStorage.getItem("userID") || "",
     credit: localStorage.getItem("credit") || 0,
   });
 

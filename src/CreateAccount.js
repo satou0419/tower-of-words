@@ -126,7 +126,7 @@ export default function CreateAccount() {
               onChange={handleChange}
             />
             {!validPassword && (
-              <p style={{ color: "red" }}>
+              <p className="error" style={{ color: "red" }}>
                 Password must be at least 8 characters long with a combination
                 of uppercase, lowercase, and special characters.
               </p>

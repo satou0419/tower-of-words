@@ -88,3 +88,8 @@
 .push-bottom {
   margin-top: auto;
 }
+
+p.error {
+  position: absolute;
+  width: 25%;
+}

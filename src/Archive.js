@@ -1,46 +1,45 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Archive2.css";
 
 export default function Archive() {
-  // var selected;
   const [selected, setSelected] = useState({});
-  const [words, setWords] = useState([
-    {
-      id: 0,
-      theword: "Happy",
-      audiPath: "blabla.mp4",
-      prounounciation: "ha-pi",
-      definition: "skibidi bap bap yes yes",
-      pOs: "verb",
-    },
-    {
-      id: 1,
-      theword: "Sad",
-      audiPath: "blabla.mp4",
-      prounounciation: "bobo ka?",
-      definition: "hu hu hu huhuhu",
-      pOs: "verb",
-    },
-    {
-      id: 2,
-      theword: "Anger",
-      audiPath: "blabla.mp4",
-      prounounciation: "ang-gir",
-      definition: "reeeeeeeeeeeeeeeeeeeee!",
-      pOs: "verb",
-    },
-    {
-      id: 3,
-      theword: "Death",
-      audiPath: "blabla.mp4",
-      prounounciation: "det",
-      definition: "void void void void void",
-      pOs: "verb",
-    },
-  ]);
+  const [words, setWords] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  const userId = localStorage.getItem("userID");
+
+  useEffect(() => {
+    // Fetch user's archive data based on the logged-in user ID
+    const fetchUserArchive = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:8080/watataps/users/getUserById/${userId}`
+        );
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const userData = await response.json();
+
+        // Assuming userData has the structure you provided
+        if (userData) {
+          setWords(userData.user.userArchive.words);
+        } else {
+          console.log("No user data in the response");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    };
+
+    fetchUserArchive();
+  }, [userId]);
+
+  const filteredWords = words.filter((word) =>
+    word.word.toLowerCase().includes(searchText.toLowerCase())
+  );
 
   function toSelect(word) {
-    // selected = id;
     setSelected(word);
     console.log(selected);
   }
@@ -53,8 +52,16 @@ export default function Archive() {
             <div className="super-inner-left">
               <div className="search-container">
                 <div className="input-image-cont">
-                  <img src="./images/magnifying_glass_icon.png" />
-                  <input></input>
+                  <img
+                    src="./images/magnifying_glass_icon.png"
+                    alt="magnifying-glass"
+                  />
+                  <input
+                    type="text"
+                    value={searchText}
+                    onChange={(e) => setSearchText(e.target.value)}
+                    placeholder="Search words..."
+                  />
                 </div>
 
                 <button>SEARCH</button>
@@ -62,11 +69,11 @@ export default function Archive() {
 
               <div className="word-list">
                 <ul style={{ listStyle: "none" }}>
-                  {words.map((word, index) => (
-                    <li key={index}>
+                  {filteredWords.map((word) => (
+                    <li key={word.wordID}>
                       <div
                         className={
-                          word.id !== selected.id
+                          word.wordID !== selected.wordID
                             ? "the-default"
                             : "the-selected"
                         }
@@ -74,7 +81,7 @@ export default function Archive() {
                           toSelect(word);
                         }}
                       >
-                        {word.theword}
+                        {word.word}
                       </div>
                     </li>
                   ))}
@@ -89,16 +96,16 @@ export default function Archive() {
             <div className="super-inner-right">
               {Object.keys(selected).length > 0 ? (
                 <div className="word-info-container">
-                  <div className="word-selected">{selected.theword}</div>
+                  <div className="word-selected">{selected.word}</div>
                   <div className="pronounciation">
-                    {selected.prounounciation}
+                    {selected.pronunciation}
                     <button>
-                      <img src="./images/audio_orange.png" />
+                      <img src="./images/audio_orange.png" alt="audio" />
                     </button>
                   </div>
 
                   <div className="description-box">
-                    <div className="pos-box">{selected.pOs}</div>
+                    <div className="pos-box">{selected.partOfSpeech}</div>
                     <div className="definition-box">{selected.definition}</div>
                   </div>
                 </div>
