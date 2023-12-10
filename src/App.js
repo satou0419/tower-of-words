@@ -96,6 +96,7 @@ function App() {
           <Route path="/viewtower" element={<ViewCustomTower />} />
           <Route path="/view-words-added" element={<WordsAdded />} />
           <Route path="/adventure" element={<AdventureMode />} />
+          <Route path="/adventure/:towid" element={<AdActivity />} />
 
           <Route path="/words" element={<WordsAdded />} />
           <Route path="/shop" element={<Shop />} />
@@ -107,7 +108,7 @@ function App() {
           <Route path="/archive" element={<Archive />} />
           <Route path="/items" element={<Inventory />} />
           <Route path="/home" element={<Dashboard />} />
-          <Route path="/game-tower1" element={<AdActivity />} />
+          
           <Route path="/shop" element={<Shop />} />
         </Route>
       </Routes>
