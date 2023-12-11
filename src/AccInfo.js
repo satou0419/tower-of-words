@@ -7,7 +7,7 @@ function AccInfo() {
     <>
       <div className="account">
         <div className="acc-info">
-          <h2>ACCOUNT INFORMATION</h2>
+          <h2 className="acc-info-title">ACCOUNT INFORMATION</h2>
           <input
             className="inputs-information-acc inputs-acc"
             type="text"
@@ -26,7 +26,7 @@ function AccInfo() {
           <button className="btn-save save-acc">Save Changes</button>
         </div>
         <div className="pass">
-          <h2>CHANGE PASSWORD</h2>
+          <h2 className="acc-info-title">CHANGE PASSWORD</h2>
           <input
             className="inputs-information-acc inputs-pass"
             type="password"

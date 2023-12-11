@@ -158,7 +158,7 @@ button:hover {
 
 ::-webkit-scrollbar-button:single-button:vertical:decrement {
   border-width: 0 5px 5px 5px;
-  border-color: transparent transparent var(--primary-color) transparent;
+  border-color: transparent transparent var(--primary-color) transparent; 
 }
 
 ::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
@@ -173,3 +173,5 @@ button:hover {
 ::-webkit-scrollbar-button:vertical:single-button:increment:hover {
   border-color: var(--primary-color) transparent transparent transparent;
 }
+
+

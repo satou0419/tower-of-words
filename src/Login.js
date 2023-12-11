@@ -25,19 +25,22 @@ export default function Login({ onLogin }) {
       const usersDetails = await response.json();
 
       if (usersDetails.length > 0) {
-        const matchingUser = usersDetails[0].user;
+        const matchingUser = usersDetails.find(
+          (userDetail) =>
+            userDetail.user.username === credentials.username &&
+            userDetail.user.password === credentials.password
+        );
 
-        if (
-          matchingUser &&
-          matchingUser.username === credentials.username &&
-          matchingUser.password === credentials.password
-        ) {
-          //To avoid losing data in refreshing char
-          localStorage.setItem("username", matchingUser.username);
-          localStorage.setItem("credit", usersDetails[0].credit);
+        if (matchingUser) {
+          const loggedInUserID = matchingUser.user.userID;
+
+          // To avoid losing data in refreshing char
+          localStorage.setItem("userID", loggedInUserID);
+          localStorage.setItem("username", matchingUser.user.username);
+          localStorage.setItem("credit", matchingUser.credit);
 
           // Call the onLogin callback with the username and credit
-          onLogin(matchingUser.username, usersDetails[0].credit);
+          onLogin(matchingUser.user.username, matchingUser.credit);
           navigate("/home");
         } else {
           // Display an error message or take appropriate action for failed login
