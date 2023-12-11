@@ -1,16 +1,17 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
+import { Context } from "./App";
 
-export default function Login({ onLogin }) {
+export default function Login() {
   const navigate = useNavigate();
+  const [words, userInfo, handleLogin] = useContext(Context);
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
-    credit: "",
   });
 
-  const handleLogin = async (event) => {
+  const handleLoginSubmit = async (event) => {
     event.preventDefault();
 
     try {
@@ -32,15 +33,13 @@ export default function Login({ onLogin }) {
         );
 
         if (matchingUser) {
-          const loggedInUserID = matchingUser.user.userID;
-
-          // To avoid losing data in refreshing char
-          localStorage.setItem("userID", loggedInUserID);
-          localStorage.setItem("username", matchingUser.user.username);
-          localStorage.setItem("credit", matchingUser.credit);
-
           // Call the onLogin callback with the username and credit
-          onLogin(matchingUser.user.username, matchingUser.credit);
+          handleLogin(matchingUser.user.username, matchingUser.credit);
+
+          // Save user info to localStorage
+          localStorage.setItem("userID", matchingUser.user.userID);
+          localStorage.setItem("username", matchingUser.user.username);
+
           navigate("/home");
         } else {
           // Display an error message or take appropriate action for failed login
@@ -74,7 +73,7 @@ export default function Login({ onLogin }) {
           />
         </div>
         <div className="right-container">
-          <form className="signin-form" onSubmit={handleLogin}>
+          <form className="signin-form" onSubmit={handleLoginSubmit}>
             <h1 className="heading">Welcome</h1>
             <input
               type="text"

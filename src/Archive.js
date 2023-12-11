@@ -1,47 +1,35 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import "./Archive2.css";
+import { Context } from "./App"; // Import your context
 
 export default function Archive() {
   const [selected, setSelected] = useState({});
-  const [words, setWords] = useState([]);
   const [searchText, setSearchText] = useState("");
-  const userId = localStorage.getItem("userID");
+  const [selectedAudioPath, setSelectedAudioPath] = useState("");
+  const [, userInfo, handleLogin] = useContext(Context); // Access the words and userInfo from Context
+  const userId = userInfo.user.userID; // Use userID from userInfo
+
+  const filteredWords =
+    userInfo.user.userArchive?.words.filter((word) =>
+      word.word.toLowerCase().includes(searchText.toLowerCase())
+    ) || [];
 
   useEffect(() => {
-    // Fetch user's archive data based on the logged-in user ID
-    const fetchUserArchive = async () => {
-      try {
-        const response = await fetch(
-          `http://localhost:8080/watataps/users/getUserById/${userId}`
-        );
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const userData = await response.json();
-
-        // Assuming userData has the structure you provided
-        if (userData) {
-          setWords(userData.user.userArchive.words);
-        } else {
-          console.log("No user data in the response");
-        }
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    };
-
-    fetchUserArchive();
-  }, [userId]);
-
-  const filteredWords = words.filter((word) =>
-    word.word.toLowerCase().includes(searchText.toLowerCase())
-  );
+    // Assume that the structure of userInfo is the same as the user object in your API response
+    if (userInfo.user.userArchive) {
+      // You don't need to setWords here as words is coming from Context
+    }
+  }, [userInfo]);
 
   function toSelect(word) {
+    setSelectedAudioPath(word.audioPath);
     setSelected(word);
     console.log(selected);
+  }
+
+  function playAudio() {
+    const audioPlayer = new Audio(`./audios/${selectedAudioPath}`);
+    audioPlayer.play();
   }
 
   return (
@@ -63,8 +51,6 @@ export default function Archive() {
                     placeholder="Search words..."
                   />
                 </div>
-
-                <button>SEARCH</button>
               </div>
 
               <div className="word-list">
@@ -99,7 +85,7 @@ export default function Archive() {
                   <div className="word-selected">{selected.word}</div>
                   <div className="pronounciation">
                     {selected.pronunciation}
-                    <button>
+                    <button onClick={playAudio}>
                       <img src="./images/audio_orange.png" alt="audio" />
                     </button>
                   </div>
