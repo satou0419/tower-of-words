@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./TheGame.css";
 import "./root.css";
 import { useEffect, useState, useContext, useRef } from "react";
@@ -8,6 +8,8 @@ import axios from 'axios';
 
 export default function AdActivity() {
   const [words] = useContext(Context)
+
+  const { towid } = useParams();
   const audioRef = useRef(null);
   const [tower, setTower] = useState(null);
   const [towerWords, setTowerWords] = useState([{}])
@@ -72,7 +74,7 @@ export default function AdActivity() {
     //   }
     // };
     // fetchData();
-    axios.get(`http://localhost:8080/tower/getTowerById?towerId=1`)
+    axios.get(`http://localhost:8080/tower/getTowerById?towerId=${towid}`)
           .then(response => {
               console.log(response)
               setTower(response.data)
@@ -102,42 +104,15 @@ export default function AdActivity() {
 
 
 
-  // useEffect(() => {
-  //   if(!loading){
-  //     setTheWords();
-  //     console.log(towerWords);
-  //   }
-    
-  // }, [tower]);
-
-//   useEffect(() => {
-//     fetch('http://localhost:8080/tower/getTowerById?towerId=1')
-//         .then(res => {
-//             if (!res.ok) {
-//                 throw new Error(`Network response was not ok. Status: ${res.status}`);
-//             }
-//             return res.json();
-//         })
-//         .then(data => {
-//             console.log(data);
-//         })
-//         .catch(error => {
-//             console.error('There was a problem with the fetch operation:', error);
-//         });
-// }, []);
-
-
-
-  return (
-    <>
+  return (<>
 
     {loading2 === true ? <div>Loading...</div> :
       
     <div className="mother-of-all">
-      {towerWords[1].word}asdasd
+      {/* {towid}asdasd
 
       {tower.towerName}
-      {tower.enemyList[4].enemyName}
+      {tower.enemyList[4].enemyName} */}
       
       <div className="mini-bar-container">
         <button className="exit-button">
@@ -151,7 +126,7 @@ export default function AdActivity() {
         <div className="activity-container">
           <div className="activity-log"></div>
           <div className="image-container">
-            <img src={`./images/${tower.enemyList[progress].imagePath}`} />
+            <img src={`/images/${tower.enemyList[progress].imagePath}`} />
           </div>
           <div className="blank"></div>
         </div>
@@ -167,15 +142,15 @@ export default function AdActivity() {
             <div className="container-upper">
               <button className="ad-activity-item-button">
                 {" "}
-                <img src="./images/small_bandage.png" /> <span>x0</span>
+                <img src="/images/small_bandage.png" /> <span>x0</span>
               </button>
               <button className="ad-activity-item-button">
                 {" "}
-                <img src="./images/health_kit.png" /> <span>x0</span>
+                <img src="/images/health_kit.png" /> <span>x0</span>
               </button>
               <button className="ad-activity-item-button">
                 {" "}
-                <img src="./images/unusual_battery.png" /> <span>x0</span>
+                <img src="/images/unusual_battery.png" /> <span>x0</span>
               </button>
             </div>
 
@@ -189,7 +164,7 @@ export default function AdActivity() {
 
         <div className="common-nga-class center">
           <div className="audio-button-container">
-            <audio ref={audioRef} src={`./audios/${towerWords[progress].audioPath}`}/>
+            <audio ref={audioRef} src={`/audios/${towerWords[progress].audioPath}`}/>
             <button onClick={() => {audioPlay()}}>audio</button>
           </div>
           <div className="input-container">
@@ -199,12 +174,12 @@ export default function AdActivity() {
             <button onClick={() => {checkSpell()}}>GO!</button>
           </div>
           <div className="hp-container">
-                        <img src={hp >= 1 ? `./images/red_heart.png` : `./images/white_heart.png`}/>
-                        <img src={hp >= 2 ? `./images/red_heart.png` : `./images/white_heart.png`}/>
-                        <img src={hp >= 3 ? `./images/red_heart.png` : `./images/white_heart.png`}/>
-                        <img src={hp >= 4 ? `./images/red_heart.png` : `./images/white_heart.png`}/>
-                        <img src={hp >= 5 ? `./images/red_heart.png` : `./images/white_heart.png`}/>
-                        <img src={hp >= 6 ? `./images/red_heart.png` : `./images/white_heart.png`}/>
+                        <img src={hp >= 1 ? `/images/red_heart.png` : `/images/white_heart.png`}/>
+                        <img src={hp >= 2 ? `/images/red_heart.png` : `/images/white_heart.png`}/>
+                        <img src={hp >= 3 ? `/images/red_heart.png` : `/images/white_heart.png`}/>
+                        <img src={hp >= 4 ? `/images/red_heart.png` : `/images/white_heart.png`}/>
+                        <img src={hp >= 5 ? `/images/red_heart.png` : `/images/white_heart.png`}/>
+                        <img src={hp >= 6 ? `/images/red_heart.png` : `/images/white_heart.png`}/>
           </div>
         </div>
 
