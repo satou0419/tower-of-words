@@ -33,11 +33,10 @@ export default function Login({ onLogin }) {
           matchingUser.password === credentials.password
         ) {
           //To avoid losing data in refreshing char
-          localStorage.setItem("username", matchingUser.username);
-          localStorage.setItem("credit", usersDetails[0].credit);
-
+          localStorage.setItem("userDetails", JSON.stringify(usersDetails[0]));
           // Call the onLogin callback with the username and credit
-          onLogin(matchingUser.username, usersDetails[0].credit);
+          onLogin(usersDetails[0]);
+          console.log(usersDetails[0]);
           navigate("/home");
         } else {
           // Display an error message or take appropriate action for failed login

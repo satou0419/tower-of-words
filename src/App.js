@@ -25,19 +25,29 @@ import BandageInfo from "./BandageInfo";
 import MedkitInfo from "./MedkitInfo";
 import AdActivity from "./AdventureActivity";
 import BattInfo from "./BattInfo";
+import EnterCode from "./EnterCode";
+import CustomTowerGame from "./CustomTowerGame";
 
 function App() {
   const [userInfo, setUserInfo] = useState({
-    username: localStorage.getItem("username") || "",
-    credit: localStorage.getItem("credit") || 0,
+    userDetails: JSON.parse(localStorage.getItem('userDetails')) || {},
   });
 
-  const handleLogin = (loggedInUsername, loggedInCredit) => {
+  const {username} = userInfo.userDetails.user;
+  const {credit} = userInfo.userDetails;
+
+  const {userIDRef} = userInfo.userDetails;
+   
+
+  const handleLogin = (userDetails) => {
     setUserInfo({
-      username: loggedInUsername,
-      credit: loggedInCredit,
+      userDetails
     });
+    console.log(userDetails);
+    console.log(userInfo);
   };
+
+  console.log(userIDRef);
 
   return (
     <Router>
@@ -52,26 +62,24 @@ function App() {
         <Route
           path="/"
           element={
-            <Navigation username={userInfo.username} credit={userInfo.credit} />
+            <Navigation username={username} credit={credit} />
           }
         >
           {/* <Route path="/" element={<TowerName />} /> */}
           <Route path="/inventory" element={<Inventory />} />
 
-          <Route path="/enter-custom-tower" element={<CustomTower />} />
+          
           <Route path="/play-custom" element={<PlayCustom />} />
-
-          <Route path="/generate-code" element={<GenerateCode />} />
+          <Route path="/generate-code/:gamecode" element={<GenerateCode />} />
           <Route path="/viewparticipants" element={<ViewParticipants />} />
-          <Route path="/viewtower" element={<ViewCustomTower />} />
-          <Route path="/view-words-added" element={<WordsAdded />} />
+          <Route path="/viewtower" element={<ViewCustomTower userIDRef = {userIDRef} />} />
+          <Route path="/view-words-added" element={<ViewCustomWords/>} />
           <Route path="/adventure" element={<AdventureMode />} />
-
+          <Route path="/enter-code" element={<EnterCode />} />
           <Route path="/words" element={<WordsAdded />} />
           <Route path="/shop" element={<Shop />} />
-
-          <Route path="/create-custom" element={<TowerName />} />
-          <Route path="/added-custom-tower" element={<CustomTower />} />
+          <Route path="/custom-game/:gamecode" element={<CustomTowerGame />} />
+          <Route path="/create-custom" element={<CustomTower userIDRef = {userIDRef} />} />
           <Route path="/medkit" element={<MedkitInfo />} />
           <Route path="/accinfo" element={<AccInfo />} />
           <Route path="/archive" element={<Archive />} />
