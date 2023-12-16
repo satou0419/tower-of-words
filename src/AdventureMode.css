@@ -21,8 +21,8 @@
   cursor: pointer;
 }
 
-.tower-details span{
-  color: #9488B6;
+.tower-details span {
+  color: #9488b6;
   font-size: 25px;
 }
 
@@ -47,7 +47,6 @@
   gap: 1rem;
   word-spacing: 1rem;
   font-weight: normal;
-  
 }
 
 .completed,
