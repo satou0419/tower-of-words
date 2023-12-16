@@ -13,7 +13,9 @@ body {
 }
 
 .ui {
+  /* background-image: url("./images/frame.png"); */
   /* margin-top: 70%; */
+  background-image: url("C:\Users\Steemp\Documents\CollegeStuff\3rdYear\1stSem\Industry Elective\File Projects\FINALS YAWA\tower-of-words\public\images/frame.png");
   height: 210px;
   width: 100%;
   /* margin-top: 33%; */
@@ -58,7 +60,7 @@ body {
   align-content: space-between;
 }
 
-.item-button {
+.ad-activity-item-button {
   height: 65px;
   width: 65px;
   border-radius: 5px;
@@ -109,11 +111,7 @@ body {
   height: 98%;
 }
 
-.screen {
-  background-color: #fdffdd;
-  flex-grow: 1;
-  width: 100%;
-}
+
 
 .activity-container {
   border: 2px solid red;
@@ -150,12 +148,12 @@ body {
   border: 1px solid red;
 }
 
-.item-button img {
+.ad-activity-item-button img {
   height: 100%;
   width: 100%;
 }
 
-.item-button span {
+.ad-activity-item-button span {
   position: absolute;
   color: #dc6900;
   background-color: #ffc658;
@@ -232,10 +230,13 @@ body {
 }
 
 .hp-container {
-  border: 2px solid red;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  height: 30px;
+    border: 2px solid red;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
 }
 
 .info-container {

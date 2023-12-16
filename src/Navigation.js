@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import "./Navigation.css";
 import "./root.css";
 import "@fontsource/lilita-one";
 import Logout from "./Logout";
+import { Context } from "./App";
 
-export default function Navigation({ username, credit }) {
+export default function Navigation() {
+  const [words, userInfo, handleLogin] = useContext(Context);
+  const { username } = userInfo.user;
+  const { credit } = userInfo;
   const [isLogoutModalOpen, setLogoutModalOpen] = useState(false);
 
   const openLogoutModal = () => {
@@ -19,10 +23,10 @@ export default function Navigation({ username, credit }) {
   return (
     <div className="wrapper">
       <nav>
-        <img src="./images/logo.png" alt="tow-logo" className="nav-logo" />
+        <img src="/images/logo.png" alt="tow-logo" className="nav-logo" />
         <section className="user-details">
           <Link to="/accinfo">{username}</Link>
-          <span className="currency">{credit}</span>
+          <span className="currency">Currency: {credit}</span>
         </section>
         <section className="nav-links">
           <li className="push-right">

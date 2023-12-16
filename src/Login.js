@@ -1,16 +1,17 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
+import { Context } from "./App";
 
-export default function Login({ onLogin }) {
+export default function Login() {
   const navigate = useNavigate();
+  const [words, userInfo, handleLogin] = useContext(Context);
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
-    credit: "",
   });
 
-  const handleLogin = async (event) => {
+  const handleLoginSubmit = async (event) => {
     event.preventDefault();
 
     try {
@@ -25,18 +26,20 @@ export default function Login({ onLogin }) {
       const usersDetails = await response.json();
 
       if (usersDetails.length > 0) {
-        const matchingUser = usersDetails[0].user;
+        const matchingUser = usersDetails.find(
+          (userDetail) =>
+            userDetail.user.username === credentials.username &&
+            userDetail.user.password === credentials.password
+        );
 
-        if (
-          matchingUser &&
-          matchingUser.username === credentials.username &&
-          matchingUser.password === credentials.password
-        ) {
-          //To avoid losing data in refreshing char
-          localStorage.setItem("userDetails", JSON.stringify(usersDetails[0]));
+        if (matchingUser) {
           // Call the onLogin callback with the username and credit
-          onLogin(usersDetails[0]);
-          console.log(usersDetails[0]);
+          handleLogin(matchingUser.user.username, matchingUser.credit);
+
+          // Save user info to localStorage
+          localStorage.setItem("userID", matchingUser.user.userID);
+          localStorage.setItem("username", matchingUser.user.username);
+
           navigate("/home");
         } else {
           // Display an error message or take appropriate action for failed login
@@ -70,7 +73,7 @@ export default function Login({ onLogin }) {
           />
         </div>
         <div className="right-container">
-          <form className="signin-form" onSubmit={handleLogin}>
+          <form className="signin-form" onSubmit={handleLoginSubmit}>
             <h1 className="heading">Welcome</h1>
             <input
               type="text"

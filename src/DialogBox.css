@@ -29,6 +29,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 2rem;
 }
 
 .dialog-icon {
@@ -47,6 +48,11 @@
   color: #444444;
   font-size: 40px;
   letter-spacing: 3px;
+}
+
+p.dialog-message {
+  margin: 0 20px 0 20px;
+  text-align: center;
 }
 
 .btns {
