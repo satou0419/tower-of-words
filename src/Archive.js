@@ -48,7 +48,7 @@ export default function Archive() {
                     type="text"
                     value={searchText}
                     onChange={(e) => setSearchText(e.target.value)}
-                    placeholder="Search words..."
+                    placeholder=""
                   />
                 </div>
               </div>

@@ -15,7 +15,7 @@ const Loading = () => {
         clearInterval(interval);
 
         setTimeout(() => {
-          navigate("/login");
+          navigate("/landing");
         }, 1500);
       } else {
         setWidth((prevWidth) => prevWidth + steps);

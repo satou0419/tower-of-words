@@ -162,7 +162,7 @@ export default function CreateAccount() {
         <DialogBox
           title="Confirm Save"
           message="Are you sure you want to save the account?"
-          imageSrc="./images/confirmation-icon.png" // Change this to your confirmation image
+          imageSrc="./images/confirmation-icon.png" // Change this to your confirmation image8
           buttons={[
             {
               label: "Cancel",
