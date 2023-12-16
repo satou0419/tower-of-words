@@ -2,12 +2,11 @@ import React, { useState, createContext, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navigation from "./Navigation";
 import Archive from "./Archive";
-import Items from "./Items";
+import Inventory from "./Inventory";
 import Dashboard from "./Dashboard";
 import TowerName from "./TowerName";
 import CustomTower from "./CustomTower";
 import WordsAdded from "./WordsAdded";
-import ViewCustomWords from "./ViewCustomWords";
 import ViewCustomTower from "./ViewCustomTower";
 import ViewParticipants from "./ViewParticipants";
 import GenerateCode from "./GenerateCode";
@@ -19,102 +18,151 @@ import Loading from "./Loading";
 import CreateAccount from "./CreateAccount";
 import PlayCustom from "./PlayCustom";
 import Login from "./Login";
-import Inventory from "./Inventory";
 import Shop from "./Shop";
-import BandageInfo from "./BandageInfo";
 import MedkitInfo from "./MedkitInfo";
 import AdActivity from "./AdventureActivity";
-import BattInfo from "./BattInfo";
-
 export const Context = createContext();
-
 function App() {
-  const [words, setWords] = useState([{}]);
-
-
-  const [userInfo, setUserInfo] = useState({
-    username: localStorage.getItem("userID") || "",
-    credit: localStorage.getItem("credit") || 0,
+  const [words, setWords] = useState([]);
+  const [userInfo, setUserInfo] = useState(() => {
+    const storedUserInfo = localStorage.getItem("userInfo");
+    return storedUserInfo
+      ? JSON.parse(storedUserInfo)
+      : {
+          userIDRef: 0,
+          progress: 0,
+          credit: 0,
+          user: {
+            userID: 0,
+            firstname: "",
+            lastname: "",
+            username: "",
+            password: "",
+            userArchive: {
+              userIDRef: 0,
+              words: [],
+            },
+          },
+          userItems: [
+            {
+              userItemID: 0,
+              quantity: 0,
+              item: {
+                itemID: 0,
+                imagePath: "",
+                itemName: "",
+                itemDescription: "",
+                price: 0,
+              },
+            },
+          ],
+        };
   });
-
   const handleLogin = (loggedInUsername, loggedInCredit) => {
-    setUserInfo({
-      username: loggedInUsername,
+    console.log("Username:", loggedInUsername);
+    console.log("Credit:", loggedInCredit);
+    const updatedUserInfo = {
+      ...userInfo,
+      user: {
+        ...userInfo.user,
+        username: loggedInUsername,
+      },
       credit: loggedInCredit,
-    });
+    };
+    setUserInfo(updatedUserInfo);
+    // Save user info to localStorage
+    localStorage.setItem("userInfo", JSON.stringify(updatedUserInfo));
   };
-
   useEffect(() => {
-    fetch('http://localhost:8080/word/getAllWord')
-        .then(res => {
-            if (!res.ok) {
-                throw new Error(`Network response was not ok. Status: ${res.status}`);
-            }
-            return res.json();
-        })
-        .then(data => {
-            console.log(data);
-            setWords(data);
+    // Fetch user details
+    fetch("http://localhost:8080/watataps/users/getAllUsersDetails/")
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Network response was not ok. Status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((userDetails) => {
+        const loggedInUser = userDetails.find(
+          (userDetail) => userDetail.user.username === userInfo.user.username
+        );
+        if (loggedInUser) {
+          const updatedUserInfo = {
+            userIDRef: loggedInUser.userIDRef,
+            progress: loggedInUser.progress,
+            credit: loggedInUser.credit,
+            user: {
+              userID: loggedInUser.user.userID,
+              firstname: loggedInUser.user.firstname,
+              lastname: loggedInUser.user.lastname,
+              username: loggedInUser.user.username,
+              password: loggedInUser.user.password,
+              userArchive: {
+                userIDRef: loggedInUser.user.userArchive.userIDRef,
+                words: loggedInUser.user.userArchive.words || [],
+              },
+            },
+            userItems: loggedInUser.userItems || [],
+          };
+          setUserInfo(updatedUserInfo);
+          // Save user info to localStorage
+          localStorage.setItem("userInfo", JSON.stringify(updatedUserInfo));
+          console.log(userDetails);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching user details:", error);
+      });
+    // Fetch words
+    fetch("http://localhost:8080/word/getAllWord")
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Network response was not ok. Status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setWords(data);
+      })
+      .catch((error) => {
+        console.error("There was a problem with the fetch operation:", error);
+      });
+  }, []);
+  return (
+    <Context.Provider value={[words, userInfo, setUserInfo, handleLogin]}>
+      <Router>
+        <Routes>
+          {/* <Route path="/shop" element={<Shop />} /> */}
+          <Route path="/" element={<Loading />} />
+          <Route path="/account" element={<CreateAccount />} />
+          <Route path="/login" element={<Login onLogin={handleLogin} />} />
+          <Route path="/" element={<Navigation />}>
+            {/* <Route path="/" element={<TowerName />} /> */}
+            <Route path="/inventory" element={<Inventory />} />
+            <Route path="/enter-custom-tower" element={<CustomTower />} />
+            <Route path="/play-custom" element={<PlayCustom />} />
+            <Route path="/generate-code" element={<GenerateCode />} />
+            <Route path="/viewparticipants" element={<ViewParticipants />} />
+            <Route path="/viewtower" element={<ViewCustomTower />} />
+            <Route path="/view-words-added" element={<WordsAdded />} />
+            <Route path="/adventure" element={<AdventureMode />} />
+            <Route path="/adventure/:towid" element={<AdActivity />} />
+            <Route path="/words" element={<WordsAdded />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/create-custom" element={<TowerName />} />
+            <Route path="/added-custom-tower" element={<CustomTower />} />
+            <Route path="/medkit" element={<MedkitInfo />} />
+            <Route path="/accinfo" element={<AccInfo />} />
+            <Route path="/archive" element={<Archive />} />
+            <Route path="/items" element={<Inventory />} />
+            <Route path="/home" element={<Dashboard />} />
             
-        })
-        .then(data =>{
-            console.log(words); 
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
-        });
-        console.log(words); 
-       
-}, []);
-
-  return (<>
-    {/* {words[0].definition} */}
-    <Context.Provider value = {[words]}>
-    <Router>
-      <Routes>
-        {/* <Route path="/shop" element={<Shop />} /> */}
-
-        <Route path="/" element={<Loading />} />
-
-        <Route path="/account" element={<CreateAccount />} />
-        <Route path="/login" element={<Login onLogin={handleLogin} />} />
-
-        <Route
-          path="/"
-          element={
-            <Navigation username={userInfo.username} credit={userInfo.credit} />
-          }
-        >
-          {/* <Route path="/" element={<TowerName />} /> */}
-          <Route path="/inventory" element={<Inventory />} />
-
-          <Route path="/enter-custom-tower" element={<CustomTower />} />
-          <Route path="/play-custom" element={<PlayCustom />} />
-
-          <Route path="/generate-code" element={<GenerateCode />} />
-          <Route path="/viewparticipants" element={<ViewParticipants />} />
-          <Route path="/viewtower" element={<ViewCustomTower />} />
-          <Route path="/view-words-added" element={<WordsAdded />} />
-          <Route path="/adventure" element={<AdventureMode />} />
-          <Route path="/adventure/:towid" element={<AdActivity />} />
-
-          <Route path="/words" element={<WordsAdded />} />
-          <Route path="/shop" element={<Shop />} />
-
-          <Route path="/create-custom" element={<TowerName />} />
-          <Route path="/added-custom-tower" element={<CustomTower />} />
-          <Route path="/medkit" element={<MedkitInfo />} />
-          <Route path="/accinfo" element={<AccInfo />} />
-          <Route path="/archive" element={<Archive />} />
-          <Route path="/items" element={<Inventory />} />
-          <Route path="/home" element={<Dashboard />} />
-          
-          <Route path="/shop" element={<Shop />} />
-        </Route>
-      </Routes>
-    </Router>
+            <Route path="/shop" element={<Shop />} />
+          </Route>
+        </Routes>
+      </Router>
     </Context.Provider>
-  </>);
+  );
 }
-
 export default App;

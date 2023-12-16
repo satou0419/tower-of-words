@@ -2,16 +2,22 @@ import "./root.css";
 import { Link } from "react-router-dom";
 import "./Dashboard.css";
 import { Context } from "./App";
-import { useContext } from 'react';
+import {PdfGenerator} from './PdfGenerator';
+import { useContext, useEffect } from 'react';
+
+
 export default function Dashboard() {
-  const [words] = useContext(Context)
+  const [words, userInfo] = useContext(Context)
   document.body.style.backgroundColor = "#fdffdd";
 
-  
+  useEffect(() => {
+    console.log(userInfo)
+  }, []);
 
   return (
     <div className="mother-div">
       {/* {words[19].definition} */}
+      {/* <PdfGenerator data={userInfo}/> */}
       <div className="card-container">
         <div className="card">
           <Link to="/adventure">
@@ -25,7 +31,7 @@ export default function Dashboard() {
             </div>
             <div className="counter">
               <span className="counter-desc">Tower Completed</span>
-              <span className="the-counter">1</span>
+              <span className="the-counter">{userInfo.progress}</span>
             </div>
           </Link>
         </div>
@@ -52,7 +58,7 @@ export default function Dashboard() {
         <div className="span-holder">
           <span className="span-desc">Words Collected</span>
           <div className="span-var">
-            <span>0</span> out of <span>20</span> words
+            <span>{userInfo.user.userArchive.words.length}</span> out of <span>20</span> words
           </div>
         </div>
 

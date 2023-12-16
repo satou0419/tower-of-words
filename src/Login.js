@@ -1,46 +1,36 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
-
-export default function Login({ onLogin }) {
+import { Context } from "./App";
+export default function Login() {
   const navigate = useNavigate();
+  const [words, userInfo, handleLogin] = useContext(Context);
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
-    credit: "",
   });
-
-  const handleLogin = async (event) => {
+  const handleLoginSubmit = async (event) => {
     event.preventDefault();
-
     try {
       const response = await fetch(
         "http://localhost:8080/watataps/users/getAllUsersDetails/"
       );
-
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-
       const usersDetails = await response.json();
-
       if (usersDetails.length > 0) {
         const matchingUser = usersDetails.find(
           (userDetail) =>
             userDetail.user.username === credentials.username &&
             userDetail.user.password === credentials.password
         );
-
         if (matchingUser) {
-          const loggedInUserID = matchingUser.user.userID;
-
-          // To avoid losing data in refreshing char
-          localStorage.setItem("userID", loggedInUserID);
-          localStorage.setItem("username", matchingUser.user.username);
-          localStorage.setItem("credit", matchingUser.credit);
-
           // Call the onLogin callback with the username and credit
-          onLogin(matchingUser.user.username, matchingUser.credit);
+          handleLogin(matchingUser.user.username, matchingUser.credit);
+          // Save user info to localStorage
+          localStorage.setItem("userID", matchingUser.user.userID);
+          localStorage.setItem("username", matchingUser.user.username);
           navigate("/home");
         } else {
           // Display an error message or take appropriate action for failed login
@@ -53,16 +43,13 @@ export default function Login({ onLogin }) {
       console.error("Error:", error);
     }
   };
-
   const handleChange = (event) => {
     setCredentials({
       ...credentials,
       [event.target.name]: event.target.value,
     });
   };
-
   document.body.style.backgroundColor = "#ffc658";
-
   return (
     <section className="signin-wrapper">
       <div className="signin-container">
@@ -74,7 +61,7 @@ export default function Login({ onLogin }) {
           />
         </div>
         <div className="right-container">
-          <form className="signin-form" onSubmit={handleLogin}>
+          <form className="signin-form" onSubmit={handleLoginSubmit}>
             <h1 className="heading">Welcome</h1>
             <input
               type="text"
