@@ -6,29 +6,11 @@ import { useState, useEffect, useContext } from "react";
 import { Context } from "./App";
 
 function EnterCode() {
-  const [userInfo] = useContext(Context);
   const [gameCode, setGameCode] = useState("");
   const navigate = useNavigate();
-  const [data, setData] = useState([]);
+  const [loggedInUser, setLoggedInUser] = useState(null);
 
-  useEffect(() => {
-    fetch(`http://localhost:8080/CustomTower/getByGameCode/${gameCode}`)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        setData(data);
-        console.log(data);
-      })
-      .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-      });
-  }, [gameCode]);
-
-  const handleCodeChange = event => {
+  const handleCodeChange = (event) => {
     setGameCode(event.target.value);
   };
 
@@ -39,7 +21,7 @@ function EnterCode() {
     }
 
     console.log("Game Code:", gameCode);
-
+    
     if (loggedInUser) {
       fetch(`http://localhost:8080/CustomTower/addParticipant/${gameCode}`, {
         method: "POST",
@@ -48,17 +30,18 @@ function EnterCode() {
         },
         body: JSON.stringify(loggedInUser),
       })
-        .then(response => {
+        .then((response) => {
           if (!response.ok) {
             throw new Error("Network response was not ok");
           }
           return response.json();
         })
-        .then(data => {
+        .then((data) => {
           console.log("Participant added successfully:", data);
+          // Navigate to the custom game page
           navigate(`/custom-game/${gameCode}`);
         })
-        .catch(error => {
+        .catch((error) => {
           console.error("There was a problem adding the participant:", error);
         });
     } else {
