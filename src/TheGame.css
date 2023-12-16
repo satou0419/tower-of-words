@@ -15,7 +15,7 @@ body {
 .ui {
   /* background-image: url("./images/frame.png"); */
   /* margin-top: 70%; */
-  background-image: url("C:\Users\Steemp\Documents\CollegeStuff\3rdYear\1stSem\Industry Elective\File Projects\FINALS YAWA\tower-of-words\public\images/frame.png");
+  /* background-image: url("C:\Users\Steemp\Documents\CollegeStuff\3rdYear\1stSem\Industry Elective\File Projects\FINALS YAWA\tower-of-words\public\images/frame.png"); */
   height: 210px;
   width: 100%;
   /* margin-top: 33%; */
@@ -110,8 +110,6 @@ body {
   display: flex;
   height: 98%;
 }
-
-
 
 .activity-container {
   border: 2px solid red;
@@ -230,13 +228,13 @@ body {
 }
 
 .hp-container {
-    border: 2px solid red;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
+  border: 2px solid red;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }
 
 .info-container {

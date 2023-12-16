@@ -121,6 +121,7 @@ function App() {
           console.log(userDetails);
         }
       })
+
       .catch((error) => {
         console.error("Error fetching user details:", error);
       });
@@ -147,48 +148,27 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Loading />} />
+
           <Route path="/account" element={<CreateAccount />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route path="/landing" element={<Landing />} />
-          {/* <Route path="/" element={<TowerName />} /> */}
-          <Route path="/inventory" element={<Inventory />} />
 
-          <Route path="/play-custom" element={<PlayCustom />} />
-          <Route path="/generate-code/:gamecode" element={<GenerateCode />} />
-          <Route path="/viewparticipants" element={<ViewParticipants />} />
-          <Route
-            path="/viewtower"
-            element={<ViewCustomTower userIDRef={userIDRef} />}
-          />
-          <Route path="/view-words-added" element={<ViewCustomWords />} />
-          <Route path="/adventure" element={<AdventureMode />} />
-          <Route path="/enter-code" element={<EnterCode />} />
-          <Route path="/words" element={<WordsAdded />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/custom-game/:gamecode" element={<CustomTowerGame />} />
-          <Route
-            path="/create-custom"
-            element={<CustomTower userIDRef={userIDRef} />}
-          />
-          <Route path="/medkit" element={<MedkitInfo />} />
-          <Route path="/accinfo" element={<AccInfo />} />
-          <Route path="/archive" element={<Archive />} />
-          <Route path="/items" element={<Inventory />} />
-          <Route path="/home" element={<Dashboard />} />
-          <Route path="/game-tower1" element={<AdActivity />} />
-          <Route path="/shop" element={<Shop />} />
           <Route path="/" element={<Navigation />}>
             <Route path="/inventory" element={<Inventory />} />
+
             <Route path="/enter-custom-tower" element={<CustomTower />} />
             <Route path="/play-custom" element={<PlayCustom />} />
+
             <Route path="/generate-code" element={<GenerateCode />} />
             <Route path="/viewparticipants" element={<ViewParticipants />} />
             <Route path="/viewtower" element={<ViewCustomTower />} />
             <Route path="/view-words-added" element={<WordsAdded />} />
             <Route path="/adventure" element={<AdventureMode />} />
             <Route path="/adventure/:towid" element={<AdActivity />} />
+
             <Route path="/words" element={<WordsAdded />} />
             <Route path="/shop" element={<Shop />} />
+
             <Route path="/create-custom" element={<TowerName />} />
             <Route path="/added-custom-tower" element={<CustomTower />} />
             <Route path="/medkit" element={<MedkitInfo />} />
@@ -196,6 +176,8 @@ function App() {
             <Route path="/archive" element={<Archive />} />
             <Route path="/items" element={<Inventory />} />
             <Route path="/home" element={<Dashboard />} />
+
+            <Route path="/shop" element={<Shop />} />
           </Route>
         </Routes>
       </Router>

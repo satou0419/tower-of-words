@@ -1,62 +1,164 @@
-.main-shop{
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.main-shop {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.shop-top-container {
+  width: 90%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.shop-title-container {
+  height: 50px;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.shop-title {
+  font-size: 50px;
+  color: white;
+  font-weight: 100;
+
+  text-align: center;
+}
+.main-container-shop {
+  border-radius: 22px;
+  background: #95a299;
+  padding: 10px;
+}
+.main-border-view-shop {
+  box-shadow: inset 3px 3px 5px #000;
+  border-radius: 22px;
+  height: 500px;
+  width: 800px;
+  border: 10px solid #666666;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  background: linear-gradient(to top right, #461386, #b36dea);
+}
+.main-container-shop-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+.word-container-scroll-shop {
+  height: 90%;
+  width: 90%;
+  overflow-x: scroll;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.shop-display-box {
+  background-color: #9a6dea;
+  height: 230px;
+  width: 170px;
+  border: 9px solid #593796;
+  border-radius: 5px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.shop-pic-container {
+  height: 100px;
+  width: 150px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.bandage-pic-shop {
+  height: 110px;
+}
+.medkit-pic-shop {
+  height: 110px;
+}
+.battery-pic-shop {
+  height: 110px;
+}
+.shop-medkit-name {
+  color: white;
+  font-size: medium;
+}
+.shop-price-button {
+  margin-top: 5px;
+  width: 120px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #593796;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.shop-price-text {
+  color: #ffc658;
+  font-weight: 100;
+}
+.shop-cube {
+  height: 20px;
+  margin-right: 10px;
+}
+.shop-display {
+  width: 90%;
+  height: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+.info-btn-pic {
+  height: 20px;
+  display: right;
+}
+.info-btn {
+  background-color: transparent;
+  border: transparent;
+}
+.info-btn-container {
+  height: 20px;
+  width: 20px;
+  margin-left: 120px;
+}
+@keyframes fadeIn {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+}
+.word-container-scroll-shop::-webkit-scrollbar-button:single-button:horizontal:decrement {
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #000000 transparent transparent;
 }
 
-.shop-top-container{
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-direction: row;
-    margin-bottom: 20px;
+.word-container-scroll-shop::-webkit-scrollbar-button:single-button:horizontal:decrement:hover {
+  border-color: transparent #666666 transparent transparent;
 }
 
-.header-shop{
-    height: 50px;
-    width: 300px;
-    background-color: #FFC658;
-    stroke-width: 5px;
-    border: 3px solid #D96800;
-    color: #fff;
-    font-size: 25px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
+.word-container-scroll-shop::-webkit-scrollbar-button:single-button:horizontal:increment {
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent #000000;
 }
 
-.main-container{
-    height: 500px;
-    width: 600px;
-    border-radius: 22px;
-    border: 8px solid #D96800;
-    background: linear-gradient(61deg, #FFC658 5.53%, #FFF 88.98%);
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: row;
-    overflow: hidden;
+.word-container-scroll-shop::-webkit-scrollbar-button:single-button:horizontal:increment:hover {
+  border-color: transparent transparent transparent #666666;
 }
-
-.shop-container {
-    display: flex;
-    overflow-x: scroll;
-}
-
-.item {
-    width: 200px;
-    height: 200px;
-    margin: 0 10px;
-    background-color: #3498db;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    margin: auto;
-}
-

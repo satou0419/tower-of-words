@@ -8,9 +8,6 @@ export default function Dashboard() {
   document.body.style.backgroundColor = "#fdffdd";
 
   const userArchiveWordCount = userInfo.user.userArchive.words.length;
-  useEffect(() => {
-    console.log(userInfo)
-  }, []);
 
   return (
     <div className="mother-div">

@@ -1,213 +1,194 @@
-.archive-container{
-    margin-top: 30px;
-    display: flex;
-    border: 2px solid red;
-    justify-content: center;
-    align-items: center;
-    gap: 0px;
+.archive-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
 }
 
-.left-side{
-    background-color: #95A299;
-    height: 600px;
-    width: 500px;
-    border-radius: 10px 0px 0px 10px;
-    display: flex;
-    
+.left-side {
+  background-color: #95a299;
+  height: 600px;
+  width: 500px;
+  border-radius: 10px 0px 0px 10px;
+  display: flex;
 }
 
-.inner-left{
-    background-color: #666667;
-    height: 570px;
-    width: 470px;
-    margin: auto;
-    border-radius: 10px 0px 0px 10px;
+.inner-left {
+  background-color: #666667;
+  height: 570px;
+  width: 470px;
+  margin: auto;
+  border-radius: 10px 0px 0px 10px;
 
-    display: flex;
-
-    
-    
+  display: flex;
 }
 
-.super-inner-left{
-    background: linear-gradient(to top right, #461386, #B36DEA);
-    height: 555px;
-    width: 455px;
-    margin: auto;
-    border-radius: 10px 0px 0px 10px;
-    box-shadow: inset 1px 15px 3px 0px rgba(0, 0, 0, 0.5)
+.super-inner-left {
+  background: linear-gradient(to top right, #461386, #b36dea);
+  height: 555px;
+  width: 455px;
+  margin: auto;
+  border-radius: 10px 0px 0px 10px;
+  box-shadow: inset 1px 15px 3px 0px rgba(0, 0, 0, 0.5);
 }
 
-.search-container{
-    border: 2px solid red;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    align-items: center;
-    margin-top: 10px;
-    
+.search-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
 }
 
-.search-container input{
-    border-bottom: 3px solid white;
-    background: transparent;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    outline: none;
-    padding-left: 10px;
-    width: 200px;
+.search-container input {
+  border-bottom: 3px solid white;
+  background: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+  padding-left: 10px;
+  width: 200px;
 }
 
-.search-container img{
-    height: 17px;
-    position: absolute;
-    margin-right: 18%;
+.search-container img {
+  height: 17px;
+  position: absolute;
+  margin-right: 18%;
 }
 
-.search-container button{
-    background-color: #FFC658;
-    color: #DC6900;
-    font-size: 17px;
-    border-style: none;
-    height: 30px;
-    border-radius: 10px;
-    border-top: 2px solid #fff;
+.search-container button {
+  background-color: #ffc658;
+  color: #dc6900;
+  font-size: 17px;
+  border-style: none;
+  height: 30px;
+  border-radius: 10px;
+  border-top: 2px solid #fff;
 }
 
-.word-list{
-    border: 2px solid red;
-    margin-top: 10px;
-    height: 500px;
-    width: 100%;
+.word-list {
+  margin-top: 10px;
+  height: 500px;
+  width: 100%;
 }
 
-.hinge{
-    background-color: #666666;
-    width: 10px;
-    height: 500px;
-    
+.hinge {
+  background-color: #666666;
+  width: 10px;
+  height: 500px;
 }
 
-.right-side{
-    background-color: #95A299;
-    height: 600px;
-    width: 500px;
-    border-radius: 0px 10px 10px 0px;
-    display: flex;
+.right-side {
+  background-color: #95a299;
+  height: 600px;
+  width: 500px;
+  border-radius: 0px 10px 10px 0px;
+  display: flex;
 }
 
-.inner-right{
-    background-color: #666667;
-    height: 570px;
-    width: 470px;
-    margin: auto;
-    border-radius: 0px 10px 10px 0px;
+.inner-right {
+  background-color: #666667;
+  height: 570px;
+  width: 470px;
+  margin: auto;
+  border-radius: 0px 10px 10px 0px;
 
-    display: flex;
-    
-    
+  display: flex;
 }
 
-.super-inner-right{
-    background: linear-gradient(to top right, #461386, #B36DEA);
-    height: 555px;
-    width: 455px;
-    margin: auto;
-    border-radius: 0px 10px 10px 0px;
+.super-inner-right {
+  background: linear-gradient(to top right, #461386, #b36dea);
+  height: 555px;
+  width: 455px;
+  margin: auto;
+  border-radius: 0px 10px 10px 0px;
 
-    box-shadow: inset 1px 15px 3px 0px rgba(0, 0, 0, 0.5)
+  box-shadow: inset 1px 15px 3px 0px rgba(0, 0, 0, 0.5);
 }
 
-.the-default{
-    color: white;
-    font-size: 23px;
+.the-default {
+  color: white;
+  font-size: 23px;
 
-    border: 2px solid red;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-left: 5px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 20px;
 }
 
-.the-selected{
-    color: white;
-    font-size: 23px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    background-color: #FFC658;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-left: 5px;
-    border-radius: 5px 0px 0px 5px;
-    margin-right: 10px;
+.the-selected {
+  color: white;
+  font-size: 23px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background-color: #ffc658;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 20px;
+  border-radius: 5px 0px 0px 5px;
+  margin-right: 10px;
 
-    background: linear-gradient(to right, rgba(255, 198, 88), rgba(255, 198, 88, 0));
+  background: linear-gradient(
+    to right,
+    rgba(255, 198, 88),
+    rgba(255, 198, 88, 0)
+  );
 }
 
-
-.word-info-container{
-    border: 2px solid red;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+.word-info-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
-.word-selected{
-    border: 2px solid red;
-    font-size: 60px;
-    color: white;
-    text-align: center;
-    margin-top: 25px;
+.word-selected {
+  font-size: 60px;
+  color: white;
+  text-align: center;
+  margin-top: 25px;
 }
 
-.pronounciation{
-    border: 2px solid red;
-    font-size: 25px;
-    text-align: center;
-    color: white;
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+.pronounciation {
+  font-size: 25px;
+  text-align: center;
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-.pronounciation button{
-    background-color: rgba(255, 198, 88, 0);
-    border-style: none;
-    cursor: pointer;
+.pronounciation button {
+  background-color: rgba(255, 198, 88, 0);
+  border-style: none;
+  cursor: pointer;
 }
 
-.pronounciation img{
-    height: 30px;
+.pronounciation img {
+  height: 30px;
 }
 
-.description-box{
-    border: 2px solid red;
-    height: 100%;
-    width: 100%;
-    margin-top: 10%;
-    margin-bottom: 10%;
+.description-box {
+  height: 100%;
+  width: 100%;
+  margin-top: 10%;
+  margin-bottom: 10%;
 }
 
-.pos-box{
-    border: 2px solid blue;
-    margin-left: 5%;
-    color: white;
-    font-size: 25px;
-    margin-right: 5%;
+.pos-box {
+  margin-left: 5%;
+  color: white;
+  font-size: 25px;
+  margin-right: 5%;
 }
 
-.definition-box{
-    border: 2px solid blue;
-    border: 2px solid blue;
-    margin-left: 10%;
-    color: white;
-    font-size: 20px;
-    margin-right: 10%;
-    margin-top: 20px;
-    height: 80%;
+.definition-box {
+  margin-left: 10%;
+  color: white;
+  font-size: 20px;
+  margin-right: 10%;
+  margin-top: 20px;
+  height: 80%;
 }
-
-
-

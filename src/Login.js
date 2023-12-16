@@ -10,6 +10,7 @@ export default function Login() {
     username: "",
     password: "",
   });
+
   const handleLoginSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -27,10 +28,11 @@ export default function Login() {
             userDetail.user.password === credentials.password
         );
         if (matchingUser) {
-          const loggedInUserID = matchingUser.user.userID;
+          // Call the onLogin callback with the username and credit
+          handleLogin(matchingUser.user.username, matchingUser.credit);
 
-          // To avoid losing data in refreshing char
-          localStorage.setItem("userID", loggedInUserID);
+          // Save user info to localStorage
+          localStorage.setItem("userID", matchingUser.user.userID);
           localStorage.setItem("username", matchingUser.user.username);
 
           navigate("/home");
