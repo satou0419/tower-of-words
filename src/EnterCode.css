@@ -1,0 +1,128 @@
+.main-entercode {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+  
+.main-container-entercode{
+    width: 60%;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+    background-color: #FFC658;
+    border-radius: 22px 22px 22px 22px;
+}
+  
+.left-container-entercode {
+    height: 70%;
+    width: 45%;
+    left: 300px;
+    top: 70px;
+    padding: 10px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: absolute;
+}
+
+.title-entercode{
+    color: #fff;
+    font-size: 50px;
+}
+
+.enter-code{
+    width: 70%;
+    color: #461386;
+    font-size: large;
+}
+
+.join-code{
+    width: 70%;
+    height: 50px;
+    color: #F0F0F5;
+    border-radius: 15px;
+    background: #593796;
+    font-size: 20px;
+}
+
+.cancel-entercode{
+    border-radius: 20px;
+    border: 3px solid #DC6900;
+    width: 70%;
+    height: 50px;
+    background: #F0F0F5;
+    font-size: 20px;
+}
+
+.right-container-entercode {
+    height: 100%;
+    width: 45%; 
+    display: flex;
+    overflow: hidden;
+    justify-content: right;
+}
+
+.custom-img-1{
+    position: absolute;
+    margin-left: auto;
+    height: 80%;
+    bottom: 78px;
+    right: 280px;
+    z-index: 0;
+    mix-blend-mode: color-burn;
+}
+
+.custom-img-2{
+    position: absolute;
+    margin-left: auto;
+    height: 65%;
+    bottom: 78px;
+    right: 250px;
+    z-index: 1;
+    mix-blend-mode: multiply;
+}
+
+.custom-img-3{
+    position: absolute;
+    margin-left: auto;
+    height: 35%;
+    bottom: 78px;
+    right: 505px;
+    z-index: 0;
+    mix-blend-mode: color-burn;
+}
+
+.custom-img-4{
+    position: relative;
+    height: 120%;
+    bottom: -300px;
+    align-items: flex-end;
+    justify-content: flex-end;
+    right: 45px;
+    transform: rotate(-52.463deg);
+    mix-blend-mode: hard-light;
+}
+  
+.entercode-container {
+    box-shadow: inset 3px 3px 5px #000;
+    border-radius: 22px;
+    height: 500px;
+    width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    background: linear-gradient(to top right, #461386, #B36DEA);
+}
+  
+.entercode-container-title {
+    color: #fff;
+    font-weight: 100;
+}
+  
