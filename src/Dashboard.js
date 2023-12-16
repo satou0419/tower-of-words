@@ -2,14 +2,12 @@ import "./root.css";
 import { Link } from "react-router-dom";
 import "./Dashboard.css";
 import { Context } from "./App";
-import {PdfGenerator} from './PdfGenerator';
-import { useContext, useEffect } from 'react';
-
-
+import { useContext } from "react";
 export default function Dashboard() {
-  const [words, userInfo] = useContext(Context)
+  const [words, userInfo] = useContext(Context);
   document.body.style.backgroundColor = "#fdffdd";
 
+  const userArchiveWordCount = userInfo.user.userArchive.words.length;
   useEffect(() => {
     console.log(userInfo)
   }, []);
@@ -21,13 +19,21 @@ export default function Dashboard() {
       <div className="card-container">
         <div className="card">
           <Link to="/adventure">
-            <div className="portrait-container-1" onClick={() => {console.log(words)}}>
+            <div
+              className="portrait-container-1"
+              onClick={() => {
+                console.log(words);
+              }}
+            >
               <img src="./images/adventure_mode_portrait_v2.png" />
             </div>
             <h2>Adventure</h2>
             <div className="description">
-              bla bla bla bla sss ssss s sss sss ss ssssss ssssss ss sss sssss
-              ss ss
+              Step into the Tower of Words as the game designer, crafting
+              towers, handpicking words, inviting friends to face personalized
+              challenges, spelling your way to victory, and unleashing endless
+              entertainment in Custom Towers — create, challenge, and conquer
+              with your unique flair!
             </div>
             <div className="counter">
               <span className="counter-desc">Tower Completed</span>
@@ -43,8 +49,11 @@ export default function Dashboard() {
             </div>
             <h2>Custom Towers</h2>
             <div className="description">
-              bla bla bla bla sss ssss s sss sss ss ssssss ssssss ss sss sssss
-              ss ss
+              Dive into the Tower of Words, where you craft the linguistic show!
+              Design your towers, pick words, and invite friends for custom
+              wordplay. Unleash creativity, forge your wordy path, and let the
+              Tower of Words be your laughter-filled stage. Craft, challenge,
+              conquer – a customized wordplay extravaganza awaits!
             </div>
             <div className="counter">
               <span className="counter-desc">Towers Created</span>
@@ -58,7 +67,8 @@ export default function Dashboard() {
         <div className="span-holder">
           <span className="span-desc">Words Collected</span>
           <div className="span-var">
-            <span>{userInfo.user.userArchive.words.length}</span> out of <span>20</span> words
+            <span>{userArchiveWordCount}</span> out of{" "}
+            <span>{words.length}</span> words
           </div>
         </div>
 

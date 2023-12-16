@@ -1,0 +1,163 @@
+body {
+  overflow-y: auto;
+}
+.land-intro {
+  height: 180vh;
+  width: 100%;
+  background-image: url("/public/images/bg-landing.png");
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.land-intro img {
+  height: 30%;
+}
+
+.about-content {
+  height: 500px;
+  width: 500px;
+  background-color: #fdffdd;
+
+  padding: 16px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.land-about h1 {
+  color: #d26500;
+}
+
+.about-content p {
+  color: #444444;
+}
+
+.wrap-adventure,
+.wrap-custom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 2rem;
+  padding: 16px 32px;
+}
+
+.land-about h1,
+.wrap-adventure h1,
+.wrap-custom h1,
+.items-content h1 {
+  color: #ffaf40;
+  font-size: 50pt;
+}
+
+.wrap-adventure p,
+.wrap-custom p,
+.items-content p {
+  color: #fff;
+  font-size: 30pt;
+}
+.adventure-content,
+.custom-content {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+}
+
+.land-adventure,
+.land-custom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.land-adventure img {
+  width: 60%;
+  margin-right: -180px;
+}
+
+.land-custom img {
+  width: 20%;
+}
+
+.adventure-ui,
+.custom-ui {
+  width: 80%;
+  height: 350px;
+  background-color: #fdffdd;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.adventure-ui img,
+.custom-ui img {
+  height: 85%;
+  width: auto;
+}
+
+.items-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 2rem;
+}
+
+.land-items {
+  display: flex;
+
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  padding: 16px 32px;
+}
+
+.land-items img {
+  width: 45%;
+}
+
+.photo-holder {
+  height: 200px;
+  width: 200px;
+  border: 2px solid #593796;
+  background-color: #9a6dea;
+
+  rotate: 45deg;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-holder img {
+  border-radius: 50%;
+  height: 180px;
+  width: 180px;
+  rotate: -45deg;
+}
+
+.land-about {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+}
+.profile-info {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  gap: 10rem;
+
+  justify-content: center;
+  align-items: center;
+}

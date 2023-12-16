@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "./App";
+
 export default function Login() {
   const navigate = useNavigate();
   const [words, userInfo, handleLogin] = useContext(Context);
@@ -26,11 +27,12 @@ export default function Login() {
             userDetail.user.password === credentials.password
         );
         if (matchingUser) {
-          // Call the onLogin callback with the username and credit
-          handleLogin(matchingUser.user.username, matchingUser.credit);
-          // Save user info to localStorage
-          localStorage.setItem("userID", matchingUser.user.userID);
+          const loggedInUserID = matchingUser.user.userID;
+
+          // To avoid losing data in refreshing char
+          localStorage.setItem("userID", loggedInUserID);
           localStorage.setItem("username", matchingUser.user.username);
+
           navigate("/home");
         } else {
           // Display an error message or take appropriate action for failed login

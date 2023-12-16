@@ -1,39 +1,150 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import "./CustomTower.css";
 import "./root.css";
 import "@fontsource/lilita-one";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-function CustomTower() {
-  const words = [
-    "apple",
-    "banana",
-    "orange",
-    "grape",
-    "watermelon",
-    "carrot",
-    "broccoli",
-    "potato",
-    "tomato",
-    "cucumber",
-    "table",
-    "chair",
-    "lamp",
-    "book",
-    "clock",
-  ];
+function CustomTower(userIDRef) {
+    const [dataTower, setDataTower] = useState([]);
+    const [words, setWords] = useState([]);
+    const [towerName, setTowerName] = useState("");
+    const navigate = useNavigate();
+    const [added, setAdded] = useState([]);
+    const [existingGameCode, setExistingGameCode] = useState([]);
+    const [wordID, setWordID] = useState([]);
+    const [addedID, setAddedID] = useState([]);
+  
+    const [clickedWord, setClickedWord] = useState(null);
+    const [clickedAddedWord, setClickedAddedWord] = useState(null);
+    const [searchWords, setSearchWords] = useState("");
+    const [filteredWords, setFilteredWords] = useState([]);
 
-  const [added, setAdded] = useState([]);
+    const imagePath_1 = "enemy-crab-type.png"
 
-  const [clickedWord, setClickedWord] = useState(null);
-  const [clickedAddedWord, setClickedAddedWord] = useState(null);
-  const [searchWords, setSearchWords] = useState("");
-  const [filteredWords, setFilteredWords] = useState(words);
+    const imagePath_2 = "enemy-spring-type.png"
+    console.log(existingGameCode)
+    
+    function generateUniqueGameCode() {
+      const timestamp = new Date().getTime().toString(36);
+      const randomString = Math.random().toString(36).substr(2, 5);
+      const newGameCode = `${userIDRef.userIDRef}-${timestamp}${randomString}`.toUpperCase();
+      
+      if (existingGameCode.includes(newGameCode)) {
+        return generateUniqueGameCode(existingGameCode);
+      }
+
+      return newGameCode;
+    }
+
+  const handleInsert = () => {
+    if (towerName.trim() === "") {
+      alert("Tower name cannot be blank.");
+      return;
+    }
+
+    const customTowerData = {
+      towername: towerName,
+      creator: userIDRef.userIDRef,
+      gamecode: generateUniqueGameCode(),
+      participantslist: [],
+      enemylist: addedID.map((id, index) => {
+        const randomImagePath = Math.random() < 0.5 ? imagePath_1 : imagePath_2;
+        const enemyName = randomImagePath === imagePath_1 ? "crab" : "spring";
+    
+        return {
+          name: enemyName,
+          wid: id,
+          imagePath: randomImagePath,
+        };
+      }),
+    };
+
+    if (added.length !== 10) {
+      alert('There must be exactly 10 enemies.');
+      return;
+    }
+
+    console.log(customTowerData);
+
+    fetch('http://localhost:8080/CustomTower/insertCustomTower', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(customTowerData),
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(insertedData => {
+        console.log('Insert successful:', insertedData);
+        setDataTower([...dataTower, customTowerData]);
+
+        navigate(`/generate-code/${customTowerData.gamecode}`);
+      })
+      .catch(error => {
+        console.error('There was a problem with the insert operation:', error);
+      });
+  };
+
+  useEffect(() => {
+    fetch('http://localhost:8080/CustomTower/getAllCustomTower')
+    .then(response => {
+        if (!response.ok) {
+        throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data);
+        
+        setExistingGameCode(data.map((tower) => tower.gamecode));
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
+  },[]);
+
+  useEffect(() => {
+      fetch('http://localhost:8080/word/getAllWord')
+      .then(response => {
+          if (!response.ok) {
+          throw new Error('Network response was not ok');
+          }
+          return response.json();
+      })
+      .then(data => {
+          console.log(data);
+          
+          setWords(data.map((word) => word.word));
+          setFilteredWords(data.map((word) => word.word));
+          setWordID(data.map(word => word.wordID));
+      })
+      .catch(error => {
+          console.error('There was a problem with the fetch operation:', error);
+      });
+  },[]);
 
   const handleWordClick = (index) => {
     const newClickedWord = index === clickedWord ? null : index;
 
     setClickedWord(newClickedWord);
+  };
+
+  const handleAddButtonClick = () => {
+    if (clickedWord !== null) {
+      const selectedWord = words[clickedWord];
+      const selectedWordID = wordID[clickedWord];
+      if (added.length < 10) {
+        addWord(selectedWord, selectedWordID);
+      } else {
+        alert("You can only add up to 10 words to the enemy list.");
+      }
+      setClickedWord(null);
+    }
   };
 
   const handleAddedWordClick = (index) => {
@@ -46,13 +157,15 @@ function CustomTower() {
     const searchTerm = event.target.value;
     setSearchWords(searchTerm);
     setClickedWord(null);
+
     const filtered = words.filter((word) =>
       word.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredWords(filtered);
   };
 
-  const addWord = (newWord) => {
+
+  const addWord = (newWord, newWordID) => {
     if (!added.includes(newWord)) {
       const isConfirmed = window.confirm(
         `Are you sure you want to add "${newWord}"?`
@@ -60,40 +173,66 @@ function CustomTower() {
 
       if (isConfirmed) {
         const newArray = [...added, newWord];
+        const newAddedID = [...addedID, newWordID];
         setAdded(newArray);
+        setAddedID(newAddedID);
       } else {
         console.log(`Adding "${newWord}" was canceled by the user.`);
       }
     } else {
-      console.log(`"${newWord}" is already added.`);
+      alert(`"${newWord}" is already added.`);
     }
   };
 
   const removeWord = (index) => {
+    if (index === null || index === undefined) {
+      alert("No word clicked to remove.");
+      return;
+    }
+
     const wordToRemove = added[index];
     const isConfirmed = window.confirm(
       `Are you sure you want to remove "${wordToRemove}"?`
     );
+    
     if (isConfirmed) {
-      const newArray = [...added];
-      newArray.splice(index, 1);
-      setAdded(newArray);
+      setAdded((prevAdded) => {
+        const newArray = [...prevAdded];
+        newArray.splice(index, 1);
+        setClickedAddedWord(null);
+        console.log(added);
+        return newArray;
+      });
+      setAddedID((prevAddedID) => {
+        const newAddedID = [...prevAddedID];
+        newAddedID.splice(index, 1);
+        return newAddedID;
+      });
     } else {
       console.log(`Removing "${wordToRemove}" was canceled by the user.`);
     }
+  };
+
+  const goBack = () => {
+    navigate(-1);
   };
 
   return (
     <>
       <div className="main-customtower">
         <div className="customtower-top-container">
-          <button className="btn-back btn-back-customtower">BACK</button>
+          <button className="btn-back btn-back-customtower" onClick={goBack}>BACK</button>
           <input
             className="inputs inputs-towername"
             type="text"
             placeholder="Input Tower Name"
+            value={towerName}
+            onChange={(e) => setTowerName(e.target.value)}
           />
-          <button className="btn-next btn-next-customtower">CODE</button>
+          <button 
+          className="btn-next btn-next-customtower"
+          onClick={handleInsert}
+          >CODE</button>
         </div>
 
         <div className="container-of-main-container">
@@ -115,11 +254,7 @@ function CustomTower() {
                 />
                 <button
                   className="btn-next btn-next-customtower"
-                  onClick={() => {
-                    if (clickedWord !== null) {
-                      addWord(filteredWords[clickedWord]);
-                    }
-                  }}
+                  onClick={handleAddButtonClick}
                 >
                   ADD
                 </button>
