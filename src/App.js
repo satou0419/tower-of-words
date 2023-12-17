@@ -19,11 +19,7 @@ import Login from "./Login";
 import Shop from "./Shop";
 import MedkitInfo from "./MedkitInfo";
 import AdActivity from "./AdventureActivity";
-import EnterCode from "./EnterCode";
-import CustomTowerGame from "./CustomTowerGame";
-import ViewCustomWords from "./ViewCustomWords";
 import Landing from "./Landing";
-
 export const Context = createContext();
 function App() {
   const [words, setWords] = useState([]);
@@ -61,13 +57,9 @@ function App() {
           ],
         };
   });
-
-  const { userIDRef } = userInfo.userDetails;
-
   const handleLogin = (loggedInUsername, loggedInCredit) => {
     console.log("Username:", loggedInUsername);
     console.log("Credit:", loggedInCredit);
-
     const updatedUserInfo = {
       ...userInfo,
       user: {
@@ -76,9 +68,7 @@ function App() {
       },
       credit: loggedInCredit,
     };
-
     setUserInfo(updatedUserInfo);
-
     // Save user info to localStorage
     localStorage.setItem("userInfo", JSON.stringify(updatedUserInfo));
   };
@@ -113,19 +103,15 @@ function App() {
             },
             userItems: loggedInUser.userItems || [],
           };
-
           setUserInfo(updatedUserInfo);
-
           // Save user info to localStorage
           localStorage.setItem("userInfo", JSON.stringify(updatedUserInfo));
           console.log(userDetails);
         }
       })
-
       .catch((error) => {
         console.error("Error fetching user details:", error);
       });
-
     // Fetch words
     fetch("http://localhost:8080/word/getAllWord")
       .then((res) => {
@@ -142,33 +128,26 @@ function App() {
         console.error("There was a problem with the fetch operation:", error);
       });
   }, []);
-
   return (
     <Context.Provider value={[words, userInfo, handleLogin]}>
       <Router>
         <Routes>
           <Route path="/" element={<Loading />} />
-
           <Route path="/account" element={<CreateAccount />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route path="/landing" element={<Landing />} />
-
           <Route path="/" element={<Navigation />}>
             <Route path="/inventory" element={<Inventory />} />
-
             <Route path="/enter-custom-tower" element={<CustomTower />} />
             <Route path="/play-custom" element={<PlayCustom />} />
-
             <Route path="/generate-code" element={<GenerateCode />} />
             <Route path="/viewparticipants" element={<ViewParticipants />} />
             <Route path="/viewtower" element={<ViewCustomTower />} />
             <Route path="/view-words-added" element={<WordsAdded />} />
             <Route path="/adventure" element={<AdventureMode />} />
             <Route path="/adventure/:towid" element={<AdActivity />} />
-
             <Route path="/words" element={<WordsAdded />} />
             <Route path="/shop" element={<Shop />} />
-
             <Route path="/create-custom" element={<TowerName />} />
             <Route path="/added-custom-tower" element={<CustomTower />} />
             <Route path="/medkit" element={<MedkitInfo />} />
@@ -176,8 +155,13 @@ function App() {
             <Route path="/archive" element={<Archive />} />
             <Route path="/items" element={<Inventory />} />
             <Route path="/home" element={<Dashboard />} />
-
             <Route path="/shop" element={<Shop />} />
+
+            <Route path="/enter-custom-tower" element={<CustomTower />} />
+            <Route path="/play-custom" element={<PlayCustom />} />
+
+            <Route path="/generate-code/:gamecode" element={<GenerateCode />} />
+            <Route path="/viewtower" element={<ViewCustomTower />} />
           </Route>
         </Routes>
       </Router>
