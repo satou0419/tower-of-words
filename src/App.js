@@ -148,7 +148,7 @@ function App() {
             <Route path="/adventure/:towid" element={<AdActivity />} />
             <Route path="/words" element={<WordsAdded />} />
             <Route path="/shop" element={<Shop />} />
-            <Route path="/create-custom" element={<TowerName />} />
+            <Route path="/create-custom" element={<CustomTower />} />
             <Route path="/added-custom-tower" element={<CustomTower />} />
             <Route path="/medkit" element={<MedkitInfo />} />
             <Route path="/accinfo" element={<AccInfo />} />
