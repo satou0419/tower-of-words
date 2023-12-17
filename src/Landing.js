@@ -3,6 +3,8 @@ import "./Landing.css";
 
 export default function Landing() {
   document.body.style.backgroundColor = "#211E49";
+  document.body.style.overflowY = "auto";
+  document.body.style.overflowX = "hidden";
 
   return (
     <section>

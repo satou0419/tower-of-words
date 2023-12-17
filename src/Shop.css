@@ -134,6 +134,22 @@
   width: 20px;
   margin-left: 120px;
 }
+.tooltip {
+  position: absolute;
+  top: 85px;
+  width: 200px;
+  z-index: 999; /* Ensure the tooltip appears above other elements */
+  background-color: #ffc658;
+  border: solid 5px #dc6900;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  color: black;
+  font-weight: 100;
+}
+.tooltip p {
+  margin: 0;
+}
 @keyframes fadeIn {
   0%,
   100% {
