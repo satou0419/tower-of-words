@@ -12,6 +12,7 @@ export default function Dashboard() {
   return (
     <div className="mother-div">
       {/* {words[19].definition} */}
+      {/* <PdfGenerator data={userInfo}/> */}
       <div className="card-container">
         <div className="card">
           <Link to="/adventure">
@@ -33,7 +34,7 @@ export default function Dashboard() {
             </div>
             <div className="counter">
               <span className="counter-desc">Tower Completed</span>
-              <span className="the-counter">1</span>
+              <span className="the-counter">{userInfo.progress}</span>
             </div>
           </Link>
         </div>

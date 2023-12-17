@@ -19,10 +19,12 @@ import Login from "./Login";
 import Shop from "./Shop";
 import MedkitInfo from "./MedkitInfo";
 import AdActivity from "./AdventureActivity";
+import EnterCode from "./EnterCode";
+import CustomTowerGame from "./CustomTowerGame";
+import ViewCustomWords from "./ViewCustomWords";
 import Landing from "./Landing";
 
 export const Context = createContext();
-
 function App() {
   const [words, setWords] = useState([]);
   const [userInfo, setUserInfo] = useState(() => {
@@ -60,6 +62,8 @@ function App() {
         };
   });
 
+  const { userIDRef } = userInfo.userDetails;
+
   const handleLogin = (loggedInUsername, loggedInCredit) => {
     console.log("Username:", loggedInUsername);
     console.log("Credit:", loggedInCredit);
@@ -78,7 +82,6 @@ function App() {
     // Save user info to localStorage
     localStorage.setItem("userInfo", JSON.stringify(updatedUserInfo));
   };
-
   useEffect(() => {
     // Fetch user details
     fetch("http://localhost:8080/watataps/users/getAllUsersDetails/")
@@ -181,5 +184,4 @@ function App() {
     </Context.Provider>
   );
 }
-
 export default App;

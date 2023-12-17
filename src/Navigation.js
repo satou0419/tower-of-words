@@ -19,7 +19,6 @@ export default function Navigation() {
   const openLogoutModal = () => {
     setLogoutModalOpen(true);
   };
-
   const closeLogoutModal = () => {
     setLogoutModalOpen(false);
   };
@@ -79,7 +78,7 @@ export default function Navigation() {
   return (
     <div className="wrapper">
       <nav>
-        <img src="/images/logo.png" alt="tow-logo" className="nav-logo" />
+        <img src="./images/logo.png" alt="tow-logo" className="nav-logo" />
         <section className="user-details">
           <Link to="/accinfo">{username}</Link>
           <span className="currency">Currency: {credit}</span>
@@ -88,11 +87,9 @@ export default function Navigation() {
           <li className="push-right">
             <Link to="/home">HOME</Link>
           </li>
-
           <li>
             <Link to="/items">ITEMS</Link>
           </li>
-
           <li>
             <Link to="/archive">ARCHIVE</Link>
           </li>
@@ -102,11 +99,9 @@ export default function Navigation() {
           <li onClick={openLogoutModal}>LOGOUT</li>
         </section>
       </nav>
-
       <section className="content">
         <Outlet />
       </section>
-
       {isLogoutModalOpen && <Logout onClose={closeLogoutModal} />}
       {isExportDialogOpen && (
         <DialogBox
