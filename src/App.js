@@ -157,7 +157,7 @@ function App() {
             <Route path="/home" element={<Dashboard />} />
             <Route path="/shop" element={<Shop />} />
 
-            <Route path="/enter-custom-tower" element={<CustomTower />} />
+            <Route path="/enter-code" element={<CustomTower />} />
             <Route path="/play-custom" element={<PlayCustom />} />
 
             <Route path="/generate-code/:gamecode" element={<GenerateCode />} />
