@@ -13,25 +13,20 @@ export default function Login() {
 
   const handleLoginSubmit = async (event) => {
     event.preventDefault();
-
     try {
       const response = await fetch(
         "http://localhost:8080/watataps/users/getAllUsersDetails/"
       );
-
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-
       const usersDetails = await response.json();
-
       if (usersDetails.length > 0) {
         const matchingUser = usersDetails.find(
           (userDetail) =>
             userDetail.user.username === credentials.username &&
             userDetail.user.password === credentials.password
         );
-
         if (matchingUser) {
           // Call the onLogin callback with the username and credit
           handleLogin(matchingUser.user.username, matchingUser.credit);
@@ -52,16 +47,13 @@ export default function Login() {
       console.error("Error:", error);
     }
   };
-
   const handleChange = (event) => {
     setCredentials({
       ...credentials,
       [event.target.name]: event.target.value,
     });
   };
-
   document.body.style.backgroundColor = "#ffc658";
-
   return (
     <section className="signin-wrapper">
       <div className="signin-container">

@@ -14,6 +14,8 @@ function Shop() {
   const [showNotEnoughCreditDialog, setShowNotEnoughCreditDialog] =
     useState(false);
   const [userDetails, setUserDetails] = useState(null); // Add state for user details
+  const [hoveredItem, setHoveredItem] = useState(null);
+
   useEffect(() => {
     // Fetch user details when the component mounts
     const fetchUserDetails = async () => {
@@ -119,6 +121,12 @@ function Shop() {
   const handleCloseNotEnoughCreditDialog = () => {
     setShowNotEnoughCreditDialog(false);
   };
+  const handleInfoBtnHover = (item) => {
+    setHoveredItem(item);
+  };
+  const handleInfoBtnLeave = () => {
+    setHoveredItem(null);
+  };
   return (
     <>
       <div className="main-shop">
@@ -138,12 +146,21 @@ function Shop() {
                   {items.map((item) => (
                     <div className="shop-first-display" key={item.itemID}>
                       <div className="shop-display-box">
-                        <div className="info-btn-container">
+                        <div
+                          className="info-btn-container"
+                          onMouseEnter={() => handleInfoBtnHover(item)}
+                          onMouseLeave={handleInfoBtnLeave}
+                        >
                           <img
                             src="./images/info-btn.png"
                             className="info-btn-pic"
                             alt="info-btn"
                           ></img>
+                          {hoveredItem === item && (
+                            <div className="tooltip">
+                              <p>{item.itemDescription}</p>
+                            </div>
+                          )}
                         </div>
                         <div className="shop-pic-container">
                           <img

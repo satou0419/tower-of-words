@@ -4,10 +4,11 @@ import "./root.css";
 import { useEffect, useState, useContext, useRef } from "react";
 import { Context } from "./App";
 import axios from 'axios';
+import {TowerCompletePop, TowerFailedPop} from "./ActivityPops";
 
 
 export default function AdActivity() {
-  const [words] = useContext(Context)
+  const [words, userInfo, setUserInfo] = useContext(Context)
 
   const { towid } = useParams();
   const audioRef = useRef(null);
@@ -16,6 +17,9 @@ export default function AdActivity() {
   const [loading, setLoading] = useState(true)
   const [loading2, setLoading2] = useState(true)
   const [progress, setProgress] = useState(0)
+  const [points, setPoints] = useState(0)
+  const [isTowerCleared, setIsTowerCleared] = useState(false)
+  const [isHpGone, setIsHpGone] = useState(false)
   const [hp, setHp] = useState(6)
   const [input, setInput] = useState("")
 
@@ -44,7 +48,10 @@ export default function AdActivity() {
     console.log("checkSpell clicked")
     console.log(input);
     if(input === towerWords[progress].word){
-      setProgress(progress + 1);
+      if(progress < 9){
+        setProgress(progress + 1);
+      }
+      setPoints(points + 1);
       console.log("CORRECT");
       setInput("");
     }else{
@@ -58,22 +65,25 @@ export default function AdActivity() {
     setInput(event.target.value);
   };
 
+  const updateData = async () => {
+    const url = `http://localhost:8080/watataps/userDetails/update/${userInfo.user.userID}`; // Replace with your API endpoint
+    const dataToUpdate = {
+      credit: userInfo.credit,
+      progress: userInfo.progress
+    };
+  
+    try {
+      const response = await axios.put(url, dataToUpdate);
+  
+      // Handle the response as needed
+      console.log('PUT Request Successful', response.data);
+    } catch (error) {
+      // Handle errors
+      console.error('Error making PUT request', error);
+    }
+  };
+
   useEffect(() => {
-    // const fetchData = async () => {
-    //   try {
-    //     const response = await fetch('http://localhost:8080/tower/getTowerById?towerId=1');
-    //     const result = await response.json();
-    //     console.log(result);
-    //     setTower(result);
-    //     console.log(tower);
-    //   } catch (error) {
-    //     console.error('Error fetching data:', error);
-    //   } finally {
-    //     console.log(tower);
-    //     setLoading(false);
-    //   }
-    // };
-    // fetchData();
     axios.get(`http://localhost:8080/tower/getTowerById?towerId=${towid}`)
           .then(response => {
               console.log(response)
@@ -87,6 +97,46 @@ export default function AdActivity() {
           });
     
   }, []);
+
+  ///THIS IS TO CHECK IF TOWER IS CLEARED
+  useEffect(() => {
+    if(!loading){
+      if(points >= 10){
+        setIsTowerCleared(true)
+      }
+    }
+  }, [points]);
+
+  ///UPDATE USER PROGRESS AND CREDIT AFTER TOWER CLEAR
+  useEffect(() => {
+    var check = userInfo.progress + 1;
+    console.log("The check:" + check);
+    console.log("The towid:" + towid);
+    if(!loading){
+      if(check === parseInt(towid, 10)){
+        var tempData = {...userInfo};
+        tempData.progress = tempData.progress + 1;
+        tempData.credit = tempData.credit + 500;
+
+      setUserInfo({...tempData});
+      }
+    }
+  }, [isTowerCleared]);
+
+  useEffect(() => {
+    if(!loading){
+      updateData();
+    }
+  }, [userInfo]);
+
+  useEffect(() => {
+    if(!loading){
+      if(hp <= 0){
+        setIsHpGone(true)
+      }
+    }
+  }, [hp]);
+
 
   useEffect(() => {
     if(!loading){
@@ -195,8 +245,10 @@ export default function AdActivity() {
       </div>
     </div>
 
-
+      
     }
+    {isTowerCleared && <TowerCompletePop />}
+    {isHpGone && <TowerFailedPop />}
     </>
   );
 }

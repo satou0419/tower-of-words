@@ -23,7 +23,6 @@ import Landing from "./Landing";
 import CustomTowerGame from "./CustomTowerGame";
 
 export const Context = createContext();
-
 function App() {
   const [words, setWords] = useState([]);
   const [userInfo, setUserInfo] = useState(() => {
