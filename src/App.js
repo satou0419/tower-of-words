@@ -20,6 +20,8 @@ import Shop from "./Shop";
 import MedkitInfo from "./MedkitInfo";
 import AdActivity from "./AdventureActivity";
 import Landing from "./Landing";
+import CustomTowerGame from "./CustomTowerGame";
+
 export const Context = createContext();
 function App() {
   const [words, setWords] = useState([]);
@@ -103,6 +105,7 @@ function App() {
             },
             userItems: loggedInUser.userItems || [],
           };
+          console.log("Logged In ID " + loggedInUser.user.userID);
           setUserInfo(updatedUserInfo);
           // Save user info to localStorage
           localStorage.setItem("userInfo", JSON.stringify(updatedUserInfo));
@@ -140,7 +143,6 @@ function App() {
             <Route path="/inventory" element={<Inventory />} />
             <Route path="/enter-custom-tower" element={<CustomTower />} />
             <Route path="/play-custom" element={<PlayCustom />} />
-            <Route path="/generate-code" element={<GenerateCode />} />
             <Route path="/viewparticipants" element={<ViewParticipants />} />
             <Route path="/viewtower" element={<ViewCustomTower />} />
             <Route path="/view-words-added" element={<WordsAdded />} />
@@ -149,17 +151,14 @@ function App() {
             <Route path="/words" element={<WordsAdded />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/create-custom" element={<CustomTower />} />
-            <Route path="/added-custom-tower" element={<CustomTower />} />
             <Route path="/medkit" element={<MedkitInfo />} />
             <Route path="/accinfo" element={<AccInfo />} />
             <Route path="/archive" element={<Archive />} />
             <Route path="/items" element={<Inventory />} />
             <Route path="/home" element={<Dashboard />} />
             <Route path="/shop" element={<Shop />} />
-
             <Route path="/enter-code" element={<CustomTower />} />
-            <Route path="/play-custom" element={<PlayCustom />} />
-
+            <Route path="/custom-game" element={<CustomTowerGame />} />
             <Route path="/generate-code/:gamecode" element={<GenerateCode />} />
             <Route path="/viewtower" element={<ViewCustomTower />} />
           </Route>

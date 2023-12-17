@@ -11,7 +11,7 @@ import "jspdf-autotable";
 
 export default function Navigation() {
   const [words, userInfo, handleLogin] = useContext(Context);
-  const { username, lastname, firstname, userArchive } = userInfo.user;
+  const { username, lastname, firstname, userArchive, userID } = userInfo.user;
   const { credit, progress } = userInfo;
   const [isLogoutModalOpen, setLogoutModalOpen] = useState(false);
   const [isExportDialogOpen, setExportDialogOpen] = useState(false);
