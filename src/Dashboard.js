@@ -69,9 +69,9 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <button className="btn-go">
-          <Link to="/archive">GO TO ARCHIVE</Link>
-        </button>
+        <Link to="/archive">
+          <button className="btn-go">GO TO ARCHIVE</button>
+        </Link>
       </div>
     </div>
   );

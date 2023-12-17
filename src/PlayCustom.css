@@ -1,11 +1,11 @@
-.main-custom{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.main-custom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.custom-top-container{
+.custom-top-container {
   width: 90%;
 
   margin-bottom: 20px;
@@ -28,7 +28,7 @@
   flex-direction: row;
 }
 
-.heading{
+.heading {
   font-size: 50px;
 }
 
@@ -53,6 +53,11 @@
   height: 50px;
   border-style: none;
   border-radius: 10px;
+}
+
+.left-custom a {
+  width: 75%;
+  height: 50px;
 }
 .right-custom {
   height: 100%;
