@@ -2,9 +2,10 @@ import { useNavigate } from 'react-router-dom';
 import "./CustomTower.css";
 import "./root.css";
 import "@fontsource/lilita-one";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { Context } from "./App";
 
-function CustomTower(userIDRef) {
+function CustomTower() {
     const [dataTower, setDataTower] = useState([]);
     const [words, setWords] = useState([]);
     const [towerName, setTowerName] = useState("");
@@ -13,11 +14,14 @@ function CustomTower(userIDRef) {
     const [existingGameCode, setExistingGameCode] = useState([]);
     const [wordID, setWordID] = useState([]);
     const [addedID, setAddedID] = useState([]);
-  
+    const [word, userInfo, handleLogin] = useContext(Context);
+    const { userIDRef } = userInfo;
     const [clickedWord, setClickedWord] = useState(null);
     const [clickedAddedWord, setClickedAddedWord] = useState(null);
     const [searchWords, setSearchWords] = useState("");
     const [filteredWords, setFilteredWords] = useState([]);
+
+    console.log(userInfo);
 
     const imagePath_1 = "enemy-crab-type.png"
 
@@ -27,7 +31,7 @@ function CustomTower(userIDRef) {
     function generateUniqueGameCode() {
       const timestamp = new Date().getTime().toString(36);
       const randomString = Math.random().toString(36).substr(2, 5);
-      const newGameCode = `${userIDRef.userIDRef}-${timestamp}${randomString}`.toUpperCase();
+      const newGameCode = `${userInfo.userIDRef}-${timestamp}${randomString}`.toUpperCase();
       
       if (existingGameCode.includes(newGameCode)) {
         return generateUniqueGameCode(existingGameCode);
@@ -44,7 +48,7 @@ function CustomTower(userIDRef) {
 
     const customTowerData = {
       towername: towerName,
-      creator: userIDRef.userIDRef,
+      creator: userInfo.userIDRef,
       gamecode: generateUniqueGameCode(),
       participantslist: [],
       enemylist: addedID.map((id, index) => {
@@ -136,7 +140,7 @@ function CustomTower(userIDRef) {
 
   const handleAddButtonClick = () => {
     if (clickedWord !== null) {
-      const selectedWord = words[clickedWord];
+      const selectedWord = filteredWords[clickedWord];
       const selectedWordID = wordID[clickedWord];
       if (added.length < 10) {
         addWord(selectedWord, selectedWordID);
@@ -149,7 +153,7 @@ function CustomTower(userIDRef) {
 
   const handleAddedWordClick = (index) => {
     const newClickedAddedWord = index === clickedAddedWord ? null : index;
-
+    
     setClickedAddedWord(newClickedAddedWord);
   };
 
@@ -170,6 +174,9 @@ function CustomTower(userIDRef) {
       const isConfirmed = window.confirm(
         `Are you sure you want to add "${newWord}"?`
       );
+      
+      console.log(newWord)
+      console.log(newWordID)
 
       if (isConfirmed) {
         const newArray = [...added, newWord];
