@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import "./CustomTowerGame.css";
 import "./root.css";
 import { useEffect, useState, useContext, useRef } from "react";
@@ -7,7 +7,7 @@ import {TowerCompletePop, TowerFailedPop} from "./ActivityPops";
 
 export default function CustomTowerGame() {
   const [words, userInfo, setUserInfo] = useContext(Context)
-
+  const navigate = useNavigate();
   const audioRef = useRef(null);
   const [towerWords, setTowerWords] = useState([{}])
   const [loading, setLoading] = useState(true)
@@ -111,6 +111,10 @@ export default function CustomTowerGame() {
     }
   }, [hp]);
 
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
     <>
 
@@ -123,8 +127,8 @@ export default function CustomTowerGame() {
       {tower.enemyList[4].enemyName} */}
       
       <div className="mini-bar-container">
-        <button className="exit-button">
-          <Link to="/adventure">Exit</Link>
+        <button className="exit-button" onClick={goBack}>
+          Exit
         </button>
 
         <div className="progress-bar">Progress: floor {progress + 1} / 10</div>
