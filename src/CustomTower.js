@@ -15,7 +15,6 @@ function CustomTower() {
     const [wordID, setWordID] = useState([]);
     const [addedID, setAddedID] = useState([]);
     const [word, userInfo, handleLogin] = useContext(Context);
-    const { userIDRef } = userInfo;
     const [clickedWord, setClickedWord] = useState(null);
     const [clickedAddedWord, setClickedAddedWord] = useState(null);
     const [searchWords, setSearchWords] = useState("");
@@ -133,15 +132,15 @@ function CustomTower() {
   },[]);
 
   const handleWordClick = (index) => {
-    const newClickedWord = index === clickedWord ? null : index;
+    const clickedWordIndex = filteredWords.indexOf(filteredWords[index]);
 
-    setClickedWord(newClickedWord);
+    setClickedWord(clickedWordIndex);
   };
 
   const handleAddButtonClick = () => {
     if (clickedWord !== null) {
       const selectedWord = filteredWords[clickedWord];
-      const selectedWordID = wordID[clickedWord];
+      const selectedWordID = words.indexOf(filteredWords[clickedWord]) + 1;
       if (added.length < 10) {
         addWord(selectedWord, selectedWordID);
       } else {

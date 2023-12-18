@@ -4,11 +4,8 @@ import Navigation from "./Navigation";
 import Archive from "./Archive";
 import Inventory from "./Inventory";
 import Dashboard from "./Dashboard";
-import TowerName from "./TowerName";
 import CustomTower from "./CustomTower";
-import WordsAdded from "./WordsAdded";
 import ViewCustomTower from "./ViewCustomTower";
-import ViewParticipants from "./ViewParticipants";
 import GenerateCode from "./GenerateCode";
 import AdventureMode from "./AdventureMode";
 import AccInfo from "./AccInfo";
@@ -21,6 +18,8 @@ import MedkitInfo from "./MedkitInfo";
 import AdActivity from "./AdventureActivity";
 import Landing from "./Landing";
 import CustomTowerGame from "./CustomTowerGame";
+import ViewCustomWords from "./ViewCustomWords";
+import EnterCode from "./EnterCode";
 
 export const Context = createContext();
 function App() {
@@ -143,12 +142,10 @@ function App() {
             <Route path="/inventory" element={<Inventory />} />
             <Route path="/enter-custom-tower" element={<CustomTower />} />
             <Route path="/play-custom" element={<PlayCustom />} />
-            <Route path="/viewparticipants" element={<ViewParticipants />} />
             <Route path="/viewtower" element={<ViewCustomTower />} />
-            <Route path="/view-words-added" element={<WordsAdded />} />
+            <Route path="/view-words-added" element={<ViewCustomWords />} />
             <Route path="/adventure" element={<AdventureMode />} />
             <Route path="/adventure/:towid" element={<AdActivity />} />
-            <Route path="/words" element={<WordsAdded />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/create-custom" element={<CustomTower />} />
             <Route path="/medkit" element={<MedkitInfo />} />
@@ -157,8 +154,8 @@ function App() {
             <Route path="/items" element={<Inventory />} />
             <Route path="/home" element={<Dashboard />} />
             <Route path="/shop" element={<Shop />} />
-            <Route path="/enter-code" element={<CustomTower />} />
-            <Route path="/custom-game" element={<CustomTowerGame />} />
+            <Route path="/enter-code" element={<EnterCode />} />
+            <Route path="/custom-game/:gamecode" element={<CustomTowerGame />} />
             <Route path="/generate-code/:gamecode" element={<GenerateCode />} />
             <Route path="/viewtower" element={<ViewCustomTower />} />
           </Route>

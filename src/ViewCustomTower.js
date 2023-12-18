@@ -2,12 +2,13 @@ import { Link, useNavigate } from "react-router-dom";
 import "./ViewCustomTower.css";
 import "./root.css";
 import "@fontsource/lilita-one";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { Context } from "./App";
 
-function ViewCustomTower(userIDRef) {
-    console.log(userIDRef);
+function ViewCustomTower() {
+    const [word, userInfo, handleLogin] = useContext(Context);
     const [data, setData] = useState([]);
-
+    const [gameCode, setGameCode] = useState();
     const [clickedTower, setClickedTower] = useState(null);
     const [searchCustomTower, setSearchCustomTower] = useState('');
     const [searchParticipant, setSearchParticipant] = useState('');
@@ -31,7 +32,7 @@ function ViewCustomTower(userIDRef) {
             setData(data);
 
             console.log(data);
-            const userTowers = data.filter(tower => tower.creator === userIDRef.userIDRef && tower.isDeleted === 0);
+            const userTowers = data.filter(tower => tower.creator === userInfo.userIDRef && tower.isDeleted === 0);
             const towerNames = userTowers.map(tower => tower);
             setCustomTower(towerNames);
             setFilteredCustomTower(towerNames);
@@ -57,6 +58,8 @@ function ViewCustomTower(userIDRef) {
         if (newClickedTower !== null) {
             const participants = data[newClickedTower].participantslist.map(participant => participant.username);
             setFilteredParticipants(participants);
+
+            setGameCode(data[newClickedTower].gamecode);
         }
     };    
 
@@ -108,7 +111,7 @@ function ViewCustomTower(userIDRef) {
 
             setData(updatedData);
 
-            const userTowers = updatedData.filter(tower => tower.creator === userIDRef && tower.isDeleted === 0);
+            const userTowers = updatedData.filter(tower => tower.creator === userInfo.userIDRef && tower.isDeleted === 0);
             setCustomTower(userTowers);
             setFilteredCustomTower(userTowers);
         })
@@ -198,7 +201,7 @@ function ViewCustomTower(userIDRef) {
                                     </div>
                                     
                                     <div className="code-viewparticipants">
-                                        CODE: TEST
+                                        CODE: {gameCode}
                                     </div>
                                 </div>
                             ) : (

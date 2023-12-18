@@ -6,9 +6,10 @@ import { useState, useEffect, useContext } from "react";
 import { Context } from "./App";
 
 function EnterCode() {
+  const [customTower, setCustomTower] = useState(null);
   const [gameCode, setGameCode] = useState("");
   const navigate = useNavigate();
-  const [loggedInUser, setLoggedInUser] = useState(null);
+  const [word, userInfo, handleLogin] = useContext(Context);
 
   const handleCodeChange = (event) => {
     setGameCode(event.target.value);
@@ -20,33 +21,46 @@ function EnterCode() {
       return;
     }
 
-    console.log("Game Code:", gameCode);
     
-    if (loggedInUser) {
-      fetch(`http://localhost:8080/CustomTower/addParticipant/${gameCode}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(loggedInUser),
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          return response.json();
-        })
-        .then((data) => {
-          console.log("Participant added successfully:", data);
-          // Navigate to the custom game page
-          navigate(`/custom-game/${gameCode}`);
-        })
-        .catch((error) => {
-          console.error("There was a problem adding the participant:", error);
+
+    console.log("Game Code:", gameCode);
+
+    fetch(`http://localhost:8080/CustomTower/getByGameCode/${gameCode}`)
+    .then(response => {
+        if (!response.ok) {
+        throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+      setCustomTower(data);
+      console.log(customTower);
+
+      // if (data.creator === userInfo.userIDRef) {
+      //   alert("Cannot enter your own game.");
+      //   return;
+      // }
+
+      return fetch(`http://localhost:8080/CustomTower/${data.ctid}/User/${userInfo.userIDRef}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
         });
-    } else {
-      console.error("User not logged in");
-    }
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Participant added successfully:", data);
+        navigate(`/custom-game/${gameCode}`);
+      })
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+      });
   };
 
   const goBack = () => {
