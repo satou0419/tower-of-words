@@ -1,9 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./ViewCustomTower.css";
 import "./root.css";
 import "@fontsource/lilita-one";
 import React, { useEffect, useState, useContext } from "react";
 import { Context } from "./App";
+import DialogBox from './DialogBox';
 
 function ViewCustomTower() {
     const [word, userInfo, handleLogin] = useContext(Context);
@@ -17,8 +18,11 @@ function ViewCustomTower() {
     const [filteredCustomTower, setFilteredCustomTower] = useState([]);
     const [filteredParticipants, setFilteredParticipants] = useState([]);
     const [isRightContainerVisible, setIsRightContainerVisible] = useState(false);
-    const [selectedWords, setSelectedWords] = useState([]);
     const navigate = useNavigate();
+    const [isCustomDialogOpen, setIsCustomDialogOpen] = useState(false);
+    const [customDialogProps, setCustomDialogProps] = useState({});
+    const [isDialogOpen, setIsDialogOpen] = useState(false);
+    const [dialogProps, setDialogProps] = useState({});
 
     useEffect(() => {
         fetch('http://localhost:8080/CustomTower/getAllCustomTower')
@@ -56,10 +60,10 @@ function ViewCustomTower() {
         setIsRightContainerVisible(newClickedTower !== null);
 
         if (newClickedTower !== null) {
-            const participants = data[newClickedTower].participantslist.map(participant => participant.username);
+            const participants = filteredCustomTower[newClickedTower].participantslist.map(participant => participant.username);
             setFilteredParticipants(participants);
 
-            setGameCode(data[newClickedTower].gamecode);
+            setGameCode(filteredCustomTower[newClickedTower].gamecode);
         }
     };    
 
@@ -89,47 +93,93 @@ function ViewCustomTower() {
     };
 
     const handleDeleteTower = (towerIndex) => {
-        const updatedData = [...data];
+        showCustomDialog(
+            "Confirmation",
+            `Are you sure you want to delete "${customTower[towerIndex].towername}"?`,
+            () => {
+                const updatedData = [...data];
 
-        console.log(towerIndex)
+                console.log(towerIndex)
 
-        fetch(`http://localhost:8080/CustomTower/deleteCustomTower/${updatedData[towerIndex].ctid}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
+                fetch(`http://localhost:8080/CustomTower/deleteCustomTower/${updatedData[towerIndex].ctid}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(() => {
+                    setClickedTower(null);
+                    setIsRightContainerVisible(false);
+
+                    updatedData.splice(towerIndex, 1);
+                    setData(updatedData);
+
+                    const userTowers = updatedData.filter(tower => tower.creator === userInfo.userIDRef && tower.isDeleted === 0);
+                    setCustomTower(userTowers);
+                    setFilteredCustomTower(userTowers);
+                })
+                .catch(error => {
+                    console.error('There was a problem with the update operation:', error);
+                });
             },
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
+            () => {
+            console.log(`Adding "${customTower[towerIndex].towername}" was canceled by the user.`);
             }
-            return response.json();
-        })
-        .then(() => {
-            setClickedTower(null);
-            setIsRightContainerVisible(false);
-
-            setData(updatedData);
-
-            const userTowers = updatedData.filter(tower => tower.creator === userInfo.userIDRef && tower.isDeleted === 0);
-            setCustomTower(userTowers);
-            setFilteredCustomTower(userTowers);
-        })
-        .catch(error => {
-            console.error('There was a problem with the update operation:', error);
-        });
+        );
     };
 
     const handleWordsButtonClick = () => {
         if (clickedTower === null) {
-            alert('Please select a custom tower.');
+            showDialog("Error", 'Please select a custom tower.');
         } else {
-            const words = data[clickedTower].enemylist.map(word => word.wid);
-            setSelectedWords(words);
+            const words = filteredCustomTower[clickedTower].enemylist.map(word => word.wid);
             console.log(words);
             navigate('/view-words-added', { state: { selectedWords: words } });
         }
     };
+
+    const showDialog = (title, message) => {
+        const buttons = [
+          { label: "OK", className: "btn-next", onClick: onClose }
+        ];
+      
+        const dialogProps = {
+          title: title,
+          message: message,
+          buttons: buttons,
+          imageSrc: "./images/sad robot.png"
+        };
+     
+        setDialogProps(dialogProps);
+        setIsDialogOpen(true);
+      };
+    
+      const onClose = () => {
+        setIsDialogOpen(false);
+      };
+    
+      const showCustomDialog = (title, message, onConfirm, onCancel) => {
+        const buttons = [
+          { label: "Cancel", className: "btn-back", onClick: () => { onCancel(); setIsCustomDialogOpen(false); } },
+          { label: "Confirm", className: "btn-next", onClick: () => { onConfirm(); setIsCustomDialogOpen(false); } }
+        ];
+      
+        const dialogProps = {
+          title: title,
+          message: message,
+          buttons: buttons,
+          imageSrc: "./images/sad robot.png"
+        };
+      
+        setCustomDialogProps(dialogProps);
+        setIsCustomDialogOpen(true);
+      };
 
     const goBack = () => {
         navigate(-1);
@@ -144,7 +194,7 @@ function ViewCustomTower() {
                 </div>
                 <div className="main-container-overall">
                     <div className="main-container-left">
-                        <div className="main-border-view">
+                        <div className="main-border-viewcustomtower">
                             <div className="main-top-viewcustomtower">
                                 <img src="./images/search.png" height={30} alt="search"  className="search-icon"/>
                                 <input 
@@ -173,7 +223,7 @@ function ViewCustomTower() {
                     </div>
 
                     <div className="main-container-right">
-                        <div className="main-border-view">
+                        <div className="main-border-viewcustomtower">
                             {isRightContainerVisible ? (
                                 <div className="main-container-right-inner">
                                     <div className="main-top-viewparticipants">
@@ -213,6 +263,8 @@ function ViewCustomTower() {
                     </div>
                 </div>
             </div>
+            {isDialogOpen && <DialogBox {...dialogProps} onClose={onClose} />}
+        {isCustomDialogOpen && <DialogBox {...customDialogProps} onClose={() => setIsCustomDialogOpen(false)} />}
     </>
 }
 

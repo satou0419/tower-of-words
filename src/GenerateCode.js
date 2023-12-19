@@ -31,19 +31,22 @@ function GenerateCode() {
 
   
 
-useEffect(() => {
+  useEffect(() => {
+    if (existingGameCode.length > 0 && !existingGameCode.includes(gamecode)) {
+      navigate("/home");
+    }
+  }, [existingGameCode, gamecode, navigate]);
 
-  if (existingGameCode.length > 0 && !existingGameCode.includes(gamecode)) {
-    navigate("/home");
-  }
-}, [existingGameCode, gamecode, navigate]);
+  const goBack = () => {
+    navigate(-1);
+  };
 
   return (
     <>
       <div className="main-generatecode">
         <div className="generatecode-top-container">
-          <button className="btn-back btn-back-generatecode">
-            <Link to="/view-words-added">BACK</Link>
+          <button className="btn-back btn-back-generatecode" onClick={goBack}>
+            BACK
           </button>
           <button className="btn-next btn-next-generatecode">FINISH</button>
         </div>

@@ -10,7 +10,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .main-container-overall{
@@ -23,16 +22,21 @@
 }
 
 .main-container-left{
+    height: 80%;
+    width: 40%;
     border-radius: 22px 0px 0px 22px;
     background: #95A299;
     padding: 10px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.main-border-view{
+.main-border-viewcustomtower{
     box-shadow: inset 3px 3px 5px #000;
     border-radius: 22px;
-    height: 500px;
-    width: 600px;
+    height: 95%;
+    width: 95%;
     border: 10px solid #666666;
     display: flex;
     align-items: center;
@@ -95,9 +99,14 @@
 }
 
 .main-container-right{
+    height: 80%;
+    width: 40%;
     border-radius: 0px 22px 22px 0px;
     background: #95A299;
     padding: 10px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .main-container-right-inner{

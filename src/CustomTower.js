@@ -4,6 +4,7 @@ import "./root.css";
 import "@fontsource/lilita-one";
 import React, { useEffect, useState, useContext } from "react";
 import { Context } from "./App";
+import DialogBox from './DialogBox';
 
 function CustomTower() {
     const [dataTower, setDataTower] = useState([]);
@@ -19,12 +20,16 @@ function CustomTower() {
     const [clickedAddedWord, setClickedAddedWord] = useState(null);
     const [searchWords, setSearchWords] = useState("");
     const [filteredWords, setFilteredWords] = useState([]);
+    const [isCustomDialogOpen, setIsCustomDialogOpen] = useState(false);
+    const [customDialogProps, setCustomDialogProps] = useState({});
+    const [isDialogOpen, setIsDialogOpen] = useState(false);
+    const [dialogProps, setDialogProps] = useState({});
 
     console.log(userInfo);
 
     const imagePath_1 = "enemy-crab-type.png"
-
     const imagePath_2 = "enemy-spring-type.png"
+
     console.log(existingGameCode)
     
     function generateUniqueGameCode() {
@@ -41,7 +46,7 @@ function CustomTower() {
 
   const handleInsert = () => {
     if (towerName.trim() === "") {
-      alert("Tower name cannot be blank.");
+      showDialog("Error", "Tower name cannot be blank.");
       return;
     }
 
@@ -63,7 +68,7 @@ function CustomTower() {
     };
 
     if (added.length !== 10) {
-      alert('There must be exactly 10 enemies.');
+      showDialog("Error", "There must be exactly 10 enemies.");
       return;
     }
 
@@ -138,13 +143,17 @@ function CustomTower() {
   };
 
   const handleAddButtonClick = () => {
+    if(clickedWord === null){
+      showDialog("Error", "Please select a word .");
+    }
+    
     if (clickedWord !== null) {
       const selectedWord = filteredWords[clickedWord];
       const selectedWordID = words.indexOf(filteredWords[clickedWord]) + 1;
       if (added.length < 10) {
         addWord(selectedWord, selectedWordID);
       } else {
-        alert("You can only add up to 10 words to the enemy list.");
+        showDialog("Error", "You can only add up to 10 words to the enemy list.");
       }
       setClickedWord(null);
     }
@@ -170,21 +179,24 @@ function CustomTower() {
 
   const addWord = (newWord, newWordID) => {
     if (!added.includes(newWord)) {
-      const isConfirmed = window.confirm(
-        `Are you sure you want to add "${newWord}"?`
-      );
-      
       console.log(newWord)
       console.log(newWordID)
 
-      if (isConfirmed) {
-        const newArray = [...added, newWord];
-        const newAddedID = [...addedID, newWordID];
-        setAdded(newArray);
-        setAddedID(newAddedID);
-      } else {
-        console.log(`Adding "${newWord}" was canceled by the user.`);
-      }
+      showCustomDialog(
+        "Confirmation",
+        `Are you sure you want to add "${newWord}"?`,
+        () => {
+          const newArray = [...added, newWord];
+          const newAddedID = [...addedID, newWordID];
+          setAdded(newArray);
+          setAddedID(newAddedID);
+          setClickedWord(null);
+        },
+        () => {
+          console.log(`Adding "${newWord}" was canceled by the user.`);
+        }
+      );
+    
     } else {
       alert(`"${newWord}" is already added.`);
     }
@@ -192,35 +204,74 @@ function CustomTower() {
 
   const removeWord = (index) => {
     if (index === null || index === undefined) {
-      alert("No word clicked to remove.");
+      showDialog("Error", "Please select a word .");
       return;
     }
 
     const wordToRemove = added[index];
-    const isConfirmed = window.confirm(
-      `Are you sure you want to remove "${wordToRemove}"?`
-    );
     
-    if (isConfirmed) {
-      setAdded((prevAdded) => {
-        const newArray = [...prevAdded];
-        newArray.splice(index, 1);
-        setClickedAddedWord(null);
-        console.log(added);
-        return newArray;
-      });
-      setAddedID((prevAddedID) => {
-        const newAddedID = [...prevAddedID];
-        newAddedID.splice(index, 1);
-        return newAddedID;
-      });
-    } else {
-      console.log(`Removing "${wordToRemove}" was canceled by the user.`);
-    }
+    showCustomDialog(
+      "Confirmation",
+      `Are you sure you want to add "${wordToRemove}"?`,
+      () => {
+        setAdded((prevAdded) => {
+          const newArray = [...prevAdded];
+          newArray.splice(index, 1);
+          setClickedAddedWord(null);
+          console.log(added);
+          return newArray;
+        })
+        setAddedID((prevAddedID) => {
+          const newAddedID = [...prevAddedID];
+          newAddedID.splice(index, 1);
+          return newAddedID;
+        });
+      },
+      () => {
+        console.log(`Adding "${wordToRemove}" was canceled by the user.`);
+      }
+    );
   };
 
   const goBack = () => {
     navigate(-1);
+  };
+
+  const showDialog = (title, message) => {
+    const buttons = [
+      { label: "OK", className: "btn-next", onClick: onClose }
+    ];
+  
+    const dialogProps = {
+      title: title,
+      message: message,
+      buttons: buttons,
+      imageSrc: "./images/sad robot.png"
+    };
+ 
+    setDialogProps(dialogProps);
+    setIsDialogOpen(true);
+  };
+
+  const onClose = () => {
+    setIsDialogOpen(false);
+  };
+
+  const showCustomDialog = (title, message, onConfirm, onCancel) => {
+    const buttons = [
+      { label: "Cancel", className: "btn-back", onClick: () => { onCancel(); setIsCustomDialogOpen(false); } },
+      { label: "Confirm", className: "btn-next", onClick: () => { onConfirm(); setIsCustomDialogOpen(false); } }
+    ];
+  
+    const dialogProps = {
+      title: title,
+      message: message,
+      buttons: buttons,
+      imageSrc: "./images/sad robot.png"
+    };
+  
+    setCustomDialogProps(dialogProps);
+    setIsCustomDialogOpen(true);
   };
 
   return (
@@ -289,9 +340,7 @@ function CustomTower() {
                 <button
                   className="btn-back btn-remove-wordsadded"
                   onClick={() => {
-                    if (clickedAddedWord !== null) {
-                      removeWord(clickedAddedWord);
-                    }
+                    removeWord(clickedAddedWord);
                   }}
                 >
                   REMOVE
@@ -314,6 +363,8 @@ function CustomTower() {
           </div>
         </div>
       </div>
+      {isDialogOpen && <DialogBox {...dialogProps} onClose={onClose} />}
+      {isCustomDialogOpen && <DialogBox {...customDialogProps} onClose={() => setIsCustomDialogOpen(false)} />}
     </>
   );
 }

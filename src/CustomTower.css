@@ -22,20 +22,25 @@
 }
 
 .main-container-customtower{
+    height: 80%;
+    width: 40%;
     border-radius: 22px 0px 0px 22px;
     background: #95A299;
     padding: 10px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .main-border-create{
     box-shadow: inset 3px 3px 5px #000;
     border-radius: 22px;
-    height: 500px;
-    width: 600px;
+    height: 95%;
+    width: 95%;
     border: 10px solid #666666;
     display: flex;
     align-items: center;
-    flex-direction: column;
+    justify-content: center;
     position: relative;
     background: linear-gradient(to top right, #461386, #B36DEA);
 }
@@ -87,9 +92,14 @@
 }
 
 .main-container-wordsadded{
+    height: 80%;
+    width: 40%;
     border-radius: 0px 22px 22px 0px;
     background: #95A299;
     padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .main-top-wordsadded{
@@ -120,7 +130,7 @@
 
 .word-container-wordsadded{
   height: 30px;
-  width: 80%;
+  width: 90%;
   border-radius: 9px;
   border: 5px solid #593796;
   background: #9A6DEA;
@@ -145,7 +155,7 @@
 }
 
 .divider-customtower{
-  width: 10px;
+  width: 2%;
   height: 60%;
   background-color: #666666;
 }

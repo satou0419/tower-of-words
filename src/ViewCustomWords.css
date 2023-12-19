@@ -15,16 +15,21 @@
 }
 
 .main-container-viewcustomwords{
+    height: 80%;
+    width: 60%;
     border-radius: 22px 22px 22px 22px;
     background: #95A299;
     padding: 10px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .main-border-view{
     box-shadow: inset 3px 3px 5px #000;
     border-radius: 22px;
-    height: 500px;
-    width: 600px;
+    height: 95%;
+    width: 95%;
     border: 10px solid #666666;
     display: flex;
     align-items: center;
